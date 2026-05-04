@@ -363,7 +363,7 @@ mode_working_tree() {
          ## No tag at HEAD. This is the ONLY case --allow-untagged
          ## covers.
          if [ "${dist_build_ignore_untagged}" = "true" ]; then
-            printf '%s\n' "${cyan}INFO: Untagged commit in ${context}, --allow-untagged set, continuing.${reset}"
+            printf '%s\n' "${cyan}INFO: Untagged commit in ${bold}${context}${nobold}, --allow-untagged set, continuing.${reset}"
          else
             printf '%s\n' "${bold}${red}ERROR: Untagged commit in: ${context}${reset}" >&2
             print_allow_hint
