@@ -1,3 +1,67 @@
+commit 3b5b606690a1f611c3df0036d628720296e9a198
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon May 4 15:52:31 2026 -0400
+
+    .
+
+commit f7285246a3315e0c4605c70a958101b4211e63cd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon May 4 15:50:42 2026 -0400
+
+    .
+
+commit 910b731b129a251675c41db10fa027a77d912a1e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon May 4 14:53:28 2026 -0400
+
+    update VirtualBox download links for Whonix Windows Installer
+
+commit f48a67806f3f8600a4053d79a36f7d91d576a5d9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon May 4 14:52:58 2026 -0400
+
+    .
+
+commit 80af59e7929c7824f057d0a7945f1ebf1d3148d5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon May 4 09:09:35 2026 -0400
+
+    .
+
+commit 10cba194e6932a3fddc03d67676895c649da71cb
+Merge: 5e3995ab3 c2223faf4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat May 2 15:53:48 2026 -0400
+
+    Merge remote-tracking branch 'assisted-by-ai/claude/automated-builder-diagnostics-Mq8Tn'
+
+commit c2223faf49f2f7521983c7f48fa363087d9345d1
+Author: Claude <noreply@anthropic.com>
+Date:   Sat May 2 19:39:13 2026 +0000
+
+    build_vms_from_tag.sh: style guide adherence
+
+    Three small style fixes:
+
+    - Add shopt -s inherit_errexit and shopt -s shift_verbose to the
+      strict-shell-options block (errexit-inside-substitutions and
+      shift-past-end logging are part of the project's standard
+      preamble; only set -x + the four set -o lines were present).
+    - Replace 'printf "\n=== ... %d ... ===\n" "${rc}" "${BUILD_LOG}"'
+      with 'printf "%s\n" "" "=== ... rc=${rc} ... ===" '. The original
+      used %d in the format string and \n inside the format, both
+      prohibited by the bash style guide ("no extra \n in the format,
+      no %d").
+    - 'tail -a' -> 'tail --append'. Long-flag rule.
+
+    https://claude.ai/code/session_01U5dqsVj1msLQMiCemkuddP
+
+commit 5e3995ab3cca158954937b97f43758accab2ac5d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat May 2 19:06:32 2026 +0000
+
+    bumped changelog version
+
 commit 46a34301c0c6689f3645307f303ebd23caaaa663
 Merge: fc9fbe6e2 32565abac
 Author: Patrick Schleizer <adrelanos@whonix.org>
