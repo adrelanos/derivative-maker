@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+## Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+## This script is executed on the host and assembles the container using modern
+## buildah tools inside of a streamlined and rootless environment.
+
+set -x
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
+
+BASE_IMAGE="docker.io/library/debian:trixie-slim@sha256:cedb1ef40439206b673ee8b33a46a03a0c9fa90bf3732f54704f99cb061d2c5a"
+FROZEN_SOURCES="${SOURCE_VOLUME}/build_sources/debian_stable_frozen_direct_clearnet.sources.in"
+
+declare ctr
+ctr=$(buildah from "${BASE_IMAGE}")
+
+## Mounts build container rootlessly & directly via host kernel VFS during assembly. Industry standard.
+declare rootfs
+rootfs=$(buildah mount "$ctr")
+
+## Only use unfrozen sources when snapshot is missing and ALLOW_UNFROZEN=true
+if [[ -f "${FROZEN_SOURCES}" && -n "${snapshot_ts:-}" ]]; then
+    declare formatted_date
+    formatted_date=$(date --utc --date="@${snapshot_ts:-}" '+%Y%m%dT%H%M%SZ')
+    sed "s|XXX_TS_XXX|${formatted_date}/|g" "${FROZEN_SOURCES}" > "${rootfs}/etc/apt/dm-frozen.sources"
+    chmod 0644 "${rootfs}/etc/apt/dm-frozen.sources"
+elif [[ "${ALLOW_UNFROZEN:-false}" == "true" ]]; then
+    echo "Skipping source freeze injection and using unfrozen sources." >&2
+else
+    echo "Error: Unfrozen sources are not allowed for production builds!" >&2
+    exit 1
+fi
+
+## Executes bootstrap script via stdin inside ctr.
+buildah run \
+    --env OCI_USER \
+    --env HOST_USER_UID \
+    "$ctr" -- bash < "${SOURCE_VOLUME}/buildah/derivative-maker-oci-bootstrap"
+
+## Configures OCI engine to run `/sbin/init`, discarding fragile hardcoded binary routes or entry scripts.
+buildah config \
+    --env container=oci \
+    --env USER="${OCI_USER}" \
+    --env HOME="/home/${OCI_USER}" \
+    --env DM_UID="${HOST_USER_UID}" \
+    --stop-signal SIGRTMIN+3 \
+    --cmd "/sbin/init" \
+    --label "${DM_SNAPSHOT_LABEL}=${snapshot_ts:-}" \
+    --label org.opencontainers.image.authors="adrelanos@whonix.org" \
+    --label org.opencontainers.image.description="Containerization of Kicksecure/derivative-maker" \
+    --label org.opencontainers.image.title="derivative-maker-oci" \
+    --label org.opencontainers.image.source="https://github.com/adrelanos/derivative-maker/tree/master" \
+    --label org.opencontainers.image.documentation="https://kicksecure.com" \
+    --label org.opencontainers.image.version="1.0" \
+    --label org.opencontainers.image.vendor="ENCRYPTED SUPPORT LLC" \
+    "$ctr"
+
+buildah unmount "$ctr"
+buildah commit --format oci "$ctr" "${IMAGE_REF}"
+buildah rm "$ctr"
+

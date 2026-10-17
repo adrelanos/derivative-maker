@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+## Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+## This script is executed inside the container and provides basic commands to
+## prepare and configure a minimal debian container image.
+
+set -x
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
+
+export DEBIAN_FRONTEND=noninteractive
+
+DM_FROZEN_SOURCES='/etc/apt/dm-frozen.sources'
+declare -a dm_apt_options
+
+## Check if a frozen source was generated
+if [ -f "${DM_FROZEN_SOURCES}" ]; then
+   dm_apt_options=(
+      -o "Dir::Etc::sourcelist=${DM_FROZEN_SOURCES}"
+      -o 'Dir::Etc::sourceparts=-'
+      -o 'Acquire::Check-Valid-Until=false'
+   )
+else
+   dm_apt_options=()
+fi
+
+## Installing ca-certificates for https sources
+apt-get update
+apt-get install \
+  --no-install-recommends \
+  --yes \
+  ca-certificates
+
+## Blocks services from starting pre-boot
+echo 'exit 101' > /usr/sbin/policy-rc.d
+chmod +x /usr/sbin/policy-rc.d
+
+## Pinning user system groups
+getent group approx >/dev/null || groupadd --system --gid 102 approx
+getent passwd approx >/dev/null || useradd --system --gid 102 --uid 101 --no-create-home --home-dir /var/lib/approx --shell /usr/sbin/nologin approx
+
+## Installing master build dependency toolchain
+apt-get "${dm_apt_options[@]}" update
+apt-get "${dm_apt_options[@]}" install \
+  --no-install-recommends \
+  --yes \
+  systemd systemd-sysv sq sqv sqop sequoia-git sequoia-chameleon-gnupg gpg-agent \
+  signify-openbsd moreutils dbus dbus-user-session git time curl lsb-release \
+  fakeroot dpkg-dev fasttrack-archive-keyring safe-rm adduser sudo approx \
+  python3 python3-yaml procps
+
+## Optimizing systemd image footprint
+systemctl mask \
+    proc-sys-fs-binfmt_misc.automount \
+    sys-kernel-config.mount \
+    sys-kernel-debug.mount \
+    sys-kernel-tracing.mount \
+    systemd-modules-load.service \
+    systemd-firstboot.service
+
+## Provisioning workspace user: ${OCI_USER} (UID: ${HOST_USER_UID})
+adduser --quiet --disabled-password --uid "${HOST_USER_UID}" --home "/home/${OCI_USER}" --gecos "${OCI_USER},,,," "${OCI_USER}"
+printf '%s\n' "${OCI_USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/passwordless_sudo
+chmod 440 /etc/sudoers.d/passwordless_sudo
+
+## Finalizing asset structural cleanup optimization steps
+rm -f /usr/sbin/policy-rc.d
+apt-get clean
+safe-rm -r -f -- /var/lib/apt/lists/* /var/cache/apt/
+

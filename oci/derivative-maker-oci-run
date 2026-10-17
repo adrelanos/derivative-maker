@@ -1,0 +1,186 @@
+#!/usr/bin/env bash
+## Copyright (C) 2025 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+## This script is executed on the host with the purpose of setting up
+## required volume directories and executing the <container-engine> run command with any given arguments.
+
+set -x
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
+
+export OCI_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
+export IMAGE_REF="localhost/derivative-maker-oci:${TAG:-$(uname -m)}"
+export OCI_USER="user"
+export DM_SNAPSHOT_LABEL="org.kicksecure.derivative-maker.frozen-snapshot"
+export SOURCE_VOLUME="$( dirname -- "${OCI_DIR}" )"
+export HOST_USER_UID="$(id -u)"
+export ALLOW_UNFROZEN="${ALLOW_UNFROZEN:-false}"
+
+ENGINE="${ENGINE:-podman}"
+CONTAINER_INSTANCE_NAME="derivative-maker-oci-instance-$$"
+HOST_GROUP="$(id -g)"
+BINARY_VOLUME="${HOME}/binary_mnt"
+CACHER_VOLUME="${HOME}/approx_cache_mnt"
+KEY_VOLUME="${HOME}/.key_mnt"
+GNUPG_VOLUME="${HOME}/.gnupg_mnt"
+
+[ -v CI ] || CI=""
+declare -a oci_run_opts=()
+
+if [ "${CI:-}" = "true" ]; then
+  oci_run_opts+=( --tty --env 'CI=true' )
+else
+  oci_run_opts+=( --interactive --tty )
+fi
+
+print_usage() {
+cat << EOF
+Usage: $0 [ options ] -- COMMAND [ ARGS ]
+
+Options:
+  --binary-mount DIR : binary artifact directory destination path
+  --cacher-mount DIR : proxy package cache mount point
+  --key-mount DIR    : Sequoia-PGP storage mount path
+  --gnupg-mount DIR  : GnuPG keyrings directory location
+  -h|--help          : displaying command blueprint options
+EOF
+}
+
+parse_args() {
+    local opt
+
+    while (( $# > 0 )); do
+        case "${1}" in
+            --binary-volume | --cacher-volume | --key-volume | --gnupg-volume)
+                if (( $# <= 1 )); then
+                    echo "Error: Missing value for ${1}" >&2
+                    exit 1
+                fi
+                opt="${1#--}"
+                opt="${opt//-/_}"
+                declare -g "${opt^^}"="${2}"
+                shift 2
+                ;;
+            -h | --help) 
+                print_usage
+                exit 0 
+                ;;
+            --)
+                shift
+                break 
+                ;;
+            *)           
+                echo "Error: Unknown option: ${1}" >&2
+                exit 1 
+                ;;
+        esac
+    done
+
+    if [[ -z "${1:-}" ]]; then
+        echo "Error: Missing command sequence after '--'" >&2
+        exit 1
+    fi
+
+    COMMAND="${1}"
+    shift
+    COMMAND_ARGS="${@:-}"
+}
+
+validate_mount_path() {
+  if [[ "${1}" != /* ]]; then
+    echo "Error: mount path must be an absolute path: $1" >&2; exit 1
+  elif [[ "${1}" = *:* ]]; then
+    echo "Error: mount path must not contain a colon: $1" >&2; exit 1
+  fi
+}
+
+prep_mounts() {
+  declare -a -- VOLUMES
+
+  VOLUMES=(
+    "${CACHER_VOLUME}" "101:102" "770"
+    "${BINARY_VOLUME}" "${HOST_USER_UID}:${HOST_GROUP}" "770"
+    "${KEY_VOLUME}" "${HOST_USER_UID}:${HOST_GROUP}" "700"
+    "${GNUPG_VOLUME}" "${HOST_USER_UID}:${HOST_GROUP}" "700"
+  )
+
+  while (( ${#VOLUMES[@]} > 0 )); do
+    if [ ! -d "${VOLUMES[0]}" ]; then
+      mkdir --parents -- "${VOLUMES[0]}"
+      sudo -- chown --recursive -- "${VOLUMES[1]}" "${VOLUMES[0]}"
+      sudo -- chmod --recursive -- "${VOLUMES[2]}" "${VOLUMES[0]}"
+    fi
+
+    VOLUMES=("${VOLUMES[@]:3}")
+  done
+}
+
+container_image() {
+    local ts_file="${SOURCE_VOLUME}/build_sources/frozen-snapshot-timestamp"
+    [[ -f "${ts_file}" ]] && export snapshot_ts=$(cat "${ts_file}" | tr -d '[:space:]')
+
+        ## Container image evaluation checks
+        if [[ -n "$(buildah images -q "${IMAGE_REF}" 2>/dev/null)" ]]; then
+            # Extract embedded label
+            local active_label
+            active_label=$(buildah inspect --format "{{index .OCIv1.Config.Labels \"${DM_SNAPSHOT_LABEL}\"}}" "${IMAGE_REF}" 2>/dev/null) || active_label=""
+            ## Check if tracking tokens match perfectly
+            if [[ "${active_label}" == "${snapshot_ts}" && -n "${active_label}" ]]; then
+                    # Container image up to date but not loaded yet
+                    sudo podman image exists "${IMAGE_REF}" || podman save "${IMAGE_REF}" | sudo podman load
+                    return 0
+            else
+                # Remove outdated images from pool before rebuild
+                buildah rmi "${IMAGE_REF}" >/dev/null 2>&1 || true
+                sudo podman rmi "${IMAGE_REF}" >/dev/null 2>&1 || true
+            fi
+        fi
+    ## Assemble container image via buildah unshare (rootless). Env passed down automatically.
+    buildah unshare "${SOURCE_VOLUME}/buildah/derivative-maker-oci-image"
+    ${ENGINE} save "${IMAGE_REF}" | sudo ${ENGINE} load
+}
+
+parse_args "${@}"
+
+for volume_path in "${SOURCE_VOLUME}" "${BINARY_VOLUME}" "${CACHER_VOLUME}" "${KEY_VOLUME}" "${GNUPG_VOLUME}"; do
+  validate_mount_path "${volume_path}"
+done
+
+prep_mounts
+container_image
+
+sudo modprobe -a loop dm_mod
+sudo modprobe nbd max_part=16 2>/dev/null || true
+
+## Native systemd PID 1 init as detached orchestrator.
+sudo ${ENGINE} run "${oci_run_opts[@]}" \
+  --name "${CONTAINER_INSTANCE_NAME}" \
+  --rm \
+  --replace \
+  --user root \
+  --systemd=always \
+  --detach \
+  --privileged \
+  --volume /dev:/dev \
+  --userns=keep-id \
+  --volume "${SOURCE_VOLUME}:/home/${OCI_USER}/derivative-maker" \
+  --volume "${BINARY_VOLUME}:/home/${OCI_USER}/derivative-binary" \
+  --volume "${CACHER_VOLUME}:/var/cache/approx-derivative-maker" \
+  --volume "${KEY_VOLUME}:/home/${OCI_USER}/.local/share" \
+  --volume "${GNUPG_VOLUME}:/home/${OCI_USER}/.gnupg" \
+  "${IMAGE_REF}"
+
+## Native user injection and exec OCI layer bypass broken internal 'sudo' tty constraints.
+sudo ${ENGINE} exec "${oci_run_opts[@]}" \
+  --workdir "/home/${OCI_USER}/derivative-maker" \
+  --user "${OCI_USER}" \
+  --env "flavor_meta_packages_to_install=" \
+  --env "install_package_list=" \
+  --env "DERIVATIVE_APT_REPOSITORY_OPTS=" \
+  "${CONTAINER_INSTANCE_NAME}" \
+  "${COMMAND}" ${COMMAND_ARGS}
+
