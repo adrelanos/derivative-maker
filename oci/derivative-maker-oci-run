@@ -13,7 +13,8 @@ shopt -s inherit_errexit
 shopt -s shift_verbose
 
 export OCI_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
-export IMAGE_REF="localhost/derivative-maker-oci:${TAG:-$(uname -m)}"
+export TARGET_ARCH="${ARCH:-$(uname -m)}"
+export IMAGE_REF="localhost/derivative-maker-oci:${TARGET_ARCH}"
 export OCI_USER="user"
 export DM_SNAPSHOT_LABEL="org.kicksecure.derivative-maker.frozen-snapshot"
 export SOURCE_VOLUME="$( dirname -- "${OCI_DIR}" )"
@@ -183,4 +184,3 @@ sudo ${ENGINE} exec "${oci_run_opts[@]}" \
   --env "DERIVATIVE_APT_REPOSITORY_OPTS=" \
   "${CONTAINER_INSTANCE_NAME}" \
   "${COMMAND}" ${COMMAND_ARGS}
-
