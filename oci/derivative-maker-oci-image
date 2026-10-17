@@ -12,11 +12,11 @@ set -o errtrace
 shopt -s inherit_errexit
 shopt -s shift_verbose
 
-BASE_IMAGE="docker.io/library/debian:trixie-slim@sha256:cedb1ef40439206b673ee8b33a46a03a0c9fa90bf3732f54704f99cb061d2c5a"
+BASE_IMAGE="docker.io/library/debian:trixie-slim"
 FROZEN_SOURCES="${SOURCE_VOLUME}/build_sources/debian_stable_frozen_direct_clearnet.sources.in"
 
 declare ctr
-ctr=$(buildah from "${BASE_IMAGE}")
+ctr=$(buildah from --arch "${TARGET_ARCH}" "${BASE_IMAGE}")
 
 ## Mounts build container rootlessly & directly via host kernel VFS during assembly. Industry standard.
 declare rootfs
@@ -62,4 +62,3 @@ buildah config \
 buildah unmount "$ctr"
 buildah commit --format oci "$ctr" "${IMAGE_REF}"
 buildah rm "$ctr"
-
