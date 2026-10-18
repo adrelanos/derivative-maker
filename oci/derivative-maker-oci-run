@@ -40,7 +40,7 @@ else
 fi
 
 if [ "${ENGINE:-}" = "podman" ]; then
-  oci_run_opts+=( --userns=keep-id --replace )
+  oci_run_opts+=( --replace )
 fi
 
 print_usage() {
