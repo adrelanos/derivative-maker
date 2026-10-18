@@ -32,12 +32,12 @@ With the convenience of a debian:trixie container, `derivative-maker-oci` automa
    ```sh
    git clone --depth=1 --branch 17.3.9.9-stable --jobs=4 --recurse-submodules --shallow-submodules https://github.com/Whonix/derivative-maker.git
    ```
-3. The container image is automatically generated
+3. The container image is automatically generated, but requires `buildah` to be built. 
   + Checking current image status
     ```sh
     <container engine> images
     ```
-
+4. Supported engines: `docker`, `podman`, `nerdctl` (containerd), `buildah`
 ### Multi-arch builds (arm64, amd64, ...)
 The build script is arch-agnostic: `from debian:trixie-slim` is a multi-arch
 manifest list, and arch-specific packages (e.g. `grub-efi-arm64`,
