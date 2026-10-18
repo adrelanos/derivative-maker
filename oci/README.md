@@ -1,4 +1,4 @@
-![o,age](https://i.postimg.cc/qM5T6mZ7/derivative-maker-logo5.png)
+![o,age](https://i.postimg.cc/fL6MStSP/derivative-maker-logo6.png)
 
 With the convenience of a debian:trixie container, `derivative-maker-oci` automatically builds Whonix/Kicksecure images with a variety of available container engines, incorporating the official derivative-maker build scripts, while including environment variables and intuitive ways to customize every available build option, container behavior and final build command. All necessary files already ship with the current derivative-maker source code, allowing for quick and simple deployment with a variety of pre-defined user scripts. The container image's apt is pinned to the same snapshot.debian.org timestamp a `--freshness frozen` build uses, so the builder and built image use the same packages during reproducible builds. Engines like podman or buildah can even grant completely rootless operation of the entire build process.
 
