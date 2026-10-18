@@ -132,12 +132,12 @@ container_image() {
             ## Check if tracking tokens match perfectly
             if [[ "${active_label}" == "${snapshot_ts}" && -n "${active_label}" ]]; then
                     # Container image up to date but not loaded yet
-                    sudo podman image exists "${IMAGE_REF}" || podman save "${IMAGE_REF}" | sudo podman load
+                    sudo ${ENGINE} image exists "${IMAGE_REF}" || ${ENGINE} save "${IMAGE_REF}" | sudo ${ENGINE} load
                     return 0
             else
                 # Remove outdated images from pool before rebuild
                 buildah rmi "${IMAGE_REF}" >/dev/null 2>&1 || true
-                sudo podman rmi "${IMAGE_REF}" >/dev/null 2>&1 || true
+                sudo ${ENGINE} rmi "${IMAGE_REF}" >/dev/null 2>&1 || true
             fi
         fi
     ## Assemble container image via buildah unshare (rootless). Env passed down automatically.
