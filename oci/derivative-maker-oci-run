@@ -30,12 +30,17 @@ KEY_VOLUME="${HOME}/.key_mnt"
 GNUPG_VOLUME="${HOME}/.gnupg_mnt"
 
 [ -v CI ] || CI=""
+declare -a tty_opts=()
 declare -a oci_run_opts=()
 
 if [ "${CI:-}" = "true" ]; then
-  oci_run_opts+=( --tty --env 'CI=true' )
+  tty_opts+=( --tty --env 'CI=true' )
 else
-  oci_run_opts+=( --interactive --tty )
+  tty_opts+=( --interactive --tty )
+fi
+
+if [ "${ENGINE:-}" = "podman" ]; then
+  oci_run_opts+=( --userns=keep-id --replace )
 fi
 
 print_usage() {
@@ -158,15 +163,13 @@ sudo modprobe -a loop dm_mod
 sudo modprobe nbd max_part=16 2>/dev/null || true
 
 ## Native systemd PID 1 init as detached orchestrator.
-sudo ${ENGINE} run "${oci_run_opts[@]}" \
+sudo ${ENGINE} run "${tty_opts[@]}" "${oci_run_opts[@]}" \
   --name "${CONTAINER_INSTANCE_NAME}" \
   --rm \
-  --replace \
   --user root \
   --detach \
   --privileged \
   --volume /dev:/dev \
-  --userns=keep-id \
   --volume "${SOURCE_VOLUME}:/home/${OCI_USER}/derivative-maker" \
   --volume "${BINARY_VOLUME}:/home/${OCI_USER}/derivative-binary" \
   --volume "${CACHER_VOLUME}:/var/cache/approx-derivative-maker" \
@@ -175,7 +178,7 @@ sudo ${ENGINE} run "${oci_run_opts[@]}" \
   "${IMAGE_REF}"
 
 ## Native user injection and exec OCI layer bypass broken internal 'sudo' tty constraints.
-sudo ${ENGINE} exec "${oci_run_opts[@]}" \
+sudo ${ENGINE} exec "${tty_opts[@]}" \
   --workdir "/home/${OCI_USER}/derivative-maker" \
   --user "${OCI_USER}" \
   --env "flavor_meta_packages_to_install=" \
