@@ -163,7 +163,6 @@ sudo ${ENGINE} run "${oci_run_opts[@]}" \
   --rm \
   --replace \
   --user root \
-  --systemd=always \
   --detach \
   --privileged \
   --volume /dev:/dev \
