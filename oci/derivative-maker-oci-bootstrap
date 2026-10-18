@@ -60,7 +60,8 @@ systemctl mask \
     sys-kernel-debug.mount \
     sys-kernel-tracing.mount \
     systemd-modules-load.service \
-    systemd-firstboot.service
+    systemd-firstboot.service \
+    sys-fs-fuse-connections.mount
 
 ## Provisioning workspace user: ${OCI_USER} (UID: ${HOST_USER_UID})
 adduser --quiet --disabled-password --uid "${HOST_USER_UID}" --home "/home/${OCI_USER}" --gecos "${OCI_USER},,,," "${OCI_USER}"
