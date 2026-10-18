@@ -22,6 +22,7 @@ export HOST_USER_UID="$(id -u)"
 export ALLOW_UNFROZEN="${ALLOW_UNFROZEN:-false}"
 
 ENGINE="${ENGINE:-podman}"
+CONTAINER_STORAGE="${HOME}/.local/share/containers/storage"
 CONTAINER_INSTANCE_NAME="derivative-maker-oci-instance-$$"
 HOST_GROUP="$(id -g)"
 BINARY_VOLUME="${HOME}/binary_mnt"
@@ -39,7 +40,7 @@ else
   tty_opts+=( --interactive --tty )
 fi
 
-if [ "${ENGINE:-}" = "podman" ]; then
+if [ "${ENGINE}" = "podman" ]; then
   oci_run_opts+=( --replace )
 fi
 
@@ -125,6 +126,18 @@ prep_mounts() {
   done
 }
 
+engine_sync_image() {
+  buildah push "${IMAGE_REF}" docker-archive:/dev/stdout | sudo "${ENGINE}" load
+}
+
+engine_check_image() {
+  sudo "${ENGINE}" image inspect "${IMAGE_REF}" &> /dev/null
+}
+
+engine_remove_image() {
+  sudo ${ENGINE} rmi "${IMAGE_REF}" >/dev/null 2>&1 || true
+}
+
 container_image() {
     local ts_file="${SOURCE_VOLUME}/build_sources/frozen-snapshot-timestamp"
     [[ -f "${ts_file}" ]] && export snapshot_ts=$(cat "${ts_file}" | tr -d '[:space:]')
@@ -137,17 +150,17 @@ container_image() {
             ## Check if tracking tokens match perfectly
             if [[ "${active_label}" == "${snapshot_ts}" && -n "${active_label}" ]]; then
                     # Container image up to date but not loaded yet
-                    sudo ${ENGINE} image exists "${IMAGE_REF}" || ${ENGINE} save "${IMAGE_REF}" | sudo ${ENGINE} load
+                    engine_check_image || engine_sync_image
                     return 0
             else
                 # Remove outdated images from pool before rebuild
                 buildah rmi "${IMAGE_REF}" >/dev/null 2>&1 || true
-                sudo ${ENGINE} rmi "${IMAGE_REF}" >/dev/null 2>&1 || true
+                engine_remove_image
             fi
         fi
     ## Assemble container image via buildah unshare (rootless). Env passed down automatically.
     buildah unshare "${SOURCE_VOLUME}/buildah/derivative-maker-oci-image"
-    ${ENGINE} save "${IMAGE_REF}" | sudo ${ENGINE} load
+    engine_sync_image
 }
 
 parse_args "${@}"
