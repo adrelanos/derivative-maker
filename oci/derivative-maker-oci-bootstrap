@@ -61,7 +61,8 @@ systemctl mask \
     sys-kernel-tracing.mount \
     systemd-modules-load.service \
     systemd-firstboot.service \
-    sys-fs-fuse-connections.mount
+    sys-fs-fuse-connections.mount \
+    getty@tty1.service
 
 ## Provisioning workspace user: ${OCI_USER} (UID: ${HOST_USER_UID})
 adduser --quiet --disabled-password --uid "${HOST_USER_UID}" --home "/home/${OCI_USER}" --gecos "${OCI_USER},,,," "${OCI_USER}"
@@ -72,4 +73,3 @@ chmod 440 /etc/sudoers.d/passwordless_sudo
 rm -f /usr/sbin/policy-rc.d
 apt-get clean
 safe-rm -r -f -- /var/lib/apt/lists/* /var/cache/apt/
-
