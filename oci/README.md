@@ -1,6 +1,6 @@
 ![o,age](https://i.postimg.cc/fL6MStSP/derivative-maker-logo6.png)
 
-With the convenience of a debian:trixie container, `derivative-maker-oci` automatically builds Whonix/Kicksecure images with a variety of available container engines, incorporating the official derivative-maker build scripts, while including environment variables and intuitive ways to customize every available build option, container behavior and final build command. All necessary files already ship with the current derivative-maker source code, allowing for quick and simple deployment with a variety of pre-defined user scripts. The container image's apt is pinned to the same snapshot.debian.org timestamp a `--freshness frozen` build uses, so the builder and built image use the same packages during reproducible builds. Engines like podman or buildah can even grant completely rootless operation of the entire build process.
+With the convenience of an engine agnostic debian:trixie container, `derivative-maker-oci` automatically builds Whonix/Kicksecure images, incorporating the official derivative-maker build scripts, while including environment variables and intuitive ways to customize every available build option, container behavior and final build command.  All necessary files already ship with the current derivative-maker source code, allowing for quick and simple deployment with a variety of pre-defined user scripts. The container image is assembled by buildah which grants compatibility with virtually any engine. Additionally, its sources are pinned to the same snapshot.debian.org timestamp a `--freshness frozen` build uses, so the builder and built image use the same packages during reproducible builds.
 
 ## Roadmap
 - [x] Read documentation
@@ -49,6 +49,12 @@ With the convenience of a debian:trixie container, `derivative-maker-oci` automa
   ```sh
    ./derivative-maker-oci-run -- ./derivative-maker <build arguments> 2>&1 | tee -a <log-location>
    ```
+  
+### Containerization with Buildah
+* Buildah builds container images differently than traditional engines. Instead of spinning up a background daemon and executing a static Dockerfile, Buildah assembles layers using standard bash commands directly on the host file system, configures runtime metadata, unmounts the VFS, and commits the state as an OCI compliant image. All modern container engines are compatible with this format.
+* Once Buildah produces the image on disk, it exists inside Buildah's localized local storage. `buildah push ... docker-archive:/dev/stdout` translates this local OCI-formatted image storage structure into a standardized tarball archive on the fly and streams it to standard output, which is then loaded into the privileged space of the user's container engine of choice.
+* Apart from other advantages during the initial build process, this allows practically limitless compatibility with any engine, as long as unique sync and load commands are provided to handle the image. 
+
 ### Multi-arch builds (arm64, amd64, ...)
 The build script is arch-agnostic: `from debian:trixie-slim` is a multi-arch
 manifest list, and arch-specific packages (e.g. `grub-efi-arm64`,
