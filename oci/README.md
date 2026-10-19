@@ -32,12 +32,17 @@ With the convenience of a debian:trixie container, `derivative-maker-oci` automa
    ```sh
    git clone --depth=1 --branch 17.3.9.9-stable --jobs=4 --recurse-submodules --shallow-submodules https://github.com/Whonix/derivative-maker.git
    ```
-3. The container image is automatically generated, but requires `buildah` to be built. 
-  + Checking current image status
-    ```sh
-    <container engine> images
-    ```
-4. Supported engines: `docker`, `podman`, `nerdctl` (containerd), `buildah`
+3. Install `buildah` and a container engine of your choice. (Example: podman) 
+   ```sh
+   sudo apt-get install -y buildah podman
+   ```
+5. Execute the build command. Supported engines: `docker` `podman` `nerdctl` `colima` `buildah`.
+   ```sh
+   ## Default engine is podman
+   ./derivative-maker-oci-run -- ./derivative-maker <build arguments>
+   ## Populate ENGINE=<your_engine> otherwise
+    ENGINE=docker ./derivative-maker-oci-run -- ./derivative-maker <build arguments>
+   ```
 ### Multi-arch builds (arm64, amd64, ...)
 The build script is arch-agnostic: `from debian:trixie-slim` is a multi-arch
 manifest list, and arch-specific packages (e.g. `grub-efi-arm64`,
@@ -82,15 +87,15 @@ The command to run in the container is explicit, after `--`.
    ```
 2. Execute a specific build-step
    ```sh
-   ./derivative-maker-oci-run -- build-steps.d/4310_convert-raw-to-iso <build arguments>
+  ENGINE=nerdctl ./derivative-maker-oci-run -- build-steps.d/4310_convert-raw-to-iso <build arguments>
    ```
 3. Run a custom command (e.g. an interactive shell)
    ```sh
-   ./derivative-maker-oci-run -- bash
+  ENGINE=docker ./derivative-maker-oci-run -- bash
    ```
 4. Choose custom volume mount points
    ```sh
-   ./derivative-maker-oci-run --binary-mount /home/user/whonix/dm-binary --cacher-mount /home/user/whonix/apt-cache -- ./derivative-maker <build arguments>
+   ALLOW_UNFROZEN=true ./derivative-maker-oci-run --binary-mount /home/user/whonix/dm-binary --cacher-mount /home/user/whonix/apt-cache -- ./derivative-maker <build arguments>
    ```
 
 #### Hints
