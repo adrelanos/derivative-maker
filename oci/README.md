@@ -37,20 +37,26 @@ With the convenience of a debian:trixie container, `derivative-maker-oci` automa
    sudo apt-get install -y buildah podman
    ```
 5. Execute the build command. Supported engines: `docker` `podman` `nerdctl` `colima` `buildah`.
+* The default engine is currently podman, which launches automatically.
    ```sh
-   ## Default engine is podman
    ./derivative-maker-oci-run -- ./derivative-maker <build arguments>
-   ## Populate ENGINE=<your_engine> otherwise
+   ```
+* Other candidates can be used by passing `ENGINE=<engine>` before running `derivative-maker-oci-run`. (Example: docker)
+   ```sh
     ENGINE=docker ./derivative-maker-oci-run -- ./derivative-maker <build arguments>
+   ```
+* Logs can be generated on the host if required.
+  ```sh
+   ./derivative-maker-oci-run -- ./derivative-maker <build arguments> 2>&1 | tee -a <log-location>
    ```
 ### Multi-arch builds (arm64, amd64, ...)
 The build script is arch-agnostic: `from debian:trixie-slim` is a multi-arch
 manifest list, and arch-specific packages (e.g. `grub-efi-arm64`,
 `grub-efi-amd64`) are pulled in by `build-steps.d/1100_sanity-tests` at
 **build time** based on `--arch`, not baked into the image. To target a
-specific platform, simply populate global variable TARGET_ARCH="" with your desired architecture before executing ./derivative-docker-oci-run.
+specific platform, simply populate global variable TARGET_ARCH=<arch> with your desired architecture before executing ./derivative-docker-oci-run.
 ```sh
-TARGET_ARCH="arm64"  ./derivative-maker-oci-run -- ./derivative-maker <build arguments>
+TARGET_ARCH=arm64  ./derivative-maker-oci-run -- ./derivative-maker <build arguments>
 ```
 On Apple Silicon hosts, the default platform already matches
 (`linux/arm64`); no extra flags needed. Cross-arch builds require
