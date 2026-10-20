@@ -159,7 +159,7 @@ container_image() {
             fi
         fi
     ## Assemble container image via buildah unshare (rootless). Env passed down automatically.
-    buildah unshare "${SOURCE_VOLUME}/buildah/derivative-maker-oci-image"
+    buildah unshare "${SOURCE_VOLUME}/oci/derivative-maker-oci-image"
     engine_sync_image
 }
 
