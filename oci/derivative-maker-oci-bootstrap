@@ -64,8 +64,8 @@ systemctl mask \
     sys-fs-fuse-connections.mount \
     getty@tty1.service
 
-## Provisioning workspace user: ${OCI_USER} (UID: ${HOST_USER_UID})
-adduser --quiet --disabled-password --uid "${HOST_USER_UID}" --home "/home/${OCI_USER}" --gecos "${OCI_USER},,,," "${OCI_USER}"
+## Provisioning workspace user: ${OCI_USER} (UID: ${HOST_USER_ID})
+adduser --quiet --disabled-password --uid "${HOST_USER_ID}" --home "/home/${OCI_USER}" --gecos "${OCI_USER},,,," "${OCI_USER}"
 printf '%s\n' "${OCI_USER} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/passwordless_sudo
 chmod 440 /etc/sudoers.d/passwordless_sudo
 
