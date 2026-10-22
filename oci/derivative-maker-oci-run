@@ -41,7 +41,7 @@ else
 fi
 
 if [ "${ENGINE}" = "podman" ]; then
-  oci_run_opts+=( --replace )
+  oci_run_opts+=( --replace --net=host )
 fi
 
 print_usage() {
