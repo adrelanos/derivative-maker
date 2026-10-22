@@ -37,8 +37,8 @@ fi
 
 ## Executes bootstrap script via stdin inside ctr.
 buildah run \
-    --env OCI_USER \
-    --env HOST_USER_UID \
+    --env OCI_USER="$OCI_USER" \
+    --env HOST_USER_ID="$HOST_USER_ID" \
     "$ctr" -- bash < "${SOURCE_VOLUME}/oci/derivative-maker-oci-bootstrap"
 
 ## Configures OCI engine to run `/sbin/init`, discarding fragile hardcoded binary routes or entry scripts.
@@ -46,7 +46,7 @@ buildah config \
     --env container=oci \
     --env USER="${OCI_USER}" \
     --env HOME="/home/${OCI_USER}" \
-    --env DM_UID="${HOST_USER_UID}" \
+    --env DM_UID="${HOST_USER_ID}" \
     --stop-signal SIGRTMIN+3 \
     --cmd "/sbin/init" \
     --label "${DM_SNAPSHOT_LABEL}=${snapshot_ts:-}" \
