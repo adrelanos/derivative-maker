@@ -18,7 +18,7 @@ export IMAGE_REF="localhost/derivative-maker-oci:${TARGET_ARCH}"
 export OCI_USER="user"
 export DM_SNAPSHOT_LABEL="org.kicksecure.derivative-maker.frozen-snapshot"
 export SOURCE_VOLUME="$( dirname -- "${OCI_DIR}" )"
-export HOST_USER_UID="$(id -u)"
+export HOST_USER_ID="$(id -u)"
 export ALLOW_UNFROZEN="${ALLOW_UNFROZEN:-false}"
 
 ENGINE="${ENGINE:-podman}"
@@ -110,9 +110,9 @@ prep_mounts() {
 
   VOLUMES=(
     "${CACHER_VOLUME}" "101:102" "770"
-    "${BINARY_VOLUME}" "${HOST_USER_UID}:${HOST_GROUP}" "770"
-    "${KEY_VOLUME}" "${HOST_USER_UID}:${HOST_GROUP}" "700"
-    "${GNUPG_VOLUME}" "${HOST_USER_UID}:${HOST_GROUP}" "700"
+    "${BINARY_VOLUME}" "${HOST_USER_ID}:${HOST_GROUP}" "770"
+    "${KEY_VOLUME}" "${HOST_USER_ID}:${HOST_GROUP}" "700"
+    "${GNUPG_VOLUME}" "${HOST_USER_ID}:${HOST_GROUP}" "700"
   )
 
   while (( ${#VOLUMES[@]} > 0 )); do
