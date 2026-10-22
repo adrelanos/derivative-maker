@@ -194,8 +194,8 @@ sudo ${ENGINE} run "${tty_opts[@]}" "${oci_run_opts[@]}" \
 sudo ${ENGINE} exec "${tty_opts[@]}" \
   --workdir "/home/${OCI_USER}/derivative-maker" \
   --user "${OCI_USER}" \
-  --env "flavor_meta_packages_to_install=" \
-  --env "install_package_list=" \
-  --env "DERIVATIVE_APT_REPOSITORY_OPTS=" \
+  --env "flavor_meta_packages_to_install=${flavor_meta_packages_to_install:-}" \
+  --env "install_package_list=${install_package_list:-}" \
+  --env "DERIVATIVE_APT_REPOSITORY_OPTS=${DERIVATIVE_APT_REPOSITORY_OPTS:-}" \
   "${CONTAINER_INSTANCE_NAME}" \
   "${COMMAND}" ${COMMAND_ARGS}
