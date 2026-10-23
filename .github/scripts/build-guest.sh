@@ -100,10 +100,10 @@ ssh -i ./id_ed25519 -p 2222 \
   sudo growpart /dev/vda 1 || true
   sudo resize2fs /dev/vda 1 || true
   df -h /
-  
+
   echo "=== 2. Installing Core System Build Dependencies ==="
   sudo apt-get install -y -q git qemu-utils coreutils curl gnupg sq systemd systemd-container iptables sudo lsb-release podman buildah uidmap dbus-user-session haveged
-  
+
   echo "=== Ensuring Entropy Daemon is Active ==="
   sudo systemctl start haveged || true
 
@@ -117,7 +117,7 @@ ssh -i ./id_ed25519 -p 2222 \
 
   echo "=== 3. Cloning Framework Natively ==="
   mkdir -p /home/debian/build-workspace
-  
+
   GIT_URL="https://github.com/tabletseeker/derivative-maker"
 
   git clone \
@@ -125,7 +125,7 @@ ssh -i ./id_ed25519 -p 2222 \
     --recursive \
       "\$GIT_URL" \
       /home/debian/build-workspace
-  
+
   cd /home/debian/build-workspace
   git submodule update --init --recursive --depth 1
 
@@ -166,9 +166,9 @@ ENVFILE
 
     cd /home/debian/build-workspace
     mkdir -p buildconfig.d
-    
+
     echo "dist_build_redistributable=false" > buildconfig.d/35_autosign_repo.conf
-    
+
     ./signing-setup.sh
 
     ./oci/derivative-maker-oci-run -- ./derivative-maker \
@@ -178,7 +178,7 @@ ENVFILE
       --type "$BUILD_TYPE" \
       --freshness "$BUILD_FRESHNESS" \
       --allow-uncommitted "$ALLOW_UNCOMMITTED"
-    
+
     echo "### VM BUILD ENGINE COMPLETED SUCCESS ###"
   '
 EOF
