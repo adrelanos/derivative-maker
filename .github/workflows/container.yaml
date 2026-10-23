@@ -1,0 +1,140 @@
+name: Derivative-Maker CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      flavor:
+        description: 'Target Flavor configuration'
+        required: true
+        default: 'kicksecure-lxqt'
+        type: choice
+        options:
+          - 'kicksecure-lxqt'
+          - 'kicksecure-cli'
+          - 'whonix-gateway-xfce'
+          - 'whonix-workstation-xfce'
+          - 'whonix-gateway-cli'
+          - 'whonix-workstation-cli'
+      arch:
+        description: 'Target CPU Architecture'
+        required: true
+        default: 'amd64'
+        type: choice
+        options:
+          - 'amd64'
+          - 'arm64'
+      target:
+        description: 'Build Target output wrapper format'
+        required: true
+        default: 'qcow2'
+        type: choice
+        options:
+          - 'qcow2'
+          - 'raw'
+          - 'ova'
+          - 'iso'
+      type:
+        description: 'System Footprint Environment Type'
+        required: true
+        default: 'vm'
+        type: choice
+        options:
+          - 'vm'
+          - 'container'
+          - 'base'
+          - 'host'
+      freshness:
+        description: 'Apt repository freshness profile'
+        required: true
+        default: 'frozen'
+        type: choice
+        options:
+          - 'frozen'
+          - 'stable'
+          - 'testers'
+          - 'developers'
+      container_engine:
+        description: 'Container Engine running the build process'
+        required: true
+        default: 'podman'
+        type: string
+      allow_uncommitted:
+        description: 'Allow uncommitted'
+        required: true
+        default: false
+        type: boolean
+      allow_unfrozen:
+        description: 'Allow unfrozen sources'
+        required: true
+        default: false
+        type: boolean
+      version:
+        description: 'Release version code'
+        required: false
+        default: '18.2.1.9'
+        type: string
+      flavor_meta_packages_to_install:
+        description: 'Extra meta packages to install inside the container'
+        required: false
+        default: ''
+        type: string
+      install_package_list:
+        description: 'Individual specific packages to append'
+        required: false
+        default: ''
+        type: string
+      derivative_apt_repository_opts:
+        description: 'Custom APT repository option flags'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  nested-vm-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write     
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Initialize and Clean Host Environment
+        run: |
+          chmod +x .github/scripts/setup-host.sh
+          ./.github/scripts/setup-host.sh
+
+      - name: Compile and Execute Guest OS Build
+        env:
+          BUILD_FLAVOR: ${{ inputs.flavor }}
+          BUILD_ARCH: ${{ inputs.arch }}
+          BUILD_TARGET: ${{ inputs.target }}
+          BUILD_TYPE: ${{ inputs.type }}
+          BUILD_FRESHNESS: ${{ inputs.freshness }}
+          ALLOW_UNCOMMITTED: ${{ inputs.allow_uncommitted }}
+          ALLOW_UNFROZEN: ${{ inputs.allow_unfrozen }}
+          ENGINE: ${{ inputs.container_engine }}
+          FLAVOR_META_PACKAGES: ${{ inputs.flavor_meta_packages_to_install }}
+          INSTALL_PACKAGE_LIST: ${{ inputs.install_package_list }}
+          DERIVATIVE_APT_OPTS: ${{ inputs.derivative_apt_repository_opts }}
+        run: |
+          chmod +x .github/scripts/build-guest.sh
+          ./.github/scripts/build-guest.sh
+
+      - name: Gather, Process, and Publish Release Artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BUILD_FLAVOR: ${{ inputs.flavor }}
+          BUILD_ARCH: ${{ inputs.arch }}
+          BUILD_TARGET: ${{ inputs.target }}
+          BUILD_TYPE: ${{ inputs.type }}
+          BUILD_FRESHNESS: ${{ inputs.freshness }}
+          ALLOW_UNCOMMITTED: ${{ inputs.allow_uncommitted }}
+          ALLOW_UNFROZEN: ${{ inputs.allow_unfrozen }}
+          ENGINE: ${{ inputs.container_engine }}
+          CHOSEN_VERSION: ${{ inputs.version }}
+          FLAVOR_META_PACKAGES: ${{ inputs.flavor_meta_packages_to_install }}
+          INSTALL_PACKAGE_LIST: ${{ inputs.install_package_list }}
+          DERIVATIVE_APT_OPTS: ${{ inputs.derivative_apt_repository_opts }}
+        run: |
+          chmod +x .github/scripts/gather-artifacts.sh
+          ./.github/scripts/gather-artifacts.sh
