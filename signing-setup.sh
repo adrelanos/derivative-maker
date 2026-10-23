@@ -1,59 +1,77 @@
 #!/usr/bin/env bash
 set -x
 set -e
+set -o pipefail
 
-# 1. Create build system parameters directories and fix GnuPG folder permissions
+echo "=========================================================="
+echo " STEP 1: Installing Upstream Cryptographic Packages"
+echo "=========================================================="
+sudo apt update
+sudo apt install -y sq sqop sequoia-git signify-openbsd moreutils git
+
+echo "=========================================================="
+echo " STEP 2: Instantiating Upstream Configuration Overrides"
+echo "=========================================================="
+export DEBFULLNAME="tabletseeker"
+export DEBEMAIL="tabletseeker@github.com"
+export CI="true"
+
+# Force the framework's internal 'variables' loader
+# to ingest your custom identity across all execution sub-shells.
 mkdir -p buildconfig.d
-chmod 700 ~/.gnupg || true
-
-# 2. Kill any hung background GPG subsystems to ensure clean key tracking
-gpgconf --kill gpg-agent || true
-
-# 3. Generate a standalone, passwordless GPG operational key automatically
-printf 'Key-Type: RSA\nKey-Length: 4096\nSubkey-Type: RSA\nSubkey-Length: 4096\nName-Real: Local Builder\nName-Email: builder@local.vm\nExpire-Date: 0\n%%no-protection\n%%commit\n' > /tmp/gpg-batch-params
-gpg --batch --generate-key /tmp/gpg-batch-params
-rm -f /tmp/gpg-batch-params
-
-# 4. Isolate the precise unique GPG fingerprint and 16-character short Key ID
-FINGERPRINT=$(gpg --fingerprint --with-colons builder@local.vm | grep fpr | tail -n 1 | cut -d':' -f10)
-KEY_ID="${FINGERPRINT: -16}"
-
-# 5. Securely export both unarmored and armored public certificate formats to disk
-gpg --output buildconfig.d/project_signing_key.gpg --export "${KEY_ID}"
-gpg --output /tmp/armored_key.asc --armor --export "${KEY_ID}"
-
-# 6. Build a fully populated openpgp-policy.toml structure using explicit file stream appending
-printf 'version = 0\ncommit_goodlist = []\n\n[authorization."Local Builder <builder@local.vm>"]\nsign_commit = true\nsign_tag = true\nsign_archive = true\nadd_user = true\nretire_user = true\naudit = true\nkeyring = """\n' > buildconfig.d/openpgp-policy.toml
-cat /tmp/armored_key.asc >> buildconfig.d/openpgp-policy.toml
-printf '\n"""\n' >> buildconfig.d/openpgp-policy.toml
-
-# Clean up temporary public profile file artifacts securely
-rm -f /tmp/armored_key.asc
-
-# 7. Write the absolute configuration path directive expected by variables.d/65_signing.bsh
-printf 'signing_key_file="buildconfig.d/project_signing_key.gpg"\n' > buildconfig.d/30_signing_key.conf
-
-# 8. Strip out older upstream git history to satisfy sq-git history trace constraints
-rm -rf .git
-git init -b master
-
-# 9. Bind local Git tracking metadata profiles to your generated cryptographic identity
-git config --local user.name "Local Builder"
-git config --local user.email builder@local.vm
-git config --local user.signingkey "${KEY_ID}"
-git config --local commit.gpgsign true
-
-# 10. Stage all custom and generated workspace files, and apply a true PGP signature
-git add .
-git commit -m "Initialize custom build landscape under secure local keys" --gpg-sign="${KEY_ID}"
-
-# 11. Create a cryptographically signed annotated tag to satisfy the release trace rules natively
-git tag -a -s -u "${KEY_ID}" -f -m "Local custom development release version 1.0.0" 1.0.0-custom
+printf 'signing_key_email="%s"\n' "${DEBEMAIL}" > buildconfig.d/40_signing_key.conf
 
 echo "=========================================================="
-echo " SUCCESS: Local PGP trust root is established!"
-echo " Launching compilation under secure local keys..."
+echo " STEP 3: Executing Native Key & Policy Provisioning"
 echo "=========================================================="
+# This natively generates the key inside Sequoia and authorizes it in the policy
+./help-steps/signing-key-create
 
+echo "=========================================================="
+echo " STEP 4: Configuring Native Local Git Identity"
+echo "=========================================================="
+git config --local user.name "${DEBFULLNAME}"
+git config --local user.email "${DEBEMAIL}"
 
+echo "=========================================================="
+echo " STEP 5: Synchronizing Policy & Goodlisting the Handover Commit"
+echo "=========================================================="
+# Sync the derived policy into working tree
+cp /home/malcolm/buildconfig.d/openpgp-policy.toml ./buildconfig.d/openpgp-policy.toml
 
+# Stage the updated metadata configuration files
+git add buildconfig.d/openpgp-policy.toml
+git add buildconfig.d/40_signing_key.conf
+
+# Create the standard baseline handover transition commit
+git commit -m "Transfer project ownership to Local Builder under secure local keys" --allow-empty
+
+# Capture the final commit hash ID
+# and inject it cleanly into the trusted policy layout array.
+FINAL_COMMIT_SHA="$(git rev-parse HEAD)"
+sq-git policy goodlist \
+  --policy-file buildconfig.d/openpgp-policy.toml \
+  "${FINAL_COMMIT_SHA}"
+
+echo "=========================================================="
+echo " STEP 6: Resolving Version Tag & Executing Signing Loop"
+echo "=========================================================="
+# Dynamically extract the true branch semantic build target version string
+if [ -f "dist_build_version" ]; then
+    TARGET_VERSION="$(cat dist_build_version)"
+elif [ -f "packages/kicksecure/kicksecure-base-files/usr/share/kicksecure/version" ]; then
+    TARGET_VERSION="$(cat packages/kicksecure/kicksecure-base-files/usr/share/kicksecure/version)"
+else
+    # Isolate only the clean numerical dot sequence from the closest tag milestone
+    RAW_VERSION="$(git describe --tags --abbrev=0 2>/dev/null || echo "18.2.1.9")"
+    TARGET_VERSION="$(echo "${RAW_VERSION}" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' || echo "18.2.1.9")"
+fi
+
+echo "--> Target release version string resolved to: ${TARGET_VERSION}"
+
+# Execute the native parent and submodule recursive cryptographical signing loops
+./help-steps/sign-and-tag "${TARGET_VERSION}"
+
+echo "=========================================================="
+echo " SUCCESS: Native project handover complete!"
+echo "=========================================================="
