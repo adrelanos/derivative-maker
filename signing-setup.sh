@@ -59,8 +59,6 @@ echo "=========================================================="
 # Dynamically extract the true branch semantic build target version string
 if [ -f "dist_build_version" ]; then
     TARGET_VERSION="$(cat dist_build_version)"
-elif [ -f "packages/kicksecure/kicksecure-base-files/usr/share/kicksecure/version" ]; then
-    TARGET_VERSION="$(cat packages/kicksecure/kicksecure-base-files/usr/share/kicksecure/version)"
 else
     # Isolate only the clean numerical dot sequence from the closest tag milestone
     RAW_VERSION="$(git describe --tags --abbrev=0 2>/dev/null || echo "18.2.1.9")"
