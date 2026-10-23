@@ -31,7 +31,7 @@ cat SHA256SUMS
 echo "=== 5. Dynamic Asset Inspection and Splitting Loop ==="
 find . -maxdepth 1 -type f ! -name "SHA256SUMS" | while read -r ASSET; do
   FILE_SIZE_MB=$(du -m "$ASSET" | cut -f1)
-  
+
   if [ "$FILE_SIZE_MB" -gt 2000 ]; then
     echo "Asset '$ASSET' ($FILE_SIZE_MB MB) crosses the 2GB endpoint threshold."
     echo "Dynamically splitting into safe 1500M chunks..."
@@ -88,7 +88,7 @@ echo "Target Release Tag Resolved: $RELEASE_TAG"
   echo "| **Output Format Target** | \`$BUILD_TARGET\` |"
   echo "| **System Footprint Type** | \`$BUILD_TYPE\` |"
   echo "| **Repository Freshness** | \`$BUILD_FRESHNESS\` |"
-  echo "| **Container Build Engine** | \`$ENGINE\` |"  
+  echo "| **Container Build Engine** | \`$ENGINE\` |"
   echo "| **Frozen Sources Status** | $FROZEN_SRC_STR |"
   echo "| **Enforcing Clean Git** | $GIT_CLEAN_STR |"
   echo "| **Release Version Tag** | \`$CHOSEN_VERSION\` |"
