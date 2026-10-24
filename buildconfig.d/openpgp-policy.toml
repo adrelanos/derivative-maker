@@ -1,5 +1,5 @@
 version = 0
-commit_goodlist = []
+commit_goodlist = ["bd63f1cc6b31901836d7674faa9a8f3f5b150ecd"]
 
 [authorization."Patrick Schleizer <adrelanos@whonix.org>"]
 sign_commit = true
@@ -216,5 +216,47 @@ bGoxNzZyP4Tn53TNI/1TT3Zx7JyROo+3E8kSUZBMj0hPggD4TTIQHjZ72ZmZf/dR
 ZV0/kgvxUYIiaftNKaLQu+Cn99cIGEPsNuD7dBmoeh2JwSVssfLZz54NYUd770E1
 hw+hmoRcoInpxWeP
 =ZO9v
+-----END PGP PUBLIC KEY BLOCK-----
+"""
+
+[authorization."tabletseeker <tabletseeker@github.com>"]
+sign_commit = true
+sign_tag = true
+sign_archive = true
+add_user = true
+retire_user = true
+audit = true
+keyring = """
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+xioGatwQMxsAAAAg4dqS1HmR2lUP9yK8y/7IVD09uB7wYP/IkwHDQa1eVzHCpgYf
+GwoAAAA3BYJq3BAzAwsJBwMVCggCmwECHgkiIQYYlvnOAgBXYMRmaPWHPbZmEQAa
+e1IeTsGRMfDp4tpTzwAAAADVwSDmDj0mPCNQAVay/x7KgCID0LSsy5BcRxdQXfUP
+m81NZRBuDTleBt+8pv0Ycsj3C+gdiSiAKQzWUcfZR9u25xC+Hr8ieVuAR76yDf0M
+wdrwYejZTVpwE9Ddvzp/WtvE9QDNGTx0YWJsZXRzZWVrZXJAZ2l0aHViLmNvbT7C
+qQYTGwoAAAA6BYJq3BAzAwsJBwMVCggCmQECmwECHgkiIQYYlvnOAgBXYMRmaPWH
+PbZmEQAae1IeTsGRMfDp4tpTzwAAAAB8AyCItIKqFTP0QeEO1Gz/biC2jd3sNxRO
+ZbBwhAbeXDafZ5r4xZMv8mZfRJXIkuNFk6yvaJ28o7oZWEZ2XpHjDU7xgklC3OHz
+Pwi2SxYY/9gtIvF6e3KVijA3zFtHHTZTHA/OKgZq3BAzGQAAACCe7X2YvMa9v4EH
+mvKxUCTGyi+VVb61/SGs2Buy+q6PWMKbBhgbCgAAACwFgmrcEDMCmwwiIQYYlvnO
+AgBXYMRmaPWHPbZmEQAae1IeTsGRMfDp4tpTzwAAAADrDSAYgGwmAE3GN/rfM9bR
+eAKlUDjEPEqTD7/sWGgnMSgampXdfmPSVOnJDvfsFrP5e7BfVLqEHruR7JdkWdwy
+qdXFX9lqxDon6++Xgjx2SUhn96XB8VkgHugOWgrMUYLRYAHOKgZq3BAzGwAAACA7
+7P7pEZH/S16hy/hdY82J2EUIcD61MBV/qFB0iJR5U8LAdQYYGwoAAADGBYJq3BAz
+ApsgmaAGGRsKAAAAKQWCatwQMyIhBr4NL5F7hXnKI1YoeiHyU5LrmtmR32Mu9iz3
+wceGCWyyAAAAABGMII19n5PyFC595ST/w+hcnOgckk5eOXHVTsN9Sa+9ctcmOHrq
+6DU++uNo5cjZWnUnEqx+13peOMbmnzR5/Yp/h6+WbX4wF35dABxXyjHkxOJD9Hrb
+7rsPReurHUefskG4DSIhBhiW+c4CAFdgxGZo9Yc9tmYRABp7Uh5OwZEx8Oni2lPP
+AAAAAO7jIPpiRw0N5LkRv7v1jK2NPn/D6TIMQH61Rs9NVmGTGE/hVpNS5shq7DKA
+2T+mUo/CNvbQAlBss/TuKNQpPd9EDWGuSBZ6PyCqHzpKED4mbQyDRere70u77Gkh
+Hw/ue6PvA84qBmrcEDMbAAAAIHZhiK16vHk+xXSxtlcgl9qc5Okgjj3NW2nlGv4O
+owg1wsB1BhgbCgAAAMYFgmrcEDMCmwKZoAYZGwoAAAApBYJq3BAzIiEG9qi65xVQ
+3XVcYzSwE31GDf4aJF72dmlumegAybatcRgAAAAA60kg0ZJyaqTzB846Cbi/chYs
+jA0o8sXrNC9d7Y1Skmz+nZmfURStxvJHIwPewDPbvGRo3SgMamEO3GC1Ige7WU65
+/W6xxqr4IpZ25pROGeYXzE8fJvJm4xKBhF41JFzVLnUOIiEGGJb5zgIAV2DEZmj1
+hz22ZhEAGntSHk7BkTHw6eLaU88AAAAAjKAg1l31ZtzBVFn0GpjtZaKqqogakv7k
+gvtSTBVqwa7YVcKeuWvwSEjhYKo424Wfd8b0drZabHS0ZD5Fu7KmNOWy+tdIUibG
++7bgBXGi+0SJjeZxEH8RTFNwXs87DwbjWA0J
+=PXE5
 -----END PGP PUBLIC KEY BLOCK-----
 """
