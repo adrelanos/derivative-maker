@@ -4,141 +4,169 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#090C13">
-  <title>DhampirOS — Visual Design Catalogue</title>
-  <meta name="description" content="A visual catalogue of the real DhampirOS artwork system: identity, boot, icons, cursors, sessions, installer stages and system states.">
+  <title>DhampirOS — Visual Preview</title>
+  <meta name="description" content="Visual design preview for DhampirOS, a hardened Kicksecure derivative with a nocturnal LXQt identity.">
   <link rel="stylesheet" href="pages.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top"><img src="showcase/assets/dhampiros-sigil.svg" alt=""><span>DhampirOS</span></a>
+    <a class="brand" href="#top" aria-label="DhampirOS home">
+      <img src="packages/dhampir/dhampiros-artwork/assets/source-rootfs/usr/share/dhampiros/brand/dhampiros-sigil.svg" alt="DhampirOS sigil">
+      <span>DhampirOS</span>
+    </a>
     <nav>
-      <a href="#identity">Identity</a>
+      <a href="#desktop">Desktop</a>
+      <a href="#terminal">Terminal</a>
       <a href="#boot">Boot</a>
-      <a href="#icons">Icons</a>
-      <a href="#cursors">Cursors</a>
-      <a href="#sessions">Sessions</a>
-      <a href="#installer">Installer</a>
-      <a href="#states">States</a>
+      <a href="#palette">Palette</a>
+      <a href="#status">Status</a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero">
-      <img class="hero-bg" src="showcase/assets/dhampiros-minimal.svg" alt="DhampirOS Nocturne wallpaper">
-      <div class="hero-shade"></div>
-      <div class="hero-content">
-        <div class="mark-row">
-          <img src="showcase/assets/dhampiros-sigil.svg" alt="DhampirOS sigil">
-          <img src="showcase/assets/hunter-crest.svg" alt="Hunter crest">
-          <img src="showcase/assets/d-sword-monogram.svg" alt="D sword monogram">
-        </div>
-        <p class="eyebrow">DHAMPIROS BY POTEMKIN · VISUAL DESIGN CATALOGUE</p>
+      <div class="hero-wallpaper" role="img" aria-label="DhampirOS Nocturne wallpaper preview"></div>
+      <div class="hero-copy">
+        <div class="eyebrow">VISUAL SYSTEM PREVIEW</div>
+        <img class="hero-sigil" src="packages/dhampir/dhampiros-artwork/assets/source-rootfs/usr/share/dhampiros/brand/dhampiros-sigil.svg" alt="">
         <h1>DhampirOS</h1>
-        <p class="lede">A hardened Kicksecure derivative dressed for the night.</p>
-        <div class="pills"><span>Debian</span><span>Kicksecure</span><span>LXQt</span><span>Pre-alpha</span></div>
-        <p class="micro">Everything displayed below is taken from the supplied DhampirOS artwork packs. Concept assets are labelled as concepts; nothing is passed off as a runtime screenshot.</p>
+        <p>A hardened Kicksecure derivative dressed for the night.</p>
+        <div class="hero-badges">
+          <span>Debian</span><span>Kicksecure</span><span>LXQt</span><span>VirtualBox</span><span class="warn">PRE-ALPHA</span>
+        </div>
+        <p class="micro">Design preview generated from tracked repository assets. This is not a runtime screenshot.</p>
       </div>
     </section>
 
-    <section id="identity" class="section">
-      <div class="heading"><span>01</span><div><p class="kicker">IDENTITY</p><h2>Marks for the half-lit machine.</h2></div></div>
-      <div class="identity-grid">
-        <article class="specimen tall"><img src="showcase/assets/dhampiros-sigil.svg" alt="DhampirOS sigil"><h3>DhampirOS sigil</h3><p>Primary system mark.</p></article>
-        <article class="specimen"><img src="showcase/assets/hunter-crest.svg" alt="Hunter crest"><h3>Hunter crest</h3><p>Shield-form secondary mark.</p></article>
-        <article class="specimen"><img src="showcase/assets/d-sword-monogram.svg" alt="D sword monogram"><h3>D / sword monogram</h3><p>Compact identity asset.</p></article>
-        <article class="specimen"><img src="showcase/assets/avatar-hunter.svg" alt="Hunter avatar"><h3>Hunter avatar</h3><p>Login/account artwork.</p></article>
+    <section id="desktop" class="section">
+      <div class="section-heading">
+        <span>01</span>
+        <div><p class="kicker">DESKTOP</p><h2>Nocturne on LXQt</h2></div>
       </div>
-      <div class="palette" aria-label="DhampirOS Nocturne palette">
-        <div style="--c:#090C13"><b>Ink</b><code>#090C13</code></div><div style="--c:#111827"><b>Panel</b><code>#111827</code></div><div style="--c:#192438"><b>Raised</b><code>#192438</code></div><div style="--c:#43536D"><b>Border</b><code>#43536D</code></div><div style="--c:#A7B4C9"><b>Muted</b><code>#A7B4C9</code></div><div style="--c:#DDE5EF"><b>Silver</b><code>#DDE5EF</code></div><div style="--c:#C54A61"><b>Crimson</b><code>#C54A61</code></div><div style="--c:#8BB8DA"><b>Frost</b><code>#8BB8DA</code></div><div style="--c:#A79ACA"><b>Violet</b><code>#A79ACA</code></div><div style="--c:#9BBFA8"><b>Green</b><code>#9BBFA8</code></div><div style="--c:#CFB483"><b>Gold</b><code>#CFB483</code></div><div style="--c:#C9B78E"><b>Potemkin</b><code>#C9B78E</code></div>
+      <div class="desktop-shell">
+        <div class="desktop-canvas">
+          <div class="desktop-shortcuts">
+            <div class="shortcut"><img src="packages/dhampir/dhampiros-artwork/assets/source-rootfs/usr/share/dhampiros/brand/dhampiros-sigil.svg" alt=""><span>Dhampir</span></div>
+            <div class="shortcut generic-icon"><span>▰</span><small>Files</small></div>
+          </div>
+          <div class="window">
+            <div class="window-bar"><span>DhampirOS</span><div class="window-controls"><i></i><i></i><i></i></div></div>
+            <div class="window-body">
+              <div class="window-side"><b>System</b><span>Overview</span><span>Appearance</span><span>Network</span><span>Security</span></div>
+              <div class="window-content">
+                <p class="muted">APPEARANCE</p>
+                <h3>DhampirOS Nocturne</h3>
+                <div class="mini-grid"><div></div><div></div><div></div></div>
+                <button>Apply theme</button>
+              </div>
+            </div>
+          </div>
+          <div class="lxqt-panel">
+            <div class="panel-left"><img src="packages/dhampir/dhampiros-artwork/assets/source-rootfs/usr/share/dhampiros/brand/dhampiros-sigil.svg" alt=""><span class="task active">DhampirOS</span><span class="task">Terminal</span></div>
+            <div class="panel-right"><span>EN</span><span>◌</span><span>23:48</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="boot" class="section">
-      <div class="heading"><span>02</span><div><p class="kicker">BOOT + UNLOCK</p><h2>Quiet before the desktop.</h2></div></div>
-      <figure class="wide-visual"><img src="showcase/assets/boot-screen-concept.svg" alt="Vampire Hunter D Nocturne boot concept"><figcaption>Supplied Nocturne boot concept. Design resource, not a captured boot screen.</figcaption></figure>
-      <div class="unlock-card"><img src="showcase/assets/unlock-panel.svg" alt="Unlock panel artwork"><div><p class="kicker">UNLOCK</p><h3>One field. One lock. No carnival.</h3><p>The supplied unlock-panel artwork keeps the authentication surface sparse and legible.</p></div></div>
-    </section>
-
-    <section id="icons" class="section">
-      <div class="heading"><span>03</span><div><p class="kicker">ICON THEME</p><h2>Readable at a glance.</h2></div></div>
-      <div class="icon-grid">
-        <article><img src="showcase/assets/icon-browser.svg" alt="Browser"><span>Browser</span></article>
-        <article><img src="showcase/assets/icon-terminal.svg" alt="Terminal"><span>Terminal</span></article>
-        <article><img src="showcase/assets/icon-files.svg" alt="Files"><span>Files</span></article>
-        <article><img src="showcase/assets/icon-settings.svg" alt="Settings"><span>Settings</span></article>
-        <article><img src="showcase/assets/icon-lock.svg" alt="Lock"><span>Lock</span></article>
-        <article><img src="showcase/assets/icon-power.svg" alt="Power"><span>Power</span></article>
-        <article><img src="showcase/assets/icon-disk.svg" alt="Disk"><span>Disk</span></article>
-        <article><img src="showcase/assets/icon-wifi.svg" alt="Wi-Fi"><span>Wi-Fi</span></article>
+    <section id="terminal" class="section split">
+      <div>
+        <div class="section-heading compact">
+          <span>02</span>
+          <div><p class="kicker">TERMINAL</p><h2>Dhampir Nocturne</h2></div>
+        </div>
+        <p class="body-copy">QTerminal inherits the same cold silver, frost blue and crimson accents as the desktop. The palette is restrained on purpose, because apparently one can use a computer without making it look like a gaming mouse.</p>
       </div>
-      <p class="note">These are actual examples from the supplied DhampirOS icon theme, which contains far more coverage than the eight shown here.</p>
-    </section>
-
-    <section id="cursors" class="section">
-      <div class="heading"><span>04</span><div><p class="kicker">CURSORS</p><h2>Precise in the dark.</h2></div></div>
-      <div class="cursor-grid">
-        <article><img src="showcase/assets/cursor-default.svg" alt="Default cursor"><span>default</span></article>
-        <article><img src="showcase/assets/cursor-pointer.svg" alt="Pointer cursor"><span>pointer</span></article>
-        <article><img src="showcase/assets/cursor-text.svg" alt="Text cursor"><span>text</span></article>
-        <article><img src="showcase/assets/cursor-crosshair.svg" alt="Crosshair cursor"><span>crosshair</span></article>
-        <article><img src="showcase/assets/cursor-grab.svg" alt="Grab cursor"><span>grab</span></article>
-        <article><img src="showcase/assets/cursor-progress.svg" alt="Progress cursor"><span>progress</span></article>
-        <article><img src="showcase/assets/cursor-wait.svg" alt="Wait cursor"><span>wait</span></article>
-        <article><img src="showcase/assets/cursor-not-allowed.svg" alt="Not allowed cursor"><span>not allowed</span></article>
+      <div class="terminal-card">
+        <div class="terminal-top"><span>QTerminal — dhampir</span><div><i></i><i></i><i></i></div></div>
+        <pre><span class="prompt">dhampir@night</span>:<span class="path">~</span>$ uname -s
+Linux
+<span class="prompt">dhampir@night</span>:<span class="path">~</span>$ printf 'security before spectacle\n'
+<span class="output">security before spectacle</span>
+<span class="prompt">dhampir@night</span>:<span class="path">~</span>$ <span class="cursor">█</span></pre>
       </div>
-      <p class="note">The full pack includes 24 named cursor roles, multiple sizes, aliases and animated wait/progress variants.</p>
     </section>
 
-    <section id="sessions" class="section">
-      <div class="heading"><span>05</span><div><p class="kicker">SESSION LANGUAGE</p><h2>Mode should be obvious.</h2></div></div>
-      <div class="session-grid">
-        <img src="showcase/assets/session-user.svg" alt="User session">
-        <img src="showcase/assets/session-maintenance.svg" alt="Maintenance session">
-        <img src="showcase/assets/session-live.svg" alt="Live session">
-        <img src="showcase/assets/session-persistent.svg" alt="Persistent session">
+    <section id="boot" class="section split reverse">
+      <div class="boot-card">
+        <div class="boot-title">DHAMPIR</div>
+        <div class="boot-subtitle">hardened system</div>
+        <div class="boot-menu">
+          <div class="selected">DhampirOS</div>
+          <div>Advanced options</div>
+          <div>Firmware settings</div>
+        </div>
+        <div class="boot-line"></div>
       </div>
-      <div class="avatar-row"><img src="showcase/assets/avatar-hunter.svg" alt="Hunter avatar"><div><p class="kicker">LOGIN IDENTITY</p><h3>Hunter avatar</h3><p>One of the supplied account/avatar treatments for the login surface.</p></div></div>
-    </section>
-
-    <section id="installer" class="section">
-      <div class="heading"><span>06</span><div><p class="kicker">INSTALLER</p><h2>A restrained setup path.</h2></div></div>
-      <div class="stage-line">
-        <article><img src="showcase/assets/stage-welcome.svg" alt=""><span>Welcome</span></article><i>→</i>
-        <article><img src="showcase/assets/stage-storage.svg" alt=""><span>Storage</span></article><i>→</i>
-        <article><img src="showcase/assets/stage-users.svg" alt=""><span>Users</span></article><i>→</i>
-        <article><img src="showcase/assets/stage-install.svg" alt=""><span>Install</span></article><i>→</i>
-        <article><img src="showcase/assets/stage-finished.svg" alt=""><span>Finished</span></article>
+      <div>
+        <div class="section-heading compact">
+          <span>03</span>
+          <div><p class="kicker">BOOT</p><h2>GRUB, stripped back</h2></div>
+        </div>
+        <p class="body-copy">The tracked source theme keeps boot presentation quiet and legible. It is installed in the artwork package but still needs runtime verification before being enabled by default.</p>
       </div>
-      <p class="note">These stage glyphs are actual supplied installer assets. They describe presentation only; disk operations remain the distro build's responsibility.</p>
     </section>
 
-    <section id="states" class="section">
-      <div class="heading"><span>07</span><div><p class="kicker">SYSTEM STATES</p><h2>Failure should still look intentional.</h2></div></div>
-      <div class="state-grid">
-        <article><img src="showcase/assets/state-no-network.svg" alt="No network"><span>No network</span></article>
-        <article><img src="showcase/assets/state-permission-denied.svg" alt="Permission denied"><span>Permission denied</span></article>
-        <article><img src="showcase/assets/state-update-available.svg" alt="Update available"><span>Update available</span></article>
-        <article><img src="showcase/assets/state-recovery.svg" alt="Recovery"><span>Recovery</span></article>
+    <section id="palette" class="section">
+      <div class="section-heading">
+        <span>04</span>
+        <div><p class="kicker">BRAND SYSTEM</p><h2>Nocturne palette</h2></div>
+      </div>
+      <div class="palette-grid">
+        <div style="--sw:#090C13"><b>Ink</b><code>#090C13</code></div>
+        <div style="--sw:#111827"><b>Panel</b><code>#111827</code></div>
+        <div style="--sw:#192438"><b>Raised</b><code>#192438</code></div>
+        <div style="--sw:#43536D"><b>Border</b><code>#43536D</code></div>
+        <div style="--sw:#A7B4C9"><b>Muted</b><code>#A7B4C9</code></div>
+        <div style="--sw:#DDE5EF"><b>Silver</b><code>#DDE5EF</code></div>
+        <div style="--sw:#C54A61"><b>Crimson</b><code>#C54A61</code></div>
+        <div style="--sw:#8BB8DA"><b>Frost</b><code>#8BB8DA</code></div>
+        <div style="--sw:#A79ACA"><b>Violet</b><code>#A79ACA</code></div>
+        <div style="--sw:#9BBFA8"><b>Green</b><code>#9BBFA8</code></div>
+        <div style="--sw:#CFB483"><b>Gold</b><code>#CFB483</code></div>
+      </div>
+      <div class="brand-lockup">
+        <img src="packages/dhampir/dhampiros-artwork/assets/source-rootfs/usr/share/dhampiros/brand/dhampiros-sigil.svg" alt="DhampirOS sigil">
+        <div><p class="kicker">SIGIL</p><h3>Half-light, blade, hat brim.</h3><p>Used as the system mark, launcher identity and menu anchor.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <span>05</span>
+        <div><p class="kicker">STACK</p><h2>What sits underneath</h2></div>
+      </div>
+      <div class="stack-diagram">
+        <div><b>Debian</b><small>base system</small></div><i>↓</i>
+        <div><b>Kicksecure</b><small>hardening + security packages</small></div><i>↓</i>
+        <div><b>DhampirOS</b><small>derivative + packages</small></div><i>↓</i>
+        <div><b>Nocturne</b><small>LXQt defaults + artwork</small></div><i>↓</i>
+        <div><b>Dhampir.iso / Dhampir.ova</b><small>planned outputs</small></div>
       </div>
     </section>
 
     <section id="status" class="section status-section">
-      <div class="heading"><span>08</span><div><p class="kicker">PROJECT STATUS</p><h2>Pre-alpha, without theatre.</h2></div></div>
+      <div class="section-heading">
+        <span>06</span>
+        <div><p class="kicker">STATUS</p><h2>Pre-alpha, deliberately honest</h2></div>
+      </div>
       <div class="status-grid">
         <div class="done"><b>✓</b><span>Dhampir derivative flavour</span></div>
-        <div class="done"><b>✓</b><span>Artwork Debian package builds</span></div>
-        <div class="done"><b>✓</b><span>LXQt / icon / wallpaper / terminal defaults</span></div>
+        <div class="done"><b>✓</b><span>Artwork Debian package</span></div>
+        <div class="done"><b>✓</b><span>Tracked LXQt source theme</span></div>
+        <div class="done"><b>✓</b><span>Wallpaper + icon identity</span></div>
         <div class="todo"><b>◇</b><span>Runtime visual smoke test</span></div>
-        <div class="todo"><b>◇</b><span>GRUB default activation</span></div>
-        <div class="todo"><b>◇</b><span>First OVA + ISO</span></div>
+        <div class="todo"><b>◇</b><span>GRUB enabled by default</span></div>
+        <div class="todo"><b>◇</b><span>First OVA build</span></div>
+        <div class="todo"><b>◇</b><span>First ISO build</span></div>
       </div>
-      <p class="micro center">The artwork is real. A complete Dhampir image has not yet been runtime-verified end to end.</p>
+      <p class="micro center">Nothing on this page should be read as proof of a successful full image build until runtime testing is recorded.</p>
     </section>
   </main>
 
   <footer>
-    <img src="showcase/assets/dhampiros-sigil.svg" alt="">
-    <div><b>DhampirOS by potemkin</b><p>Independent Kicksecure/Debian derivative. Not endorsed by Kicksecure or Whonix.</p></div>
+    <img src="packages/dhampir/dhampiros-artwork/assets/source-rootfs/usr/share/dhampiros/brand/dhampiros-sigil.svg" alt="">
+    <p><b>DhampirOS</b> is an independent project based on Kicksecure and Debian. It is not endorsed by the Kicksecure or Whonix developers.</p>
     <p><a href="https://github.com/potemkin666/DhampirOS">Repository</a> · <a href="agents/BUILD.md">Build notes</a></p>
   </footer>
 </body>

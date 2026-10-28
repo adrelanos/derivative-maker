@@ -1,88 +1,21 @@
 <div align="center">
 
-<img src="showcase/assets/dhampiros-minimal.svg" alt="DhampirOS Nocturne wallpaper" width="100%" />
+<img src="packages/dhampir/dhampiros-artwork/assets/source-rootfs/usr/share/backgrounds/dhampiros/dhampiros-minimal.svg" alt="DhampirOS Nocturne wallpaper" width="100%" />
 
 <br>
 
-<img src="showcase/assets/dhampiros-sigil.svg" alt="DhampirOS sigil" width="104" />
+<img src="packages/dhampir/dhampiros-artwork/assets/source-rootfs/usr/share/dhampiros/brand/dhampiros-sigil.svg" alt="DhampirOS sigil" width="118" />
 
 # DhampirOS
 
 **A hardened Kicksecure derivative dressed for the night.**
 
-<a href="https://potemkin666.github.io/DhampirOS/"><b>✦ OPEN THE VISUAL DESIGN CATALOGUE ✦</b></a>
+<a href="https://potemkin666.github.io/DhampirOS/"><img src="branding/readme/visual-preview-button.svg" alt="Open visual preview" width="300" /></a>
 
-<br><br>
-
-<img src="showcase/assets/hunter-crest.svg" alt="Hunter crest" width="82" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="showcase/assets/d-sword-monogram.svg" alt="D sword monogram" width="82" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="showcase/assets/avatar-hunter.svg" alt="Hunter avatar" width="82" />
-
-</div>
-
----
-
-<div align="center">
-
-## Boot identity
-
-<img src="showcase/assets/boot-screen-concept.svg" alt="DhampirOS Nocturne boot concept from the supplied asset pack" width="96%" />
-
-<sub>Supplied design asset. Concept artwork, not a runtime screenshot.</sub>
-
-<br><br>
-
-<img src="showcase/assets/unlock-panel.svg" alt="DhampirOS unlock panel artwork" width="62%" />
-
-</div>
-
----
-
-<div align="center">
-
-## System icon language
-
-<img src="showcase/assets/icon-browser.svg" alt="Browser icon" width="92" />
-<img src="showcase/assets/icon-terminal.svg" alt="Terminal icon" width="92" />
-<img src="showcase/assets/icon-files.svg" alt="Files icon" width="92" />
-<img src="showcase/assets/icon-settings.svg" alt="Settings icon" width="92" />
-<img src="showcase/assets/icon-lock.svg" alt="Lock icon" width="92" />
-<img src="showcase/assets/icon-power.svg" alt="Power icon" width="92" />
-<img src="showcase/assets/icon-disk.svg" alt="Disk icon" width="92" />
-<img src="showcase/assets/icon-wifi.svg" alt="Wi-Fi icon" width="92" />
-
-<sub>Examples from the supplied DhampirOS icon theme.</sub>
-
-</div>
-
----
-
-<div align="center">
-
-## Cursor set
-
-<img src="showcase/assets/cursor-default.svg" alt="Default cursor" width="54" />&nbsp;&nbsp;
-<img src="showcase/assets/cursor-pointer.svg" alt="Pointer cursor" width="54" />&nbsp;&nbsp;
-<img src="showcase/assets/cursor-text.svg" alt="Text cursor" width="54" />&nbsp;&nbsp;
-<img src="showcase/assets/cursor-crosshair.svg" alt="Crosshair cursor" width="54" />&nbsp;&nbsp;
-<img src="showcase/assets/cursor-grab.svg" alt="Grab cursor" width="54" />&nbsp;&nbsp;
-<img src="showcase/assets/cursor-progress.svg" alt="Progress cursor" width="54" />&nbsp;&nbsp;
-<img src="showcase/assets/cursor-wait.svg" alt="Wait cursor" width="54" />&nbsp;&nbsp;
-<img src="showcase/assets/cursor-not-allowed.svg" alt="Not allowed cursor" width="54" />
-
-</div>
-
----
-
-<div align="center">
-
-## Session language
-
-<img src="showcase/assets/session-user.svg" alt="User session badge" width="208" />
-<img src="showcase/assets/session-maintenance.svg" alt="Maintenance session badge" width="208" />
 <br>
-<img src="showcase/assets/session-live.svg" alt="Live session badge" width="208" />
-<img src="showcase/assets/session-persistent.svg" alt="Persistent session badge" width="208" />
+<br>
+
+<img src="branding/readme/status-badges.svg" alt="Debian, Kicksecure, LXQt, VirtualBox, pre-alpha unverified image" width="92%" />
 
 </div>
 
@@ -90,36 +23,37 @@
 
 <div align="center">
 
-## Installer stages
+## Visual direction
+
+<img src="branding/readme/desktop-preview.svg" alt="DhampirOS Nocturne desktop design preview" width="96%" />
+
+<sub>Design preview only. Not a runtime screenshot.</sub>
+
+<br><br>
+
+<img src="branding/readme/palette-strip.svg" alt="DhampirOS Nocturne colour palette" width="96%" />
+
+</div>
+
+---
+
+<div align="center">
+
+## Architecture
+
+<img src="branding/readme/architecture.svg" alt="DhampirOS architecture from Debian through Kicksecure to Dhampir ISO and OVA" width="96%" />
+
+</div>
+
+---
 
 <table>
 <tr>
-<td align="center"><img src="showcase/assets/stage-welcome.svg" width="38" alt="Welcome"><br><sub>WELCOME</sub></td>
-<td align="center">→</td>
-<td align="center"><img src="showcase/assets/stage-storage.svg" width="38" alt="Storage"><br><sub>STORAGE</sub></td>
-<td align="center">→</td>
-<td align="center"><img src="showcase/assets/stage-users.svg" width="38" alt="Users"><br><sub>USERS</sub></td>
-<td align="center">→</td>
-<td align="center"><img src="showcase/assets/stage-install.svg" width="38" alt="Install"><br><sub>INSTALL</sub></td>
-<td align="center">→</td>
-<td align="center"><img src="showcase/assets/stage-finished.svg" width="38" alt="Finished"><br><sub>FINISHED</sub></td>
+<td align="center" width="33%"><b>HARDENED BASE</b><br><br>Kicksecure security packages and hardening remain the foundation.</td>
+<td align="center" width="33%"><b>DHAMPIR LXQt</b><br><br>Nocturne LXQt defaults, icon identity and QTerminal styling.</td>
+<td align="center" width="33%"><b>CUSTOM ARTWORK</b><br><br>Dhampir wallpaper, sigil, GRUB theme and visual system.</td>
 </tr>
 </table>
-
-</div>
-
----
-
-<div align="center">
-
-## System states
-
-<img src="showcase/assets/state-no-network.svg" alt="No network state" width="170" />
-<img src="showcase/assets/state-permission-denied.svg" alt="Permission denied state" width="170" />
-<img src="showcase/assets/state-update-available.svg" alt="Update available state" width="170" />
-<img src="showcase/assets/state-recovery.svg" alt="Recovery state" width="170" />
-
-</div>
 
 ---
 
@@ -128,15 +62,21 @@
 | | Component | State |
 |---|---|---|
 | ✓ | `dhampir-lxqt` derivative flavour | wired |
-| ✓ | `dhampiros-artwork` Debian package | builds |
-| ✓ | LXQt / icon / wallpaper / QTerminal defaults | implemented for new users |
-| ◇ | runtime visual smoke test | not yet completed |
-| ◇ | GRUB theme enabled by default | pending runtime verification |
-| ◇ | `Dhampir.ova` / `Dhampir.iso` | not yet built |
+| ✓ | `dhampiros-artwork` Debian package | wired |
+| ✓ | LXQt / icon / wallpaper / terminal defaults | implemented for new users |
+| ◇ | GRUB theme | shipped, not yet enabled by default |
+| ◇ | `Dhampir.ova` | not yet built |
+| ◇ | `Dhampir.iso` | not yet built |
 | ◇ | custom Dhampir kernel | not started |
 
-> **Pre-alpha.** The visuals above are real supplied project assets, but they are design resources, not evidence of a successfully booted full Dhampir image.
+> **Pre-alpha:** no complete Dhampir ISO or OVA has yet been built and runtime-verified end to end.
 
-Build details live in [`agents/BUILD.md`](agents/BUILD.md). DhampirOS is an independent project based on Kicksecure/Debian and is not endorsed by the Kicksecure or Whonix developers.
+### Build
 
-See [`COPYING`](COPYING) for licensing; individual bundled assets retain their applicable notices and provenance.
+Build notes and exact commands live in [`agents/BUILD.md`](agents/BUILD.md).
+
+DhampirOS preserves Kicksecure's security layer and adds its own derivative, packaging, defaults and visual identity on top. It is an independent project and is not made by or endorsed by the Kicksecure or Whonix developers.
+
+### Licence
+
+See [`COPYING`](COPYING). Upstream files retain their original licences and notices.
