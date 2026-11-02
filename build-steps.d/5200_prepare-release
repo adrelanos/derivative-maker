@@ -52,7 +52,7 @@ export-signing-pubkeys(){
    if [ -n "${signify_public_key:-}" ] && [ -r "${signify_public_key}" ]; then
       cp -- "${signify_public_key}" "${binary_build_folder_dist}/derivative-maker-signify.pub" || true
    fi
-   if [ -n "${DEBEMAIL:-}" ] && has sq; then
+   if [ -n "${DEBEMAIL:-}" ] && command -v sq >/dev/null 2>&1; then
       ## NOTE: If the build machine has a malicious key imported into sq that
       ## bears the signer's email address but doesn't belong to the signer,
       ## this will export the bad public key too and potentially cause
