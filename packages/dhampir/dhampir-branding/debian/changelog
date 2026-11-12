@@ -1,0 +1,13 @@
+dhampir-branding (0.1-2) unstable; urgency=medium
+
+  * Refresh distribution package metadata for image builds.
+  * Layer banner diversions on the upstream Kicksecure replacements.
+  * Advertise diversion ownership through Provides and Conflicts.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Wed, 28 Oct 2026 13:00:00 +0000
+
+dhampir-branding (0.1-1) unstable; urgency=medium
+
+  * Initial DhampirOS branding package.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Tue, 27 Oct 2026 22:30:35 +0000

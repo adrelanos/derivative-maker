@@ -1,0 +1,17 @@
+{
+  "name": "DhampirOS Nocturne",
+  "tokens": {
+    "ink": "#090C13",
+    "panel": "#111827",
+    "raised": "#192438",
+    "border": "#43536D",
+    "muted": "#A7B4C9",
+    "silver": "#DDE5EF",
+    "crimson": "#C54A61",
+    "frost": "#8BB8DA",
+    "violet": "#A79ACA",
+    "green": "#9BBFA8",
+    "gold": "#CFB483",
+    "potemkin-gold": "#C9B78E"
+  }
+}

@@ -1,0 +1,99 @@
+name: DhampirOS independent image verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_run:
+        description: Successful image candidate Actions run ID (empty selects latest on this branch)
+        required: false
+        type: string
+  push:
+    branches: ['codex/downloadable-images']
+    paths:
+      - '.github/workflows/local-image-verification.yml'
+      - '.github/workflows/local-images.yml'
+      - 'ci/verify-*.py'
+      - 'ci/audit-*.py'
+      - 'ci/image-*.sh'
+      - 'ci/image-visuals.py'
+      - 'build-steps.d/4305_apply-dhampir-visual-defaults'
+      - 'ci/check-image-packages.sh'
+      - 'packages/dhampir/**'
+      - 'patches/dhampir-*.patch'
+      - 'aptrepo_local/dhampir/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  candidate:
+    if: github.repository == 'potemkin666/DhampirOS'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 335
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      run_id: ${{ steps.select.outputs.run_id }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Resolve and wait for the candidate build
+        id: select
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CANDIDATE_RUN: ${{ inputs.candidate_run }}
+        run: ./ci/verify-candidate.py wait
+  inspect:
+    needs: candidate
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [iso, virtualbox]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    permissions:
+      contents: read
+      actions: read
+      attestations: read
+    steps:
+      - name: Bootstrap the disposable verifier
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends libguestfs-tools qemu-system-x86 qemu-utils ovmf xorriso squashfs-tools python3-pil debsecan acl
+          if [ -c /dev/kvm ]; then
+            printf 'KERNEL=="kvm", OWNER="%s", MODE="0600"\n' "$(id -un)" | sudo tee /etc/udev/rules.d/99-dhampiros-kvm.rules >/dev/null
+            sudo udevadm control --reload-rules
+            sudo udevadm trigger --subsystem-match=misc --sysname-match=kvm
+            sudo udevadm settle
+            sudo chown "$(id -u)" /dev/kvm
+            sudo chmod 0600 /dev/kvm
+          fi
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Retrieve exact candidate and verify its digest
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CANDIDATE_RUN: ${{ needs.candidate.outputs.run_id }}
+          IMAGE_TARGET: ${{ matrix.target }}
+        run: ./ci/verify-candidate.py download
+      - name: Inspect offline filesystem and capture isolated boots
+        env:
+          IMAGE_TARGET: ${{ matrix.target }}
+        run: ./ci/verify-image.py
+      - name: Preserve checks and boot captures for review
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: dhampiros-${{ matrix.target }}-verification
+          path: verification/
+          if-no-files-found: warn
+          retention-days: 14

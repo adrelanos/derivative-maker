@@ -1,0 +1,7 @@
+## Copyright (C) 2012 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## Copyright (C) 2026 potemkin666
+## See the file COPYING for copying conditions.
+
+verbose
+ask-passphrase
+basedir .

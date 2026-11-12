@@ -1,0 +1,3 @@
+# These component versions belong to the DhampirOS monorepo.
+# There are no separate upstream component tarball releases for uscan.
+# Builds record the pinned repository commit and source tree.

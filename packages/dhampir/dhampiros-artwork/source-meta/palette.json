@@ -1,0 +1,23 @@
+{
+  "name": "DhampirOS Nocturne",
+  "tokens": {
+    "ink": "#090C13",
+    "panel": "#111827",
+    "raised": "#192438",
+    "border": "#43536D",
+    "muted": "#A7B4C9",
+    "silver": "#DDE5EF",
+    "crimson": "#C54A61",
+    "frost": "#8BB8DA",
+    "violet": "#A79ACA",
+    "green": "#9BBFA8",
+    "gold": "#CFB483",
+    "potemkin-gold": "#C9B78E"
+  },
+  "ansi": [
+    "#121823", "#D56B80", "#9BBFA8", "#CFB483",
+    "#8BB8DA", "#A79ACA", "#8EBFC4", "#CDD5E0",
+    "#697B96", "#F08DA0", "#B5D9BF", "#E9CE9D",
+    "#ACD4F4", "#C9BCEB", "#B1DFE3", "#F1F4F8"
+  ]
+}

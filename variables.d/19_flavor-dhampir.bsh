@@ -1,0 +1,52 @@
+#!/bin/bash
+
+## Copyright (C) 2026 potemkin666
+## See the file COPYING for copying conditions.
+
+## DhampirOS flavor settings. Sourced before 20_flavor-resolve.bsh, so the
+## values set here win over the generic Kicksecure defaults there.
+##
+## dist_build_type_short stays 'kicksecure' on purpose. Many upstream checks
+## compare against that exact value, so Dhampir gets the same Kicksecure
+## build path, security packages and hardening. Dhampir-only values are
+## layered on top of it here.
+##
+## Only the flavor 'dhampir-lxqt' is handled. Nothing here changes Kicksecure
+## or Whonix flavors.
+
+## style-ok: no-strict -- sourced fragment.
+
+if [ "${dist_build_flavor:-}" = "dhampir-lxqt" ]; then
+   default_if_empty SHORT_VMNAME "Dhampir"
+   default_if_empty VMNAME "Dhampir-LXQt"
+   default_if_empty VMRAM "2048"
+   default_if_empty VRAM "128"
+   default_if_empty dist_build_type_short "kicksecure"
+   default_if_empty dist_build_type_short_pretty "DhampirOS"
+   default_if_empty dist_build_desktop "LXQt"
+   default_if_empty dist_build_gui "true"
+   default_if_empty derivative_name_list "kicksecure dhampir"
+   default_if_empty dist_iso_volume_label "Dhampir"
+   default_if_empty dist_build_min_free_gib 20
+   ## Bare host and path, no scheme. Users of this value add 'https://'.
+   default_if_empty project_clearnet "github.com/potemkin666/DhampirOS"
+
+   ## --target virtualbox sets dist_build_type=vm. --target iso sets
+   ## dist_build_type=host, same as kicksecure-lxqt does.
+   if [ "${dist_build_type:-}" = "vm" ]; then
+      default_if_empty dist_build_host_operating_system "false"
+      default_if_empty dist_build_type_long "kicksecure"
+      default_if_empty flavor_meta_packages_to_install " dhampir-vm-gui-lxqt "
+   elif [ "${dist_build_type:-}" = "host" ]; then
+      default_if_empty dist_build_host_operating_system "true"
+      default_if_empty dist_build_type_long "kicksecure-host"
+      default_if_empty flavor_meta_packages_to_install " dhampir-baremetal-gui-lxqt "
+   else
+      error "${red}${bold}dhampir-lxqt: unsupported dist_build_type '${dist_build_type:-unset}'.${reset}"
+   fi
+
+   ## No upload server for Dhampir yet. An empty array means nothing is
+   ## uploaded. 20_flavor-resolve.bsh checks for this with 'declare -p' so it
+   ## does not fill in the Kicksecure upload host.
+   declare -a dist_server_upload_location_list=()
+fi

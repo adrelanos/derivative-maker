@@ -1,0 +1,22 @@
+{
+  "raster_files": 1007,
+  "svg_files": 400,
+  "json_files": 16,
+  "theme_indexes": 4,
+  "wav_files": 11,
+  "animated_pngs": 3,
+  "font_files": 2,
+  "local_links": 679,
+  "errors": [],
+  "brand": "DhampirOS by potemkin",
+  "custom_full_colour_icons": 110,
+  "panel_symbol_names": 78,
+  "cursor_roles": 24,
+  "cursor_variants": 2,
+  "cursor_aliases_per_variant": 54,
+  "boot_frames": 36,
+  "brand_svg_font_independent": true,
+  "original_artwork_hashes_match": true,
+  "rootfs_overlay_archive_matches_files": true,
+  "linux_runtime_integration": "Not run; compositor, Qt styling, sound events and GRUB boot require testing on target image."
+}

@@ -1,0 +1,12 @@
+DhampirOS by potemkin, 2026.
+
+The illustrations were generated for this independent Vampire Hunter D
+fan project. No source film frames are distributed in these assets.
+Vector artwork, interface styling, motion and synthetic event sounds were
+created for DhampirOS. This is an interactive visual study of a pre-alpha
+Linux project, not a recording of a booted system.
+
+Cinzel: Copyright 2020 The Cinzel Project Authors.
+The unmodified font is supplied under the SIL Open Font License 1.1;
+see fonts/OFL.txt. Generation prompts and asset provenance are tracked in
+packages/dhampir/dhampiros-artwork/source-meta/.

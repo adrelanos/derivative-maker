@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+# Copyright (C) 2026 potemkin666
+# See the file COPYING for copying conditions.
+# AI-Assisted
+
+import sys
+sys.path.insert(0, '/usr/libexec/dhampiros-motion')
+from manager import main
+sys.exit(main())

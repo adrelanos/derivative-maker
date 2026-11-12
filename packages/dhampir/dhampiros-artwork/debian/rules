@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	@if [ ! -f assets/rootfs-overlay.tar.gz ] && [ ! -d assets/source-rootfs ]; then \
+		printf '%s\n' 'DhampirOS artwork payload is missing.' >&2; \
+		printf '%s\n' 'Provide assets/rootfs-overlay.tar.gz or the tracked assets/source-rootfs fallback.' >&2; \
+		exit 1; \
+	fi
+
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	bash tests/test-theme-paths.sh
+	./tests/test-cursors.py
+endif
+
+override_dh_auto_install:
+	mkdir -p debian/dhampiros-artwork
+	@if [ -f assets/rootfs-overlay.tar.gz ]; then \
+		tar --extract --gzip --file=assets/rootfs-overlay.tar.gz --directory=debian/dhampiros-artwork; \
+	fi
+	cp -a assets/source-rootfs/. debian/dhampiros-artwork/

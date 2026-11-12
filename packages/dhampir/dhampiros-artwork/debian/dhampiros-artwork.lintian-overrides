@@ -1,0 +1,14 @@
+# DhampirOS is a distribution. These exact templates establish the visual
+# defaults for newly created accounts; package upgrades do not rewrite homes.
+dhampiros-artwork: package-contains-file-in-etc-skel [etc/skel/.config/]
+dhampiros-artwork: package-contains-file-in-etc-skel [etc/skel/.config/lxqt/]
+dhampiros-artwork: package-contains-file-in-etc-skel [etc/skel/.config/lxqt/lxqt.conf]
+dhampiros-artwork: package-contains-file-in-etc-skel [etc/skel/.config/pcmanfm-qt/]
+dhampiros-artwork: package-contains-file-in-etc-skel [etc/skel/.config/pcmanfm-qt/lxqt/]
+dhampiros-artwork: package-contains-file-in-etc-skel [etc/skel/.config/pcmanfm-qt/lxqt/settings.conf]
+dhampiros-artwork: package-contains-file-in-etc-skel [etc/skel/.config/qterminal.org/]
+dhampiros-artwork: package-contains-file-in-etc-skel [etc/skel/.config/qterminal.org/qterminal.ini]
+# Cinzel is an integral theme resource; its OFL notice is shipped in full.
+dhampiros-artwork: font-in-non-font-package [usr/share/fonts/truetype/dhampiros/Cinzel.ttf]
+# GRUB reads theme.txt as runtime configuration, not user documentation.
+dhampiros-artwork: package-contains-documentation-outside-usr-share-doc [usr/share/grub/themes/DhampirOS/theme.txt]

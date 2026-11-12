@@ -1,0 +1,705 @@
+{
+  "identity": "DhampirOS by potemkin",
+  "wallpapers": [
+    {
+      "id": "rider",
+      "name": "Rainbound Hunter",
+      "caption": "The rider. The storm. The blue cloak.",
+      "src": "showcase/assets/wallpapers/rider.webp",
+      "thumb": "showcase/assets/wallpapers/rider-thumb.webp",
+      "motion": true
+    },
+    {
+      "id": "eclipse",
+      "name": "Crimson Eclipse",
+      "caption": "A distant castle under a dying red moon.",
+      "src": "showcase/assets/wallpapers/eclipse.webp",
+      "thumb": "showcase/assets/wallpapers/eclipse-thumb.webp",
+      "motion": false
+    },
+    {
+      "id": "silver",
+      "name": "Silver Nocturne",
+      "caption": "Silver light across the ruined frontier.",
+      "src": "showcase/assets/wallpapers/silver.webp",
+      "thumb": "showcase/assets/wallpapers/silver-thumb.webp",
+      "motion": false
+    },
+    {
+      "id": "threshold",
+      "name": "Threshold",
+      "caption": "A quiet entrance into the half-light.",
+      "src": "showcase/assets/wallpapers/threshold.webp",
+      "thumb": "showcase/assets/wallpapers/threshold-thumb.webp",
+      "motion": false
+    }
+  ],
+  "icons": [
+    {
+      "id": "folder",
+      "label": "Folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder.svg"
+    },
+    {
+      "id": "user-home",
+      "label": "Home",
+      "category": "places",
+      "src": "showcase/assets/icons/user-home.svg"
+    },
+    {
+      "id": "folder-download",
+      "label": "Download folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-download.svg"
+    },
+    {
+      "id": "utilities-terminal",
+      "label": "Terminal",
+      "category": "apps",
+      "src": "showcase/assets/icons/utilities-terminal.svg"
+    },
+    {
+      "id": "web-browser",
+      "label": "Browser",
+      "category": "apps",
+      "src": "showcase/assets/icons/web-browser.svg"
+    },
+    {
+      "id": "system-file-manager",
+      "label": "Files",
+      "category": "apps",
+      "src": "showcase/assets/icons/system-file-manager.svg"
+    },
+    {
+      "id": "preferences-system",
+      "label": "Settings",
+      "category": "apps",
+      "src": "showcase/assets/icons/preferences-system.svg"
+    },
+    {
+      "id": "text-x-generic",
+      "label": "Document",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/text-x-generic.svg"
+    },
+    {
+      "id": "image-x-generic",
+      "label": "Image",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/image-x-generic.svg"
+    },
+    {
+      "id": "audio-x-generic",
+      "label": "Audio",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/audio-x-generic.svg"
+    },
+    {
+      "id": "video-x-generic",
+      "label": "Video",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/video-x-generic.svg"
+    },
+    {
+      "id": "user-trash",
+      "label": "Trash",
+      "category": "places",
+      "src": "showcase/assets/icons/user-trash.svg"
+    },
+    {
+      "id": "drive-harddisk",
+      "label": "Disk",
+      "category": "devices",
+      "src": "showcase/assets/icons/drive-harddisk.svg"
+    },
+    {
+      "id": "applications-other",
+      "label": "Applications",
+      "category": "apps",
+      "src": "showcase/assets/icons/applications-other.svg"
+    },
+    {
+      "id": "security-high",
+      "label": "Security",
+      "category": "status",
+      "src": "showcase/assets/icons/security-high.svg"
+    },
+    {
+      "id": "network-workgroup",
+      "label": "Network",
+      "category": "places",
+      "src": "showcase/assets/icons/network-workgroup.svg"
+    },
+    {
+      "id": "system-shutdown",
+      "label": "Power",
+      "category": "actions",
+      "src": "showcase/assets/icons/system-shutdown.svg"
+    },
+    {
+      "id": "system-search",
+      "label": "Search",
+      "category": "actions",
+      "src": "showcase/assets/icons/system-search.svg"
+    },
+    {
+      "id": "utilities-system-monitor",
+      "label": "System monitor",
+      "category": "apps",
+      "src": "showcase/assets/icons/utilities-system-monitor.svg"
+    },
+    {
+      "id": "avatar-default",
+      "label": "User",
+      "category": "status",
+      "src": "showcase/assets/icons/avatar-default.svg"
+    },
+    {
+      "id": "system-lock-screen",
+      "label": "Lock",
+      "category": "actions",
+      "src": "showcase/assets/icons/system-lock-screen.svg"
+    },
+    {
+      "id": "audio-volume-high",
+      "label": "Volume",
+      "category": "status",
+      "src": "showcase/assets/icons/audio-volume-high.svg"
+    },
+    {
+      "id": "network-wireless",
+      "label": "Wi-Fi",
+      "category": "status",
+      "src": "showcase/assets/icons/network-wireless.svg"
+    },
+    {
+      "id": "battery-full",
+      "label": "Battery",
+      "category": "status",
+      "src": "showcase/assets/icons/battery-full.svg"
+    },
+    {
+      "id": "folder-open",
+      "label": "Open folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-open.svg"
+    },
+    {
+      "id": "folder-documents",
+      "label": "Documents folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-documents.svg"
+    },
+    {
+      "id": "folder-music",
+      "label": "Music folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-music.svg"
+    },
+    {
+      "id": "folder-pictures",
+      "label": "Pictures folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-pictures.svg"
+    },
+    {
+      "id": "folder-videos",
+      "label": "Videos folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-videos.svg"
+    },
+    {
+      "id": "folder-publicshare",
+      "label": "Publicshare folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-publicshare.svg"
+    },
+    {
+      "id": "folder-templates",
+      "label": "Templates folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-templates.svg"
+    },
+    {
+      "id": "folder-remote",
+      "label": "Remote folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-remote.svg"
+    },
+    {
+      "id": "folder-locked",
+      "label": "Locked folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-locked.svg"
+    },
+    {
+      "id": "folder-saved-search",
+      "label": "Saved Search folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-saved-search.svg"
+    },
+    {
+      "id": "folder-development",
+      "label": "Development folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-development.svg"
+    },
+    {
+      "id": "folder-backup",
+      "label": "Backup folder",
+      "category": "places",
+      "src": "showcase/assets/icons/folder-backup.svg"
+    },
+    {
+      "id": "user-trash-full",
+      "label": "Trash full",
+      "category": "places",
+      "src": "showcase/assets/icons/user-trash-full.svg"
+    },
+    {
+      "id": "network-server",
+      "label": "Server",
+      "category": "places",
+      "src": "showcase/assets/icons/network-server.svg"
+    },
+    {
+      "id": "user-bookmarks",
+      "label": "Bookmarks",
+      "category": "places",
+      "src": "showcase/assets/icons/user-bookmarks.svg"
+    },
+    {
+      "id": "user-desktop",
+      "label": "Desktop",
+      "category": "places",
+      "src": "showcase/assets/icons/user-desktop.svg"
+    },
+    {
+      "id": "application-pdf",
+      "label": "PDF document",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/application-pdf.svg"
+    },
+    {
+      "id": "application-zip",
+      "label": "ZIP archive",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/application-zip.svg"
+    },
+    {
+      "id": "application-x-compressed-tar",
+      "label": "Compressed archive",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/application-x-compressed-tar.svg"
+    },
+    {
+      "id": "application-x-executable",
+      "label": "Executable",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/application-x-executable.svg"
+    },
+    {
+      "id": "application-x-iso",
+      "label": "ISO image",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/application-x-iso.svg"
+    },
+    {
+      "id": "application-x-deb",
+      "label": "Debian package",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/application-x-deb.svg"
+    },
+    {
+      "id": "package-x-generic",
+      "label": "Package",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/package-x-generic.svg"
+    },
+    {
+      "id": "text-x-script",
+      "label": "Shell script",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/text-x-script.svg"
+    },
+    {
+      "id": "text-html",
+      "label": "HTML file",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/text-html.svg"
+    },
+    {
+      "id": "text-x-python",
+      "label": "Python source",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/text-x-python.svg"
+    },
+    {
+      "id": "font-x-generic",
+      "label": "Font",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/font-x-generic.svg"
+    },
+    {
+      "id": "application-x-zerosize",
+      "label": "Empty file",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/application-x-zerosize.svg"
+    },
+    {
+      "id": "application-octet-stream",
+      "label": "Unknown file",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/application-octet-stream.svg"
+    },
+    {
+      "id": "x-office-spreadsheet",
+      "label": "Spreadsheet",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/x-office-spreadsheet.svg"
+    },
+    {
+      "id": "x-office-presentation",
+      "label": "Presentation",
+      "category": "mimetypes",
+      "src": "showcase/assets/icons/x-office-presentation.svg"
+    },
+    {
+      "id": "drive-removable-media",
+      "label": "Removable drive",
+      "category": "devices",
+      "src": "showcase/assets/icons/drive-removable-media.svg"
+    },
+    {
+      "id": "media-flash",
+      "label": "Flash storage",
+      "category": "devices",
+      "src": "showcase/assets/icons/media-flash.svg"
+    },
+    {
+      "id": "computer",
+      "label": "Computer",
+      "category": "devices",
+      "src": "showcase/assets/icons/computer.svg"
+    },
+    {
+      "id": "input-keyboard",
+      "label": "Keyboard",
+      "category": "devices",
+      "src": "showcase/assets/icons/input-keyboard.svg"
+    },
+    {
+      "id": "input-mouse",
+      "label": "Mouse",
+      "category": "devices",
+      "src": "showcase/assets/icons/input-mouse.svg"
+    },
+    {
+      "id": "printer",
+      "label": "Printer",
+      "category": "devices",
+      "src": "showcase/assets/icons/printer.svg"
+    },
+    {
+      "id": "network-wired",
+      "label": "Wired network",
+      "category": "devices",
+      "src": "showcase/assets/icons/network-wired.svg"
+    },
+    {
+      "id": "audio-input-microphone",
+      "label": "Microphone",
+      "category": "devices",
+      "src": "showcase/assets/icons/audio-input-microphone.svg"
+    },
+    {
+      "id": "audio-headphones",
+      "label": "Headphones",
+      "category": "devices",
+      "src": "showcase/assets/icons/audio-headphones.svg"
+    },
+    {
+      "id": "accessories-calculator",
+      "label": "Calculator",
+      "category": "apps",
+      "src": "showcase/assets/icons/accessories-calculator.svg"
+    },
+    {
+      "id": "accessories-text-editor",
+      "label": "Text editor",
+      "category": "apps",
+      "src": "showcase/assets/icons/accessories-text-editor.svg"
+    },
+    {
+      "id": "accessories-screenshot",
+      "label": "Screenshot",
+      "category": "apps",
+      "src": "showcase/assets/icons/accessories-screenshot.svg"
+    },
+    {
+      "id": "system-software-install",
+      "label": "Install software",
+      "category": "apps",
+      "src": "showcase/assets/icons/system-software-install.svg"
+    },
+    {
+      "id": "system-software-update",
+      "label": "Software updates",
+      "category": "apps",
+      "src": "showcase/assets/icons/system-software-update.svg"
+    },
+    {
+      "id": "system-backup",
+      "label": "Backup",
+      "category": "apps",
+      "src": "showcase/assets/icons/system-backup.svg"
+    },
+    {
+      "id": "help-browser",
+      "label": "Help",
+      "category": "apps",
+      "src": "showcase/assets/icons/help-browser.svg"
+    },
+    {
+      "id": "preferences-desktop",
+      "label": "Appearance",
+      "category": "apps",
+      "src": "showcase/assets/icons/preferences-desktop.svg"
+    },
+    {
+      "id": "preferences-desktop-accessibility",
+      "label": "Accessibility",
+      "category": "apps",
+      "src": "showcase/assets/icons/preferences-desktop-accessibility.svg"
+    },
+    {
+      "id": "preferences-desktop-keyboard",
+      "label": "Keyboard settings",
+      "category": "apps",
+      "src": "showcase/assets/icons/preferences-desktop-keyboard.svg"
+    },
+    {
+      "id": "system-about",
+      "label": "About DhampirOS",
+      "category": "apps",
+      "src": "showcase/assets/icons/system-about.svg"
+    },
+    {
+      "id": "applications-accessories",
+      "label": "Accessories",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-accessories.svg"
+    },
+    {
+      "id": "applications-development",
+      "label": "Development",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-development.svg"
+    },
+    {
+      "id": "applications-games",
+      "label": "Games",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-games.svg"
+    },
+    {
+      "id": "applications-graphics",
+      "label": "Graphics",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-graphics.svg"
+    },
+    {
+      "id": "applications-internet",
+      "label": "Internet",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-internet.svg"
+    },
+    {
+      "id": "applications-multimedia",
+      "label": "Multimedia",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-multimedia.svg"
+    },
+    {
+      "id": "applications-office",
+      "label": "Office",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-office.svg"
+    },
+    {
+      "id": "applications-science",
+      "label": "Science",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-science.svg"
+    },
+    {
+      "id": "applications-system",
+      "label": "System",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-system.svg"
+    },
+    {
+      "id": "applications-utilities",
+      "label": "Utilities",
+      "category": "categories",
+      "src": "showcase/assets/icons/applications-utilities.svg"
+    },
+    {
+      "id": "emblem-default",
+      "label": "Default",
+      "category": "emblems",
+      "src": "showcase/assets/icons/emblem-default.svg"
+    },
+    {
+      "id": "emblem-important",
+      "label": "Important",
+      "category": "emblems",
+      "src": "showcase/assets/icons/emblem-important.svg"
+    },
+    {
+      "id": "emblem-favorite",
+      "label": "Favorite",
+      "category": "emblems",
+      "src": "showcase/assets/icons/emblem-favorite.svg"
+    },
+    {
+      "id": "emblem-readonly",
+      "label": "Readonly",
+      "category": "emblems",
+      "src": "showcase/assets/icons/emblem-readonly.svg"
+    },
+    {
+      "id": "emblem-shared",
+      "label": "Shared",
+      "category": "emblems",
+      "src": "showcase/assets/icons/emblem-shared.svg"
+    },
+    {
+      "id": "emblem-symbolic-link",
+      "label": "Symbolic-Link",
+      "category": "emblems",
+      "src": "showcase/assets/icons/emblem-symbolic-link.svg"
+    },
+    {
+      "id": "emblem-synchronized",
+      "label": "Synchronized",
+      "category": "emblems",
+      "src": "showcase/assets/icons/emblem-synchronized.svg"
+    },
+    {
+      "id": "emblem-unreadable",
+      "label": "Unreadable",
+      "category": "emblems",
+      "src": "showcase/assets/icons/emblem-unreadable.svg"
+    },
+    {
+      "id": "emblem-encrypted",
+      "label": "Encrypted",
+      "category": "emblems",
+      "src": "showcase/assets/icons/emblem-encrypted.svg"
+    },
+    {
+      "id": "system-reboot",
+      "label": "System Reboot",
+      "category": "actions",
+      "src": "showcase/assets/icons/system-reboot.svg"
+    },
+    {
+      "id": "system-log-out",
+      "label": "System Log Out",
+      "category": "actions",
+      "src": "showcase/assets/icons/system-log-out.svg"
+    },
+    {
+      "id": "system-suspend",
+      "label": "System Suspend",
+      "category": "actions",
+      "src": "showcase/assets/icons/system-suspend.svg"
+    },
+    {
+      "id": "system-hibernate",
+      "label": "System Hibernate",
+      "category": "actions",
+      "src": "showcase/assets/icons/system-hibernate.svg"
+    },
+    {
+      "id": "document-save",
+      "label": "Document Save",
+      "category": "actions",
+      "src": "showcase/assets/icons/document-save.svg"
+    },
+    {
+      "id": "edit-copy",
+      "label": "Edit Copy",
+      "category": "actions",
+      "src": "showcase/assets/icons/edit-copy.svg"
+    },
+    {
+      "id": "edit-paste",
+      "label": "Edit Paste",
+      "category": "actions",
+      "src": "showcase/assets/icons/edit-paste.svg"
+    },
+    {
+      "id": "edit-delete",
+      "label": "Edit Delete",
+      "category": "actions",
+      "src": "showcase/assets/icons/edit-delete.svg"
+    },
+    {
+      "id": "view-refresh",
+      "label": "View Refresh",
+      "category": "actions",
+      "src": "showcase/assets/icons/view-refresh.svg"
+    },
+    {
+      "id": "list-add",
+      "label": "List Add",
+      "category": "actions",
+      "src": "showcase/assets/icons/list-add.svg"
+    },
+    {
+      "id": "list-remove",
+      "label": "List Remove",
+      "category": "actions",
+      "src": "showcase/assets/icons/list-remove.svg"
+    },
+    {
+      "id": "media-playback-start",
+      "label": "Media Playback Start",
+      "category": "actions",
+      "src": "showcase/assets/icons/media-playback-start.svg"
+    },
+    {
+      "id": "media-playback-pause",
+      "label": "Media Playback Pause",
+      "category": "actions",
+      "src": "showcase/assets/icons/media-playback-pause.svg"
+    },
+    {
+      "id": "media-playback-stop",
+      "label": "Media Playback Stop",
+      "category": "actions",
+      "src": "showcase/assets/icons/media-playback-stop.svg"
+    },
+    {
+      "id": "media-skip-forward",
+      "label": "Media Skip Forward",
+      "category": "actions",
+      "src": "showcase/assets/icons/media-skip-forward.svg"
+    },
+    {
+      "id": "start-here",
+      "label": "DhampirOS menu",
+      "category": "places",
+      "src": "showcase/assets/icons/start-here.svg"
+    }
+  ],
+  "motion": {
+    "webm": "showcase/assets/motion/nocturne-rider.webm",
+    "mp4": "showcase/assets/motion/nocturne-rider.mp4",
+    "seconds": 24
+  },
+  "status": "Interactive visual preview / pre-alpha"
+}

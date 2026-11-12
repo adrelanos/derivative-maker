@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="64" viewBox="0 0 1000 64">
+  <rect width="1000" height="64" rx="14" fill="#090C13"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="700" text-anchor="middle">
+    <g><rect x="18" y="14" width="150" height="36" rx="8" fill="#111827" stroke="#43536D"/><text x="93" y="37" fill="#DDE5EF">DEBIAN</text></g>
+    <g><rect x="180" y="14" width="170" height="36" rx="8" fill="#111827" stroke="#43536D"/><text x="265" y="37" fill="#DDE5EF">KICKSECURE</text></g>
+    <g><rect x="362" y="14" width="130" height="36" rx="8" fill="#111827" stroke="#43536D"/><text x="427" y="37" fill="#DDE5EF">LXQt</text></g>
+    <g><rect x="504" y="14" width="170" height="36" rx="8" fill="#111827" stroke="#43536D"/><text x="589" y="37" fill="#DDE5EF">VIRTUALBOX</text></g>
+    <g><rect x="686" y="14" width="296" height="36" rx="8" fill="#26131A" stroke="#C54A61"/><text x="834" y="37" fill="#F0BAC5">PRE-ALPHA · UNVERIFIED IMAGE</text></g>
+  </g>
+</svg>

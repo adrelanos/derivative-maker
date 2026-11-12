@@ -1,0 +1,28 @@
+diff --git a/usr/bin/dm-check-unicode b/usr/bin/dm-check-unicode
+--- a/usr/bin/dm-check-unicode
++++ b/usr/bin/dm-check-unicode
+@@ -262,8 +262,22 @@
+    if [ -n "${git_symlink_paths[${file_name}]+_}" ]; then
+       continue
+    fi
+-
++
++   ## --null-data disables grep's binary handling above. Apply the same
++   ## content-based binary exclusion used by the other source checks.
++   ## Binary artwork does not have a text EOF newline. Fail on read errors.
++   grep_text_rc=0
++   grep --binary-files=without-match --quiet -- '' "${file_name}" || grep_text_rc="$?"
++   case "${grep_text_rc}" in
++      0) ;;
++      1) continue ;;
++      *)
++         printf '%s\n' "$0: ERROR: Cannot inspect newline candidate: ${file_name}" >&2
++         exit 1
++         ;;
++   esac
++
+    grep_missing_newline_result_filtered+=("${file_name}")
+ done <<< "${grep_missing_newline_result_raw}"
+-
++
+ if [ "${#grep_missing_newline_result_filtered[@]}" -eq "0" ]; then

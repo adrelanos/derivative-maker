@@ -64,6 +64,7 @@ parse_cmd_flavor_error() {
 --flavor whonix-host-cli
 --flavor kicksecure-cli
 --flavor kicksecure-lxqt
+--flavor dhampir-lxqt
 --flavor kicksecure-ci-tiny-do-not-use (DANGEROUS, DO NOT USE)
 --flavor dist-installer-cli
 --flavor source
@@ -132,6 +133,7 @@ Flavors:
     whonix-host-lxqt            : Builds Whonix-Host LXQt.
     kicksecure-cli              : Builds Kicksecure VM CLI VM.
     kicksecure-lxqt             : Builds Kicksecure VM LXQt VM.
+    dhampir-lxqt                : Builds DhampirOS (Kicksecure-based) LXQt VM / ISO.
     source                      : Build helpers (e.g. cowbuilder chroot, source packages) without targeting a specific VM flavor.
 
 Targets:
@@ -323,6 +325,8 @@ dist_build_one_parse_cmd() {
                elif [ "${dist_build_flavor:-}" = "kicksecure-cli" ]; then
                   build_machines_counter="$(( ${build_machines_counter} + 1 ))"
                elif [ "${dist_build_flavor:-}" = "kicksecure-lxqt" ]; then
+                  build_machines_counter="$(( ${build_machines_counter} + 1 ))"
+               elif [ "${dist_build_flavor:-}" = "dhampir-lxqt" ]; then
                   build_machines_counter="$(( ${build_machines_counter} + 1 ))"
                elif [ "${dist_build_flavor:-}" = "kicksecure-ci-tiny-do-not-use" ]; then
                   error_dangerous_option_maybe "kicksecure-ci-tiny-do-not-use"

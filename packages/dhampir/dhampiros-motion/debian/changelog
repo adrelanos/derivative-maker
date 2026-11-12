@@ -1,0 +1,17 @@
+dhampiros-motion (0.1-2) unstable; urgency=medium
+
+  * Keep standalone policy tests independent of sibling source packages.
+  * Check installed artwork in native integration and image verification.
+  * Declare the exact new-account motion templates as distribution defaults.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Wed, 28 Oct 2026 13:00:00 +0000
+
+dhampiros-motion (0.1-1) unstable; urgency=medium
+
+  * Add the native LXQt/labwc local video wallpaper backend and desktop loader.
+  * Preserve PCManFM desktop icons, with a dedicated visual profile and static
+    fallback on unsupported sessions, playback failure and Reduced/Off mode.
+  * Read existing logind visibility and accessibility preferences, bound player
+    lifetime, prevent duplicates and provide Full/Reduced/Off controls.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Wed, 28 Oct 2026 09:00:00 +0000

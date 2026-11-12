@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=DhampirOS Desktop
+Comment=Local wallpaper motion with a native static fallback
+Exec=/usr/bin/dhampiros-motion desktop
+TryExec=/usr/bin/pcmanfm-qt
+OnlyShowIn=LXQt;
+X-LXQt-Module=true

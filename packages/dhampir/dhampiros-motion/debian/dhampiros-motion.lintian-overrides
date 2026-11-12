@@ -1,0 +1,7 @@
+# DhampirOS is a distribution. These exact templates establish the visual
+# defaults for newly created accounts; package upgrades do not rewrite homes.
+dhampiros-motion: package-contains-file-in-etc-skel [etc/skel/.config/]
+dhampiros-motion: package-contains-file-in-etc-skel [etc/skel/.config/autostart/]
+dhampiros-motion: package-contains-file-in-etc-skel [etc/skel/.config/autostart/lxqt-desktop.desktop]
+dhampiros-motion: package-contains-file-in-etc-skel [etc/skel/.config/dhampiros/]
+dhampiros-motion: package-contains-file-in-etc-skel [etc/skel/.config/dhampiros/motion.conf]

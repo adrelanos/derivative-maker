@@ -1,0 +1,11 @@
+## Copyright (C) 2012 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@whonix.org>
+## Copyright (C) 2026 potemkin666
+## See the file COPYING for copying conditions.
+
+Origin: dhampir
+Label: DhampirOS
+Codename: local
+Architectures: amd64 arm64 source
+Components: main contrib non-free
+Description: DhampirOS local APT repository for building from source
+Contents:

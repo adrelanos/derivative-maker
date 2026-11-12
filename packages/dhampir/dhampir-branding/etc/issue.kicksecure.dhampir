@@ -1,0 +1,10 @@
+Welcome to DhampirOS (Dhampir)!
+
+DhampirOS is built on Kicksecure, which is built on Debian.
+Kicksecure's security and hardening features are kept in place.
+
+Security defaults come from Kicksecure. For details, see:
+https://www.kicksecure.com/wiki/root
+https://www.kicksecure.com/wiki/login
+
+DhampirOS is an independent project. It is not made by Kicksecure.

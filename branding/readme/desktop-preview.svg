@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <radialGradient id="bg"><stop stop-color="#192438"/><stop offset="1" stop-color="#090C13"/></radialGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000" flood-opacity=".55"/></filter>
+  </defs>
+  <rect width="1200" height="675" rx="22" fill="url(#bg)"/>
+  <circle cx="960" cy="236" r="118" fill="#111827" stroke="#43536D" stroke-width="3" opacity=".9"/>
+  <path d="M960 126A110 110 0 0 0 960 346Z" fill="#DDE5EF" opacity=".9"/>
+  <path d="M982 140A92 92 0 0 1 982 332A102 102 0 0 0 982 140Z" fill="#C54A61" opacity=".82"/>
+  <path d="M960 144L970 236L960 328L950 236Z" fill="#8BB8DA" stroke="#090C13" stroke-width="3"/>
+  <rect x="0" y="622" width="1200" height="53" fill="#090C13" opacity=".96"/>
+  <rect x="22" y="634" width="35" height="30" rx="7" fill="#192438" stroke="#43536D"/>
+  <circle cx="39" cy="649" r="8" fill="#C54A61"/><path d="M39 641L42 649L39 657L36 649Z" fill="#8BB8DA"/>
+  <text x="78" y="655" fill="#DDE5EF" font-family="ui-sans-serif,system-ui" font-size="15">DhampirOS</text>
+  <text x="1164" y="655" fill="#A7B4C9" font-family="ui-monospace,monospace" font-size="13" text-anchor="end">00:13</text>
+  <g filter="url(#shadow)">
+    <rect x="96" y="102" width="620" height="402" rx="12" fill="#0B101A" stroke="#43536D"/>
+    <rect x="96" y="102" width="620" height="42" rx="12" fill="#111827"/>
+    <circle cx="122" cy="123" r="5" fill="#C54A61"/><circle cx="141" cy="123" r="5" fill="#CFB483"/><circle cx="160" cy="123" r="5" fill="#9BBFA8"/>
+    <text x="188" y="129" fill="#A7B4C9" font-family="ui-monospace,monospace" font-size="14">QTerminal — DhampirNocturne</text>
+    <g font-family="ui-monospace,monospace" font-size="17">
+      <text x="132" y="190" fill="#8BB8DA">dhampir@night</text><text x="277" y="190" fill="#DDE5EF">:~$ fastfetch</text>
+      <text x="132" y="232" fill="#C54A61">◐</text><text x="164" y="232" fill="#DDE5EF">DhampirOS</text>
+      <text x="132" y="268" fill="#A7B4C9">Base</text><text x="245" y="268" fill="#DDE5EF">Kicksecure / Debian</text>
+      <text x="132" y="302" fill="#A7B4C9">Desktop</text><text x="245" y="302" fill="#DDE5EF">LXQt · Nocturne</text>
+      <text x="132" y="336" fill="#A7B4C9">Status</text><text x="245" y="336" fill="#CFB483">PRE-ALPHA</text>
+      <text x="132" y="392" fill="#A79ACA">A hardened derivative dressed for the night.</text>
+      <text x="132" y="446" fill="#8BB8DA">▌</text>
+    </g>
+  </g>
+  <rect x="32" y="28" width="178" height="30" rx="15" fill="#111827" stroke="#43536D"/>
+  <text x="121" y="48" text-anchor="middle" fill="#A7B4C9" font-family="ui-monospace,monospace" font-size="12">DESIGN PREVIEW · NOT SCREENSHOT</text>
+</svg>

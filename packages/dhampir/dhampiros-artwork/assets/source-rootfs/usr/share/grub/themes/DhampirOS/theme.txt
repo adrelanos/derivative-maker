@@ -1,0 +1,39 @@
+# DhampirOS by potemkin - artwork-only GRUB theme; uses existing menu entries.
+title-text: ""
+desktop-image: "background.png"
+desktop-color: "#090C13"
+terminal-border: "1"
++ boot_menu {
+  left = 10%
+  top = 42%
+  width = 56%
+  height = 40%
+  item_color = "#DDE5EF"
+  selected_item_color = "#FFFFFF"
+  item_height = 38
+  item_padding = 12
+  item_spacing = 8
+  icon_width = 24
+  icon_height = 24
+  item_icon_space = 14
+  selected_item_pixmap_style = "selected_*.png"
+}
++ label {
+  left = 10%
+  top = 89%
+  width = 80%
+  height = 6%
+  color = "#A7B4C9"
+  text = "@KEYMAP_SHORT@"
+}
++ progress_bar {
+  id = "__timeout__"
+  left = 10%
+  top = 84%
+  width = 56%
+  height = 4
+  fg_color = "#8BB8DA"
+  bg_color = "#263348"
+  border_color = "#263348"
+  text = ""
+}

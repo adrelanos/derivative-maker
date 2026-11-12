@@ -43,7 +43,7 @@ convert_raw_to_iso() {
       --raw "${binary_image_raw_file}"
       --output "${binary_image_iso_file}"
       --arch "${dist_build_target_arch}"
-      --label "${dist_build_type_short}"
+      --label "${dist_iso_volume_label:-${dist_build_type_short}}"
       --source-date-epoch "${SOURCE_DATE_EPOCH}"
       --grub-config-dir "${source_code_folder_dist}/iso-build-data/grub-config"
       --dist-pretty "${dist_build_type_short_pretty}"

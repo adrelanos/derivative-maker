@@ -101,6 +101,12 @@ fi
 ## VM image.
 derive_unified_image_paths
 
+## DhampirOS uses fixed output names (no version or arch in the file name).
+if [ "${dist_build_flavor:-}" = "dhampir-lxqt" ]; then
+   default_if_empty binary_image_ova_file "${dist_binary_build_folder}/Dhampir.ova"
+   default_if_empty binary_image_iso_file "${dist_binary_build_folder}/Dhampir.iso"
+fi
+
 default_if_empty binary_image_ova_file "${dist_binary_build_folder}/${dist_unified_name}-${dist_build_version}.${target_architecture_pretty_name}.ova"
 default_if_empty binary_image_iso_file "${dist_binary_build_folder}/${SHORT_VMNAME}-${dist_build_desktop}-${dist_build_version}.${target_architecture_pretty_name}.iso"
 default_if_empty binary_image_windows_installer_file "${dist_binary_build_folder}/${dist_unified_name}-${dist_build_version}.exe"

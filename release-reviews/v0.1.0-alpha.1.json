@@ -1,0 +1,77 @@
+{
+  "candidate_run": "40751365822",
+  "verification_run": "40762495912",
+  "source_commit": "db5152d816559ed2365f81486c4106b17f20af83",
+  "vulnerability_findings_reviewed": true,
+  "review_scope": "All four original KVM desktop captures viewed; offline reports passed; Debian available-fix gate passed without exclusions. Raw source/version tracker findings remain and are not all confirmed applicable or resolved.",
+  "release_scope": "Experimental alpha for isolated VM testing; not for sensitive or production workloads.",
+  "account_policy": "Upstream passwordless local user autologin and sysmaint setup retained; root locked; no SSH server keys or enabled socket. Configure credentials before persistent use.",
+  "update_repository_check": {
+    "status": "signature-verified",
+    "repository": "https://deb.kicksecure.com/dists/trixie/InRelease",
+    "metadata_sha256": "3493fa5c2afc523c9fcd378446a580b51c0146eef5b1ea8145e051ca2c3a2770",
+    "signing_fingerprint": "6E979B28A6F37C43BE30AFA1CB8D50BB77BB3C48",
+    "primary_fingerprint": "916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA",
+    "installed_key_sha256": "e99b253bbb4a7b881bc394de4f6fbbe5f832a32137da8c61a0a603a22e71825f",
+    "valid_until": "Thu, 19 Nov 2026 04:51:39 UTC",
+    "checked_at": "2026-10-28T19:20:24.450217+00:00",
+    "scope": "GnuPG verifies the public repository metadata with the pinned shipped key; Tor transport is not tested here"
+  },
+  "runtime_limits": [
+    "Physical hardware, Secure Boot and actual VirtualBox runtime unverified",
+    "Motion performance on physical GPUs and full login/lock lifecycle not certified"
+  ],
+  "iso": {
+    "sha256": "eb1ca786925cd90c937878aafc0075c669a961ed439e11dc1550a9e516b9972f",
+    "bios": {
+      "outcome": "desktop",
+      "sha256": "72c9a61dbacea18b155fac1edd7db2486779473c01d4e8f1948bbc7709ceac25"
+    },
+    "uefi": {
+      "outcome": "desktop",
+      "sha256": "bc566a123b79a94636a32813ab8ffa8852f38f9ad9b27bc20da400c9adc49e66"
+    },
+    "boot_environment": {
+      "accelerator": "kvm",
+      "cpu_model": "host",
+      "capture_seconds": [
+        20,
+        90,
+        240
+      ],
+      "memory_mib": 4096,
+      "processors": 2,
+      "parallel_firmwares": 2,
+      "kvm_probe_error": "",
+      "network": "disabled",
+      "disk_writes": "disposable snapshot"
+    }
+  },
+  "ova": {
+    "sha256": "e81ded3eff4c0cca636fb162953f4d1a74f22770e3b4888b88cbbe8784d2641d",
+    "bios": {
+      "outcome": "desktop",
+      "sha256": "59faad5667c4bdd4decfaad17c9495add9b3d960900081688250ca547d45c632"
+    },
+    "uefi": {
+      "outcome": "desktop",
+      "sha256": "12564b1e72494f8af190b8f288f707f568193e1c3b5cfac038437cd238c34cc1"
+    },
+    "boot_environment": {
+      "accelerator": "kvm",
+      "cpu_model": "host",
+      "capture_seconds": [
+        20,
+        90,
+        240
+      ],
+      "memory_mib": 2048,
+      "processors": 3,
+      "parallel_firmwares": 2,
+      "kvm_probe_error": "",
+      "network": "disabled",
+      "disk_writes": "disposable snapshot"
+    }
+  },
+  "publication_boundary": "Owner creates and publishes release metadata. CI stages and hash-verifies actual reviewed files in the owner-created draft; public URLs are checked before enabling the website."
+}

@@ -1,0 +1,92 @@
+name: DhampirOS image candidates
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['codex/downloadable-images']
+    paths:
+      - '.github/workflows/local-images.yml'
+      - 'ci/image-*.sh'
+      - 'ci/image-visuals.py'
+      - 'build-steps.d/4305_apply-dhampir-visual-defaults'
+      - 'ci/check-image-packages.sh'
+      - 'packages/dhampir/**'
+      - 'patches/dhampir-*.patch'
+      - 'aptrepo_local/dhampir/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  packages:
+    if: github.repository == 'potemkin666/DhampirOS'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    container:
+      image: debian:trixie@sha256:35b8ff74ead4880f22090b617372daff0ccae742eb5674455d542bef71ef1999
+    steps:
+      - name: Bootstrap the disposable package verifier
+        run: |
+          apt-get update
+          apt-get install --yes --no-install-recommends git ca-certificates build-essential debhelper config-package-dev python3 python3-yaml lintian reprepro shellcheck
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Build isolated source packages and run lintian
+        run: ./ci/check-image-packages.sh
+      - name: Check release tooling before starting full images
+        run: ./ci/check-image-tools.py
+  build:
+    needs: packages
+    if: github.repository == 'potemkin666/DhampirOS'
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [iso, virtualbox]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 330
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          submodules: false
+      - name: Prepare isolated runner and pinned submodules
+        run: ./ci/image-host.sh prepare
+      - name: Restore public build-tool container cache
+        id: dmimg-cache
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae  # v5.0.5
+        with:
+          path: ~/.dm-docker-image
+          key: ${{ runner.os }}-dhampir-tools-${{ hashFiles('docker/**', 'build_sources/frozen-snapshot-timestamp', 'build_sources/debian_stable_frozen_direct_clearnet.sources.in') }}
+      - name: Load cached build tools
+        if: steps.dmimg-cache.outputs.cache-hit == 'true'
+        run: ./ci/dm-docker-image-cache load
+      - name: Build full DhampirOS desktop without test boot backdoors
+        env:
+          IMAGE_TARGET: ${{ matrix.target }}
+        run: ./ci/image-host.sh build
+      - name: Save public build-tool container cache
+        if: always() && steps.dmimg-cache.outputs.cache-hit != 'true'
+        run: ./ci/dm-docker-image-cache save
+      - name: Record cryptographic provenance for the actual image
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6  # v4.2.2
+        with:
+          subject-path: artifacts/*.${{ matrix.target == 'iso' && 'iso' || 'ova' }}
+      - name: Preserve candidates and build evidence for independent verification
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: dhampiros-${{ matrix.target }}-candidate
+          path: artifacts/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14

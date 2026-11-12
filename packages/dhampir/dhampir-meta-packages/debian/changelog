@@ -1,0 +1,18 @@
+dhampir-meta-packages (0.2-2) unstable; urgency=medium
+
+  * Include the source license and wrap package descriptions.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Wed, 28 Oct 2026 13:00:00 +0000
+
+dhampir-meta-packages (0.2-1) unstable; urgency=medium
+
+  * Include the DhampirOS motion runtime in both LXQt GUI flavours while
+    retaining their matching upstream Kicksecure meta-package dependency.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Wed, 28 Oct 2026 09:00:00 +0000
+
+dhampir-meta-packages (0.1-1) unstable; urgency=medium
+
+  * Initial DhampirOS meta package for the LXQt VM flavour.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Tue, 27 Oct 2026 22:30:35 +0000

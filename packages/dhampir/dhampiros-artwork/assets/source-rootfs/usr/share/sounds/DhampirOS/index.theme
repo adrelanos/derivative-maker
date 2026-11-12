@@ -1,0 +1,8 @@
+[Sound Theme]
+Name=DhampirOS
+Comment=DhampirOS by potemkin - original quiet event sounds
+Inherits=freedesktop
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo

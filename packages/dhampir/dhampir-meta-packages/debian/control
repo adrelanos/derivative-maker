@@ -1,0 +1,38 @@
+## Copyright (C) 2026 potemkin666
+## See the file COPYING for copying conditions.
+
+Source: dhampir-meta-packages
+Section: misc
+Priority: optional
+Maintainer: potemkin666 <183807833+potemkin666@users.noreply.github.com>
+Build-Depends: debhelper (>= 13), debhelper-compat (= 13)
+Standards-Version: 4.7.2
+Homepage: https://potemkin666.github.io/DhampirOS/
+Rules-Requires-Root: no
+
+## Each binary package below pulls in the matching Kicksecure LXQt meta
+## package (VM = --target virtualbox, baremetal = --target iso) plus the
+## DhampirOS branding and artwork. Kicksecure security packages come in through
+## those dependencies and are not copied or changed here.
+Package: dhampir-vm-gui-lxqt
+Architecture: all
+Depends: kicksecure-vm-gui-lxqt,
+ dhampir-branding,
+ dhampiros-artwork,
+ dhampiros-motion,
+ ${misc:Depends}
+Description: DhampirOS VM with LXQt desktop (metapackage)
+ Installs the Kicksecure LXQt VM packages with DhampirOS branding and artwork.
+ Security and hardening come from the Kicksecure packages it depends on.
+
+Package: dhampir-baremetal-gui-lxqt
+Architecture: all
+Depends: kicksecure-baremetal-gui-lxqt,
+ dhampir-branding,
+ dhampiros-artwork,
+ dhampiros-motion,
+ ${misc:Depends}
+Description: DhampirOS baremetal (ISO) with LXQt desktop (metapackage)
+ Installs the Kicksecure LXQt baremetal packages with DhampirOS branding
+ and artwork.
+ Security and hardening come from the Kicksecure packages it depends on.

@@ -1,0 +1,136 @@
+{
+  "identity": "DhampirOS by potemkin",
+  "period_seconds": 24,
+  "loop_endpoints_pixel_identical": true,
+  "motion_region_checks": {
+    "face": {
+      "box": [
+        1172,
+        222,
+        1190,
+        246
+      ],
+      "mean_absolute_change_8bit": 0.0
+    },
+    "horse_face": {
+      "box": [
+        955,
+        394,
+        981,
+        442
+      ],
+      "mean_absolute_change_8bit": 0.0
+    },
+    "castle": {
+      "box": [
+        580,
+        657,
+        610,
+        705
+      ],
+      "mean_absolute_change_8bit": 0.0
+    },
+    "hair": {
+      "box": [
+        1290,
+        205,
+        1445,
+        292
+      ],
+      "mean_absolute_change_8bit": 5.796712
+    },
+    "mane": {
+      "box": [
+        1018,
+        321,
+        1098,
+        390
+      ],
+      "mean_absolute_change_8bit": 1.773188
+    },
+    "grass": {
+      "box": [
+        927,
+        760,
+        1042,
+        814
+      ],
+      "mean_absolute_change_8bit": 7.000537
+    },
+    "cloak": {
+      "box": [
+        1350,
+        413,
+        1520,
+        510
+      ],
+      "mean_absolute_change_8bit": 1.318799
+    }
+  },
+  "videos": [
+    {
+      "file": "nocturne-rider-1080p.mp4",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "frames": 720,
+      "duration": 24.0,
+      "codec": "h264",
+      "bytes": 5404867,
+      "decode_errors": ""
+    },
+    {
+      "file": "nocturne-rider-1080p.webm",
+      "size": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "frames": 720,
+      "duration": 24.0,
+      "codec": "vp9",
+      "bytes": 2009795,
+      "decode_errors": ""
+    },
+    {
+      "file": "nocturne-rider-720p-light.webm",
+      "size": [
+        1280,
+        720
+      ],
+      "fps": 24,
+      "frames": 576,
+      "duration": 24.0,
+      "codec": "vp9",
+      "bytes": 868849,
+      "decode_errors": ""
+    }
+  ],
+  "browser": {
+    "status": {
+      "ready": true,
+      "gpu": true,
+      "frames": 1,
+      "errors": [],
+      "period": 24,
+      "source": [
+        1672,
+        941
+      ]
+    },
+    "pause": true,
+    "resume": true,
+    "still_preset": true,
+    "reduced_motion": true,
+    "mobile_overflow": false,
+    "wallpaper_only": true,
+    "ui_dialog": true,
+    "ui_notification": true,
+    "ui_tabs": true,
+    "page_errors": []
+  },
+  "static_png_source": "assets/nocturne-poster.png",
+  "linux_compositor_playback": "Not run on target Kicksecure image; player helper and documented integration supplied."
+}

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090c13">
+  <link rel="icon" type="image/svg+xml" href="showcase/assets/brand/dhampiros-sigil.svg">
+  <title>DhampirOS by potemkin — In the half-light</title>
+  <meta name="description" content="Explore DhampirOS: Vampire Hunter D artwork, a quietly animated frontier and an interactive desktop preview. A custom Kicksecure-based Linux project by potemkin.">
+  <meta property="og:title" content="DhampirOS by potemkin">
+  <meta property="og:description" content="A little time in the half-light. Explore the interactive desktop and the art behind DhampirOS.">
+  <meta property="og:image" content="https://potemkin666.github.io/DhampirOS/showcase/assets/wallpapers/rider.webp">
+  <link rel="preload" as="image" href="showcase/assets/wallpapers/rider.webp">
+  <link rel="stylesheet" href="pages.css"><link rel="stylesheet" href="showcase.css">
+  <script src="showcase.js" defer></script>
+  <link rel="stylesheet" href="downloads.css">
+  <script src="downloads.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#icons">Skip to the desktop preview</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="DhampirOS home"><img src="showcase/assets/brand/dhampiros-sigil.svg" alt=""><span>DhampirOS<small>by potemkin</small></span></a>
+    <nav aria-label="Main navigation"><a href="#icons">Explore</a><a href="#downloads">Downloads</a><a href="#artwork">Artwork</a><a href="#identity">Identity</a><a href="https://github.com/potemkin666/DhampirOS" target="_blank" rel="noopener noreferrer">Source ↗</a></nav>
+  </header>
+  <main id="top">
+    <section class="hero nocturne-hero" aria-labelledby="hero-title">
+      <img class="hero-bg" src="showcase/assets/wallpapers/rider.webp" alt="D and his horse on a storm-swept ridge beneath distant gothic towers" fetchpriority="high">
+      <video class="hero-bg motion-video" id="hero-video" muted loop playsinline preload="none" aria-hidden="true" poster="showcase/assets/wallpapers/rider.webp"><source data-src="showcase/assets/motion/nocturne-rider.webm" type="video/webm"><source data-src="showcase/assets/motion/nocturne-rider.mp4" type="video/mp4"></video>
+      <div class="hero-shade"></div>
+      <div class="hero-content"><p class="eyebrow">A VAMPIRE HUNTER D–INSPIRED LINUX PROJECT</p><h1 id="hero-title">DhampirOS</h1><p class="hero-by">by potemkin</p><p class="lede">At home in the half-light.</p><p class="hero-description">A midnight desktop. Silver edges. A frontier that stirs in the wind. Explore the visual world of a custom Kicksecure-based OS.</p><div class="hero-actions"><a class="primary-link" href="#icons">Step into the desktop <span aria-hidden="true">↗</span></a><a class="text-link" href="#artwork">Meet the artwork</a></div><p class="hero-status"><span aria-hidden="true"></span> Experimental alpha images · interactive visual preview</p></div>
+      <div class="hero-caption"><span>RAINBOUND HUNTER / NOCTURNE</span><button id="hero-motion" type="button" aria-pressed="true">Pause motion</button></div>
+    </section>
+
+    <section id="icons" class="section explore-section" aria-labelledby="explore-title">
+      <div class="explore-heading"><div><p class="kicker">A LITTLE TIME INSIDE</p><h2 id="explore-title">Make yourself at home.</h2></div><p>Open the launcher. Move a window.<br> Find your corner of the night.</p></div>
+      <div class="desktop-shell" id="desktop-shell" aria-label="DhampirOS interactive visual preview">
+        <div class="preview-toolbar"><div class="preview-tabs" role="tablist" aria-label="Preview screens"><button type="button" role="tab" id="tab-desktop" data-view="desktop" aria-controls="view-desktop" aria-selected="true">Desktop</button><button type="button" role="tab" id="tab-login" data-view="login" aria-controls="view-login" aria-selected="false" tabindex="-1">Login</button><button type="button" role="tab" id="tab-installer" data-view="installer" aria-controls="view-installer" aria-selected="false" tabindex="-1">Setup</button><button type="button" role="tab" id="tab-library" data-view="library" aria-controls="view-library" aria-selected="false" tabindex="-1">Icons</button></div><div class="preview-actions"><button type="button" id="reset-preview" aria-label="Reset the visual preview" title="Reset preview">↺<span> Reset</span></button><button type="button" id="fullscreen-preview" aria-label="Expand the visual preview" title="Fullscreen">⛶<span> Expand</span></button></div></div>
+        <div class="preview-stage" id="preview-stage">
+          <section class="preview-view desktop-view" id="view-desktop" role="tabpanel" aria-labelledby="tab-desktop">
+            <img class="desktop-wallpaper" id="desktop-still" src="showcase/assets/wallpapers/rider.webp" alt="">
+            <video class="desktop-wallpaper motion-video" id="desktop-video" muted loop playsinline preload="none" aria-hidden="true"><source data-src="showcase/assets/motion/nocturne-rider.webm" type="video/webm"><source data-src="showcase/assets/motion/nocturne-rider.mp4" type="video/mp4"></video>
+            <div class="desktop-vignette"></div>
+            <div class="desktop-shortcuts"><button type="button" class="desktop-shortcut" data-open="files"><img src="showcase/assets/icons/user-home.svg" alt=""><span>Home</span></button><button type="button" class="desktop-shortcut" data-open="gallery"><img src="showcase/assets/icons/folder-pictures.svg" alt=""><span>Artwork</span></button><button type="button" class="desktop-shortcut" data-open="notes"><img src="showcase/assets/icons/text-x-generic.svg" alt=""><span>Field notes</span></button></div>
+            <div class="os-window-layer" id="window-layer"></div>
+            <div class="os-launcher" id="launcher" hidden><div class="launcher-brand"><img src="showcase/assets/brand/dhampiros-sigil.svg" alt=""><div>DhampirOS<small>by potemkin</small></div><span class="session-dot" title="User session"></span></div><label class="launcher-search"><span aria-hidden="true">⌕</span><input id="launcher-search" type="search" placeholder="Find an application" aria-label="Find a preview application" autocomplete="off"></label><div class="launcher-apps" id="launcher-apps"></div><div class="launcher-footer"><span>user · Nocturne</span><button type="button" data-login title="Preview the login screen" aria-label="Preview the login screen"><img src="showcase/assets/panel/system-lock-screen.svg" alt=""></button></div></div>
+            <div class="os-toast" id="os-toast" role="status" hidden></div>
+            <div class="os-panel"><div class="panel-left"><button class="start-button" id="preview-start" type="button" aria-label="Open the application launcher" aria-expanded="false" aria-controls="launcher"><img src="showcase/assets/brand/dhampiros-sigil.svg" alt=""><span>DhampirOS</span></button><div class="panel-divider"></div><button class="dock-button" type="button" data-open="files" aria-label="Open Files" title="Files"><img src="showcase/assets/icons/system-file-manager.svg" alt=""></button><button class="dock-button" type="button" data-open="terminal" aria-label="Open Terminal" title="Terminal"><img src="showcase/assets/icons/utilities-terminal.svg" alt=""></button><button class="dock-button" type="button" data-open="settings" aria-label="Open Appearance" title="Appearance"><img src="showcase/assets/icons/preferences-desktop.svg" alt=""></button><div class="panel-tasks" id="panel-tasks"></div></div><div class="panel-status"><button type="button" data-open="settings" data-settings-tab="motion" aria-label="Open motion preferences" title="Motion preferences"><img src="showcase/assets/panel/display-brightness.svg" alt=""></button><button type="button" id="sound-toggle" aria-label="Enable preview notification sounds" aria-pressed="false" title="Preview sounds off"><img src="showcase/assets/panel/audio-volume-muted.svg" alt=""></button><img class="panel-wifi" src="showcase/assets/panel/network-wireless-signal-good.svg" alt="Network symbol"><time id="desktop-clock">21:04</time></div></div>
+          </section>
+          <section class="preview-view login-view" id="view-login" role="tabpanel" aria-labelledby="tab-login" hidden><div class="login-scene"><img class="login-backdrop" src="showcase/assets/wallpapers/threshold.webp" alt="Moonlit gates beyond the fog"><div class="login-shade"></div><div class="login-box"><img class="login-wordmark" src="showcase/assets/brand/dhampiros-wordmark.svg" alt="DhampirOS by potemkin"><img class="login-avatar" src="showcase/assets/brand/avatar-hunter.svg" alt="Hunter avatar"><p class="login-user">user</p><div class="login-password" aria-label="Password field illustration"><span aria-hidden="true">••••••••</span><img src="showcase/assets/panel/changes-prevent.svg" alt="Lock symbol"></div><button class="os-primary" type="button" data-enter-desktop>Enter the preview <span aria-hidden="true">→</span></button><p class="login-footnote">A visual study of the login surface.</p></div><span class="login-mode">USER SESSION</span></div></section>
+          <section class="preview-view installer-view" id="view-installer" role="tabpanel" aria-labelledby="tab-installer" hidden><div class="installer-portrait"><img src="showcase/assets/installer/portrait.webp" alt="Portrait of D in an indigo cloak"><span>THE FRONTIER AWAITS.</span></div><div class="installer-body"><img class="installer-wordmark" src="showcase/assets/brand/dhampiros-wordmark.svg" alt="DhampirOS by potemkin"><div class="installer-steps" id="installer-steps"></div><div id="installer-content"></div><div class="installer-navigation"><button class="os-secondary" id="installer-back" type="button">Back</button><span id="installer-position">1 / 5</span><button class="os-primary" id="installer-next" type="button">Continue →</button></div></div></section>
+          <section class="preview-view library-view" id="view-library" role="tabpanel" aria-labelledby="tab-library" hidden><div class="library-heading"><div><p class="kicker">THE REAL THEME ASSETS</p><h3>A language for the everyday.</h3></div><span id="library-count">110 icons</span></div><div class="library-tools"><label><span class="sr-only">Find an icon</span><input id="library-search" type="search" placeholder="Find an icon…"></label><label><span class="sr-only">Icon category</span><select id="library-category"><option value="all">All categories</option><option value="places">Folders & places</option><option value="apps">Applications</option><option value="devices">Devices</option><option value="mimetypes">File types</option><option value="actions">Actions</option><option value="categories">Categories</option><option value="emblems">Emblems</option><option value="status">Status</option></select></label></div><div class="os-icon-library" id="icon-library"></div><div class="library-empty" id="library-empty" hidden><img src="showcase/assets/states/no-results.svg" alt=""><p>No icons match that search.</p></div></section>
+        </div>
+      </div>
+      <div class="preview-caption"><span><i aria-hidden="true"></i> Interactive design preview · actual project artwork</span><span>Try Files, Appearance and Terminal from the launcher.</span></div>
+      <noscript><p class="note">Enable JavaScript to explore the interactive desktop. The artwork catalogue below remains available.</p></noscript>
+    </section>
+
+    <section id="artwork" class="section artwork-section"><div class="explore-heading"><div><p class="kicker">THE WORLD BEHIND THE WINDOWS</p><h2>Four ways to meet the night.</h2></div><p>Choose a scene to see it<br>on the desktop above.</p></div><div class="wallpaper-gallery" id="wallpaper-gallery"><figure><img src="showcase/assets/wallpapers/rider-thumb.webp" alt="Rainbound Hunter"><figcaption>Rainbound Hunter</figcaption></figure><figure><img src="showcase/assets/wallpapers/eclipse-thumb.webp" alt="Crimson Eclipse"><figcaption>Crimson Eclipse</figcaption></figure><figure><img src="showcase/assets/wallpapers/silver-thumb.webp" alt="Silver Nocturne"><figcaption>Silver Nocturne</figcaption></figure><figure><img src="showcase/assets/wallpapers/threshold-thumb.webp" alt="Threshold"><figcaption>Threshold</figcaption></figure></div><p class="artwork-note">Original project artwork. The rider's rain, hair, mane, cloak and grass share a restrained, seamless 24-second motion study.</p></section>
+
+    <section id="downloads" class="section download-section" aria-labelledby="download-title">
+      <p class="kicker">TAKE THE FRONTIER WITH YOU</p>
+      <h2 id="download-title">Your own half-light.</h2>
+      <p class="download-intro">The full DhampirOS desktop, built on Kicksecure. Choose a bootable image or an appliance for your virtual machine.</p>
+      <p class="download-scope" id="download-status" role="status">Experimental alpha for isolated VM testing. Read the verification report and remaining limits before use.</p>
+      <p class="download-scope account-policy"><strong>Before persistent use:</strong> the alpha retains upstream passwordless local autologin and account setup. Configure account credentials before keeping personal data in a VM.</p>
+      <div class="download-grid">
+        <article class="download-card" data-download="iso">
+          <span class="download-kind" aria-hidden="true">.iso</span><h3>Bootable image</h3>
+          <p>Boot in a virtual machine to explore the desktop. Hardware installation support must be confirmed in the release report.</p>
+          <p class="download-meta">AMD64 / Intel &amp; AMD 64-bit PCs</p>
+          <button class="download-button" type="button" disabled>ISO awaiting verification</button>
+          <details class="download-hash" hidden><summary>SHA-256 fingerprint</summary><code></code></details>
+        </article>
+        <article class="download-card" data-download="ova">
+          <span class="download-kind" aria-hidden="true">.ova</span><h3>VirtualBox appliance</h3>
+          <p>Import a ready-made machine into VirtualBox. Review its network and device settings before the first start.</p>
+          <p class="download-meta">AMD64 / VirtualBox</p>
+          <button class="download-button" type="button" disabled>OVA awaiting verification</button>
+          <details class="download-hash" hidden><summary>SHA-256 fingerprint</summary><code></code></details>
+        </article>
+      </div>
+      <div class="download-assurance" id="download-evidence" hidden><a data-checksums>Checksums</a><a data-report>Original verification report</a><a href="https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/virtualbox-runtime-report.json">VirtualBox boot review</a><a data-source>Exact source</a></div>
+      <noscript><p class="download-scope">Downloads without JavaScript: <a class="download-build-link" href="https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/DhampirOS-0.1.0-alpha.1-amd64.iso">ISO</a> · <a class="download-build-link" href="https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/DhampirOS-0.1.0-alpha.1-amd64.ova">OVA</a> · <a class="download-build-link" href="https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/SHA256SUMS">Checksums</a> · <a class="download-build-link" href="https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/verification-report.json">Verification report</a>.</p></noscript>
+      <p class="download-scope">Experimental alpha. Checksums detect changed downloads; the verification report records the checks actually performed and any remaining limits. DhampirOS is an independent derivative and has not received a security certification.</p>
+      <p class="download-scope">The published OVA also reached its desktop in VirtualBox 7.2.22 on Linux, under BIOS and UEFI, with network and host integration disabled. Physical hardware, Secure Boot and Windows/macOS VirtualBox hosts remain untested. The <a class="download-build-link" href="https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/virtualbox-runtime-report.json">later boot review</a> supplements the original verification report.</p>
+      <details class="release-capture"><summary>See the actual alpha desktop</summary><figure><img src="showcase/assets/releases/alpha1-desktop.png" alt="DhampirOS alpha ISO running its real desktop in a tested virtual machine" width="1280" height="800" loading="lazy"><figcaption>An original capture from the tested ISO, with the Dhampir artwork on the live desktop.</figcaption></figure></details>
+      <a class="download-build-link" href="https://github.com/potemkin666/DhampirOS/actions/workflows/local-images.yml" target="_blank" rel="noopener noreferrer">Follow the image builds</a>
+    </section>
+
+    <section id="identity" class="section">
+      <div class="heading"><span>01</span><div><p class="kicker">IDENTITY</p><h2>Marks for the half-lit machine.</h2></div></div>
+      <div class="identity-grid">
+        <article class="specimen tall"><img src="showcase/assets/dhampiros-sigil.svg" alt="DhampirOS sigil"><h3>DhampirOS sigil</h3><p>Primary system mark.</p></article>
+        <article class="specimen"><img src="showcase/assets/hunter-crest.svg" alt="Hunter crest"><h3>Hunter crest</h3><p>Shield-form secondary mark.</p></article>
+        <article class="specimen"><img src="showcase/assets/d-sword-monogram.svg" alt="D sword monogram"><h3>D / sword monogram</h3><p>Compact identity asset.</p></article>
+        <article class="specimen"><img src="showcase/assets/avatar-hunter.svg" alt="Hunter avatar"><h3>Hunter avatar</h3><p>Login/account artwork.</p></article>
+      </div>
+      <div class="palette" aria-label="DhampirOS Nocturne palette">
+        <div style="--c:#090C13"><b>Ink</b><code>#090C13</code></div><div style="--c:#111827"><b>Panel</b><code>#111827</code></div><div style="--c:#192438"><b>Raised</b><code>#192438</code></div><div style="--c:#43536D"><b>Border</b><code>#43536D</code></div><div style="--c:#A7B4C9"><b>Muted</b><code>#A7B4C9</code></div><div style="--c:#DDE5EF"><b>Silver</b><code>#DDE5EF</code></div><div style="--c:#C54A61"><b>Crimson</b><code>#C54A61</code></div><div style="--c:#8BB8DA"><b>Frost</b><code>#8BB8DA</code></div><div style="--c:#A79ACA"><b>Violet</b><code>#A79ACA</code></div><div style="--c:#9BBFA8"><b>Green</b><code>#9BBFA8</code></div><div style="--c:#CFB483"><b>Gold</b><code>#CFB483</code></div><div style="--c:#C9B78E"><b>Potemkin</b><code>#C9B78E</code></div>
+      </div>
+    </section>
+
+    <section id="boot" class="section">
+      <div class="heading"><span>02</span><div><p class="kicker">BOOT + UNLOCK</p><h2>Quiet before the desktop.</h2></div></div>
+      <figure class="wide-visual"><img src="showcase/assets/nocturne-boot-concept.svg" alt="DhampirOS Nocturne boot concept"><figcaption>Boot artwork concept. Runtime verification is still in progress.</figcaption></figure>
+      <div class="unlock-card"><img src="showcase/assets/unlock-panel.svg" alt="Unlock panel artwork"><div><p class="kicker">UNLOCK</p><h3>A quiet way in.</h3><p>The supplied unlock-panel artwork keeps the authentication surface sparse and legible.</p></div></div>
+    </section>
+
+    <section id="cursors" class="section">
+      <div class="heading"><span>04</span><div><p class="kicker">CURSORS</p><h2>Precise in the dark.</h2></div></div>
+      <div class="cursor-grid">
+        <article><img src="showcase/assets/cursor-default.svg" alt="Default cursor"><span>default</span></article>
+        <article><img src="showcase/assets/cursor-pointer.svg" alt="Pointer cursor"><span>pointer</span></article>
+        <article><img src="showcase/assets/cursor-text.svg" alt="Text cursor"><span>text</span></article>
+        <article><img src="showcase/assets/cursor-crosshair.svg" alt="Crosshair cursor"><span>crosshair</span></article>
+        <article><img src="showcase/assets/cursor-grab.svg" alt="Grab cursor"><span>grab</span></article>
+        <article><img src="showcase/assets/cursor-progress.svg" alt="Progress cursor"><span>progress</span></article>
+        <article><img src="showcase/assets/cursor-wait.svg" alt="Wait cursor"><span>wait</span></article>
+        <article><img src="showcase/assets/cursor-not-allowed.svg" alt="Not allowed cursor"><span>not allowed</span></article>
+      </div>
+      <p class="note">The full pack includes 24 named cursor roles, multiple sizes, aliases and animated wait/progress variants.</p>
+    </section>
+
+    <section id="sessions" class="section">
+      <div class="heading"><span>05</span><div><p class="kicker">SESSION LANGUAGE</p><h2>Mode should be obvious.</h2></div></div>
+      <div class="session-grid">
+        <img src="showcase/assets/session-user.svg" alt="User session">
+        <img src="showcase/assets/session-maintenance.svg" alt="Maintenance session">
+        <img src="showcase/assets/session-live.svg" alt="Live session">
+        <img src="showcase/assets/session-persistent.svg" alt="Persistent session">
+      </div>
+      <div class="avatar-row"><img src="showcase/assets/avatar-hunter.svg" alt="Hunter avatar"><div><p class="kicker">LOGIN IDENTITY</p><h3>Hunter avatar</h3><p>One of the supplied account/avatar treatments for the login surface.</p></div></div>
+    </section>
+
+    <section id="installer" class="section">
+      <div class="heading"><span>06</span><div><p class="kicker">INSTALLER</p><h2>A restrained setup path.</h2></div></div>
+      <div class="stage-line">
+        <article><img src="showcase/assets/stage-welcome.svg" alt=""><span>Welcome</span></article><i>→</i>
+        <article><img src="showcase/assets/stage-storage.svg" alt=""><span>Storage</span></article><i>→</i>
+        <article><img src="showcase/assets/stage-users.svg" alt=""><span>Users</span></article><i>→</i>
+        <article><img src="showcase/assets/stage-install.svg" alt=""><span>Install</span></article><i>→</i>
+        <article><img src="showcase/assets/stage-finished.svg" alt=""><span>Finished</span></article>
+      </div>
+      <p class="note">These stage glyphs are actual supplied installer assets. They describe presentation only; disk operations remain the distro build's responsibility.</p>
+    </section>
+
+    <section id="states" class="section">
+      <div class="heading"><span>07</span><div><p class="kicker">SYSTEM STATES</p><h2>Failure should still look intentional.</h2></div></div>
+      <div class="state-grid">
+        <article><img src="showcase/assets/state-no-network.svg" alt="No network"><span>No network</span></article>
+        <article><img src="showcase/assets/state-permission-denied.svg" alt="Permission denied"><span>Permission denied</span></article>
+        <article><img src="showcase/assets/state-update-available.svg" alt="Update available"><span>Update available</span></article>
+        <article><img src="showcase/assets/state-recovery.svg" alt="Recovery"><span>Recovery</span></article>
+      </div>
+    </section>
+
+    <section id="status" class="section status-section">
+      <div class="heading"><span>08</span><div><p class="kicker">PROJECT STATUS</p><h2>A work in progress, in the open.</h2></div></div>
+      <div class="status-grid">
+        <div class="done"><b>✓</b><span>Dhampir derivative flavour</span></div>
+        <div class="done"><b>✓</b><span>Artwork Debian package builds</span></div>
+        <div class="done"><b>✓</b><span>LXQt / icon / wallpaper / terminal defaults</span></div>
+        <div class="done"><b>✓</b><span>BIOS + UEFI desktop boot checks</span></div>
+        <div class="todo"><b>◇</b><span>Hardware + Secure Boot testing</span></div>
+        <div class="done"><b>✓</b><span>First alpha OVA + ISO published</span></div>
+      </div>
+      <p class="micro center">The first alpha images have passed the published VM checks. Vulnerability tracker findings and runtime limits remain in the verification report.</p>
+    </section>
+  </main>
+  <footer><img src="showcase/assets/brand/dhampiros-sigil.svg" alt=""><div><b>DhampirOS by potemkin</b><p>A Vampire Hunter D–inspired, independent Kicksecure/Debian project.</p><p>Experimental alpha images are available. The interactive preview includes interface concepts; the downloads show an original capture from the tested desktop.</p></div><p><a href="https://github.com/potemkin666/DhampirOS" target="_blank" rel="noopener noreferrer">View source ↗</a><br><a href="#icons">Return to the desktop ↑</a></p></footer>
+  <div class="site-toast" id="site-toast" role="status" hidden></div>
+</body></html>

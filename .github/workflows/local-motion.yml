@@ -1,0 +1,52 @@
+name: DhampirOS native motion
+
+on:
+  push:
+    branches: [master, 'codex/**']
+    paths:
+      - 'packages/dhampir/**'
+      - 'ci/local-motion.sh'
+      - 'ci/motion-*.py'
+      - '.github/workflows/local-motion.yml'
+  pull_request:
+    paths:
+      - 'packages/dhampir/**'
+      - 'ci/local-motion.sh'
+      - 'ci/motion-*.py'
+      - '.github/workflows/local-motion.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native-motion:
+    if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    container:
+      image: debian:trixie@sha256:35b8ff74ead4880f22090b617372daff0ccae742eb5674455d542bef71ef1999
+    steps:
+      - name: Bootstrap the disposable build and headless desktop container
+        run: |
+          apt-get update
+          apt-get install --yes --no-install-recommends git ca-certificates build-essential debhelper python3 python3-gi python3-gi-cairo python3-pil gir1.2-gtk-3.0 gir1.2-gtklayershell-0.1 gir1.2-gtksessionlock-0.1 libgtk-session-lock0 gir1.2-gstreamer-1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good pcmanfm-qt qt6-wayland qt6-svg-plugins layer-shell-qt labwc grim dbus-daemon shellcheck gsettings-desktop-schemas
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          persist-credentials: false
+          submodules: false
+      - name: Build packages and test the native backend
+        run: ./ci/local-motion.sh
+      - name: Preserve packages, runtime evidence and native screenshots
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: dhampiros-native-motion
+          path: artifacts/
+          if-no-files-found: warn
+          retention-days: 14

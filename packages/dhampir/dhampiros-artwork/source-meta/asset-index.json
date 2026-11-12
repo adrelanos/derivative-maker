@@ -1,0 +1,1205 @@
+{
+  "full_colour_icons": [
+    {
+      "name": "folder",
+      "label": "Folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder.svg",
+      "new": false
+    },
+    {
+      "name": "user-home",
+      "label": "Home",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/user-home.svg",
+      "new": false
+    },
+    {
+      "name": "folder-download",
+      "label": "Download folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-download.svg",
+      "new": true
+    },
+    {
+      "name": "utilities-terminal",
+      "label": "Terminal",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/utilities-terminal.svg",
+      "new": false
+    },
+    {
+      "name": "web-browser",
+      "label": "Browser",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/web-browser.svg",
+      "new": false
+    },
+    {
+      "name": "system-file-manager",
+      "label": "Files",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/system-file-manager.svg",
+      "new": false
+    },
+    {
+      "name": "preferences-system",
+      "label": "Settings",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/preferences-system.svg",
+      "new": false
+    },
+    {
+      "name": "text-x-generic",
+      "label": "Document",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/text-x-generic.svg",
+      "new": false
+    },
+    {
+      "name": "image-x-generic",
+      "label": "Image",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/image-x-generic.svg",
+      "new": false
+    },
+    {
+      "name": "audio-x-generic",
+      "label": "Audio",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/audio-x-generic.svg",
+      "new": false
+    },
+    {
+      "name": "video-x-generic",
+      "label": "Video",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/video-x-generic.svg",
+      "new": false
+    },
+    {
+      "name": "user-trash",
+      "label": "Trash",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/user-trash.svg",
+      "new": false
+    },
+    {
+      "name": "drive-harddisk",
+      "label": "Disk",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/drive-harddisk.svg",
+      "new": false
+    },
+    {
+      "name": "applications-other",
+      "label": "Applications",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/applications-other.svg",
+      "new": false
+    },
+    {
+      "name": "security-high",
+      "label": "Security",
+      "context": "status",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/status/security-high.svg",
+      "new": false
+    },
+    {
+      "name": "network-workgroup",
+      "label": "Network",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/network-workgroup.svg",
+      "new": false
+    },
+    {
+      "name": "system-shutdown",
+      "label": "Power",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/system-shutdown.svg",
+      "new": false
+    },
+    {
+      "name": "system-search",
+      "label": "Search",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/system-search.svg",
+      "new": false
+    },
+    {
+      "name": "utilities-system-monitor",
+      "label": "System monitor",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/utilities-system-monitor.svg",
+      "new": false
+    },
+    {
+      "name": "avatar-default",
+      "label": "User",
+      "context": "status",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/status/avatar-default.svg",
+      "new": false
+    },
+    {
+      "name": "system-lock-screen",
+      "label": "Lock",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/system-lock-screen.svg",
+      "new": false
+    },
+    {
+      "name": "audio-volume-high",
+      "label": "Volume",
+      "context": "status",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/status/audio-volume-high.svg",
+      "new": false
+    },
+    {
+      "name": "network-wireless",
+      "label": "Wi-Fi",
+      "context": "status",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/status/network-wireless.svg",
+      "new": false
+    },
+    {
+      "name": "battery-full",
+      "label": "Battery",
+      "context": "status",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/status/battery-full.svg",
+      "new": false
+    },
+    {
+      "name": "folder-open",
+      "label": "Open folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-open.svg",
+      "new": true
+    },
+    {
+      "name": "folder-documents",
+      "label": "Documents folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-documents.svg",
+      "new": true
+    },
+    {
+      "name": "folder-music",
+      "label": "Music folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-music.svg",
+      "new": true
+    },
+    {
+      "name": "folder-pictures",
+      "label": "Pictures folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-pictures.svg",
+      "new": true
+    },
+    {
+      "name": "folder-videos",
+      "label": "Videos folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-videos.svg",
+      "new": true
+    },
+    {
+      "name": "folder-publicshare",
+      "label": "Publicshare folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-publicshare.svg",
+      "new": true
+    },
+    {
+      "name": "folder-templates",
+      "label": "Templates folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-templates.svg",
+      "new": true
+    },
+    {
+      "name": "folder-remote",
+      "label": "Remote folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-remote.svg",
+      "new": true
+    },
+    {
+      "name": "folder-locked",
+      "label": "Locked folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-locked.svg",
+      "new": true
+    },
+    {
+      "name": "folder-saved-search",
+      "label": "Saved Search folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-saved-search.svg",
+      "new": true
+    },
+    {
+      "name": "folder-development",
+      "label": "Development folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-development.svg",
+      "new": true
+    },
+    {
+      "name": "folder-backup",
+      "label": "Backup folder",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/folder-backup.svg",
+      "new": true
+    },
+    {
+      "name": "user-trash-full",
+      "label": "Trash full",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/user-trash-full.svg",
+      "new": true
+    },
+    {
+      "name": "network-server",
+      "label": "Server",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/network-server.svg",
+      "new": true
+    },
+    {
+      "name": "user-bookmarks",
+      "label": "Bookmarks",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/user-bookmarks.svg",
+      "new": true
+    },
+    {
+      "name": "user-desktop",
+      "label": "Desktop",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/user-desktop.svg",
+      "new": true
+    },
+    {
+      "name": "application-pdf",
+      "label": "PDF document",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/application-pdf.svg",
+      "new": true
+    },
+    {
+      "name": "application-zip",
+      "label": "ZIP archive",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/application-zip.svg",
+      "new": true
+    },
+    {
+      "name": "application-x-compressed-tar",
+      "label": "Compressed archive",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/application-x-compressed-tar.svg",
+      "new": true
+    },
+    {
+      "name": "application-x-executable",
+      "label": "Executable",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/application-x-executable.svg",
+      "new": true
+    },
+    {
+      "name": "application-x-iso",
+      "label": "ISO image",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/application-x-iso.svg",
+      "new": true
+    },
+    {
+      "name": "application-x-deb",
+      "label": "Debian package",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/application-x-deb.svg",
+      "new": true
+    },
+    {
+      "name": "package-x-generic",
+      "label": "Package",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/package-x-generic.svg",
+      "new": true
+    },
+    {
+      "name": "text-x-script",
+      "label": "Shell script",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/text-x-script.svg",
+      "new": true
+    },
+    {
+      "name": "text-html",
+      "label": "HTML file",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/text-html.svg",
+      "new": true
+    },
+    {
+      "name": "text-x-python",
+      "label": "Python source",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/text-x-python.svg",
+      "new": true
+    },
+    {
+      "name": "font-x-generic",
+      "label": "Font",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/font-x-generic.svg",
+      "new": true
+    },
+    {
+      "name": "application-x-zerosize",
+      "label": "Empty file",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/application-x-zerosize.svg",
+      "new": true
+    },
+    {
+      "name": "application-octet-stream",
+      "label": "Unknown file",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/application-octet-stream.svg",
+      "new": true
+    },
+    {
+      "name": "x-office-spreadsheet",
+      "label": "Spreadsheet",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/x-office-spreadsheet.svg",
+      "new": true
+    },
+    {
+      "name": "x-office-presentation",
+      "label": "Presentation",
+      "context": "mimetypes",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/mimetypes/x-office-presentation.svg",
+      "new": true
+    },
+    {
+      "name": "drive-removable-media",
+      "label": "Removable drive",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/drive-removable-media.svg",
+      "new": true
+    },
+    {
+      "name": "media-flash",
+      "label": "Flash storage",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/media-flash.svg",
+      "new": true
+    },
+    {
+      "name": "computer",
+      "label": "Computer",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/computer.svg",
+      "new": true
+    },
+    {
+      "name": "input-keyboard",
+      "label": "Keyboard",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/input-keyboard.svg",
+      "new": true
+    },
+    {
+      "name": "input-mouse",
+      "label": "Mouse",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/input-mouse.svg",
+      "new": true
+    },
+    {
+      "name": "printer",
+      "label": "Printer",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/printer.svg",
+      "new": true
+    },
+    {
+      "name": "network-wired",
+      "label": "Wired network",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/network-wired.svg",
+      "new": true
+    },
+    {
+      "name": "audio-input-microphone",
+      "label": "Microphone",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/audio-input-microphone.svg",
+      "new": true
+    },
+    {
+      "name": "audio-headphones",
+      "label": "Headphones",
+      "context": "devices",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/devices/audio-headphones.svg",
+      "new": true
+    },
+    {
+      "name": "accessories-calculator",
+      "label": "Calculator",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/accessories-calculator.svg",
+      "new": true
+    },
+    {
+      "name": "accessories-text-editor",
+      "label": "Text editor",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/accessories-text-editor.svg",
+      "new": true
+    },
+    {
+      "name": "accessories-screenshot",
+      "label": "Screenshot",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/accessories-screenshot.svg",
+      "new": true
+    },
+    {
+      "name": "system-software-install",
+      "label": "Install software",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/system-software-install.svg",
+      "new": true
+    },
+    {
+      "name": "system-software-update",
+      "label": "Software updates",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/system-software-update.svg",
+      "new": true
+    },
+    {
+      "name": "system-backup",
+      "label": "Backup",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/system-backup.svg",
+      "new": true
+    },
+    {
+      "name": "help-browser",
+      "label": "Help",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/help-browser.svg",
+      "new": true
+    },
+    {
+      "name": "preferences-desktop",
+      "label": "Appearance",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/preferences-desktop.svg",
+      "new": true
+    },
+    {
+      "name": "preferences-desktop-accessibility",
+      "label": "Accessibility",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/preferences-desktop-accessibility.svg",
+      "new": true
+    },
+    {
+      "name": "preferences-desktop-keyboard",
+      "label": "Keyboard settings",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/preferences-desktop-keyboard.svg",
+      "new": true
+    },
+    {
+      "name": "system-about",
+      "label": "About DhampirOS",
+      "context": "apps",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/apps/system-about.svg",
+      "new": true
+    },
+    {
+      "name": "applications-accessories",
+      "label": "Accessories",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-accessories.svg",
+      "new": true
+    },
+    {
+      "name": "applications-development",
+      "label": "Development",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-development.svg",
+      "new": true
+    },
+    {
+      "name": "applications-games",
+      "label": "Games",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-games.svg",
+      "new": true
+    },
+    {
+      "name": "applications-graphics",
+      "label": "Graphics",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-graphics.svg",
+      "new": true
+    },
+    {
+      "name": "applications-internet",
+      "label": "Internet",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-internet.svg",
+      "new": true
+    },
+    {
+      "name": "applications-multimedia",
+      "label": "Multimedia",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-multimedia.svg",
+      "new": true
+    },
+    {
+      "name": "applications-office",
+      "label": "Office",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-office.svg",
+      "new": true
+    },
+    {
+      "name": "applications-science",
+      "label": "Science",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-science.svg",
+      "new": true
+    },
+    {
+      "name": "applications-system",
+      "label": "System",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-system.svg",
+      "new": true
+    },
+    {
+      "name": "applications-utilities",
+      "label": "Utilities",
+      "context": "categories",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/categories/applications-utilities.svg",
+      "new": true
+    },
+    {
+      "name": "emblem-default",
+      "label": "Default",
+      "context": "emblems",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/emblems/emblem-default.svg",
+      "new": true
+    },
+    {
+      "name": "emblem-important",
+      "label": "Important",
+      "context": "emblems",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/emblems/emblem-important.svg",
+      "new": true
+    },
+    {
+      "name": "emblem-favorite",
+      "label": "Favorite",
+      "context": "emblems",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/emblems/emblem-favorite.svg",
+      "new": true
+    },
+    {
+      "name": "emblem-readonly",
+      "label": "Readonly",
+      "context": "emblems",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/emblems/emblem-readonly.svg",
+      "new": true
+    },
+    {
+      "name": "emblem-shared",
+      "label": "Shared",
+      "context": "emblems",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/emblems/emblem-shared.svg",
+      "new": true
+    },
+    {
+      "name": "emblem-symbolic-link",
+      "label": "Symbolic-Link",
+      "context": "emblems",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/emblems/emblem-symbolic-link.svg",
+      "new": true
+    },
+    {
+      "name": "emblem-synchronized",
+      "label": "Synchronized",
+      "context": "emblems",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/emblems/emblem-synchronized.svg",
+      "new": true
+    },
+    {
+      "name": "emblem-unreadable",
+      "label": "Unreadable",
+      "context": "emblems",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/emblems/emblem-unreadable.svg",
+      "new": true
+    },
+    {
+      "name": "emblem-encrypted",
+      "label": "Encrypted",
+      "context": "emblems",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/emblems/emblem-encrypted.svg",
+      "new": true
+    },
+    {
+      "name": "system-reboot",
+      "label": "System Reboot",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/system-reboot.svg",
+      "new": true
+    },
+    {
+      "name": "system-log-out",
+      "label": "System Log Out",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/system-log-out.svg",
+      "new": true
+    },
+    {
+      "name": "system-suspend",
+      "label": "System Suspend",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/system-suspend.svg",
+      "new": true
+    },
+    {
+      "name": "system-hibernate",
+      "label": "System Hibernate",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/system-hibernate.svg",
+      "new": true
+    },
+    {
+      "name": "document-save",
+      "label": "Document Save",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/document-save.svg",
+      "new": true
+    },
+    {
+      "name": "edit-copy",
+      "label": "Edit Copy",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/edit-copy.svg",
+      "new": true
+    },
+    {
+      "name": "edit-paste",
+      "label": "Edit Paste",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/edit-paste.svg",
+      "new": true
+    },
+    {
+      "name": "edit-delete",
+      "label": "Edit Delete",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/edit-delete.svg",
+      "new": true
+    },
+    {
+      "name": "view-refresh",
+      "label": "View Refresh",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/view-refresh.svg",
+      "new": true
+    },
+    {
+      "name": "list-add",
+      "label": "List Add",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/list-add.svg",
+      "new": true
+    },
+    {
+      "name": "list-remove",
+      "label": "List Remove",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/list-remove.svg",
+      "new": true
+    },
+    {
+      "name": "media-playback-start",
+      "label": "Media Playback Start",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/media-playback-start.svg",
+      "new": true
+    },
+    {
+      "name": "media-playback-pause",
+      "label": "Media Playback Pause",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/media-playback-pause.svg",
+      "new": true
+    },
+    {
+      "name": "media-playback-stop",
+      "label": "Media Playback Stop",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/media-playback-stop.svg",
+      "new": true
+    },
+    {
+      "name": "media-skip-forward",
+      "label": "Media Skip Forward",
+      "context": "actions",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/actions/media-skip-forward.svg",
+      "new": true
+    },
+    {
+      "name": "start-here",
+      "label": "DhampirOS menu",
+      "context": "places",
+      "svg": "rootfs/usr/share/icons/DhampirOS/scalable/places/start-here.svg",
+      "new": true
+    }
+  ],
+  "symbols": [
+    {
+      "name": "battery-empty",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-empty-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-empty-charging",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-empty-charging-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-caution",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-caution-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-caution-charging",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-caution-charging-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-low",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-low-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-low-charging",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-low-charging-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-good",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-good-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-good-charging",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-good-charging-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-full",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-full-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-full-charging",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-full-charging-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "battery-missing",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/battery-missing-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-wireless-signal-none",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-wireless-signal-none-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-wireless-signal-weak",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-wireless-signal-weak-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-wireless-signal-ok",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-wireless-signal-ok-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-wireless-signal-good",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-wireless-signal-good-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-wireless-signal-excellent",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-wireless-signal-excellent-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-wireless-offline",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-wireless-offline-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-wired",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-wired-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-wired-disconnected",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-wired-disconnected-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-vpn",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-vpn-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "network-vpn-disconnected",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/network-vpn-disconnected-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "bluetooth-active",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/bluetooth-active-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "bluetooth-disabled",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/bluetooth-disabled-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "audio-volume-high",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/audio-volume-high-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "audio-volume-muted",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/audio-volume-muted-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "microphone-sensitivity-high",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/microphone-sensitivity-high-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "microphone-sensitivity-muted",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/microphone-sensitivity-muted-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "audio-headphones",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/audio-headphones-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "display-brightness",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/display-brightness-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "keyboard-brightness",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/keyboard-brightness-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "input-keyboard",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/input-keyboard-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "caps-lock",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/caps-lock-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "changes-allow",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/changes-allow-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "changes-prevent",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/changes-prevent-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "dialog-information",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/dialog-information-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "dialog-warning",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/dialog-warning-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "dialog-error",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/dialog-error-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "dialog-question",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/dialog-question-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "emblem-ok",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/emblem-ok-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "software-update-available",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/software-update-available-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "software-update-urgent",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/software-update-urgent-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "software-update-unavailable",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/software-update-unavailable-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "rotation-locked",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/rotation-locked-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "security-high",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/security-high-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "security-low",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/security-low-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "notifications",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/notifications-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "notifications-disabled",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/notifications-disabled-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "user-available",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/user-available-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "user-offline",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/user-offline-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "screen-record",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/screen-record-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "accessibility",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/accessibility-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "camera-photo",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/camera-photo-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "media-playback-start",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/media-playback-start-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "media-playback-pause",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/media-playback-pause-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "media-playback-stop",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/media-playback-stop-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "media-skip-forward",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/media-skip-forward-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "document-save",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/document-save-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "edit-copy",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/edit-copy-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "edit-delete",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/edit-delete-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "system-search",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/system-search-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "system-shutdown",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/system-shutdown-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "system-reboot",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/system-reboot-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "system-suspend",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/system-suspend-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "system-log-out",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/system-log-out-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "system-lock-screen",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/system-lock-screen-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "view-refresh",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/view-refresh-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "list-add",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/list-add-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "list-remove",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/list-remove-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "password-show",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/password-show-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "password-hide",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/actions/password-hide-symbolic.svg",
+      "context": "actions"
+    },
+    {
+      "name": "keyboard-layout",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/keyboard-layout-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "drive-harddisk",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/drive-harddisk-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "drive-removable-media",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/drive-removable-media-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "user-home",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/user-home-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "folder",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/folder-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "audio-volume-low",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/audio-volume-low-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "audio-volume-medium",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/status/audio-volume-medium-symbolic.svg",
+      "context": "status"
+    },
+    {
+      "name": "start-here",
+      "svg": "rootfs/usr/share/icons/DhampirOS/symbolic/places/start-here-symbolic.svg",
+      "context": "places"
+    }
+  ],
+  "states": {
+    "empty-folder": "folder-open",
+    "no-results": "search",
+    "no-network": "wifi",
+    "session-locked": "lock",
+    "permission-denied": "shield",
+    "update-available": "download",
+    "updating": "refresh",
+    "recovery": "recovery",
+    "install-complete": "check",
+    "install-error": "error",
+    "no-media": "usb",
+    "trash-empty": "trash"
+  },
+  "installer_stages": {
+    "welcome": "moon",
+    "locale": "globe",
+    "keyboard": "keyboard",
+    "storage": "disk",
+    "users": "user",
+    "summary": "document",
+    "install": "refresh",
+    "finished": "check"
+  },
+  "new_icon_designs": 87,
+  "brand": "DhampirOS by potemkin",
+  "application_aliases": {
+    "qterminal": "utilities-terminal",
+    "org.qterminal.QTerminal": "utilities-terminal",
+    "pcmanfm-qt": "system-file-manager",
+    "lxqt-config": "preferences-system",
+    "calamares": "system-software-install",
+    "system-installer": "system-software-install",
+    "synaptic": "system-software-install",
+    "qps": "utilities-system-monitor",
+    "distributor-logo": "start-here",
+    "distributor-logo-dhampiros": "start-here",
+    "accessories-screenshot-tool": "accessories-screenshot"
+  }
+}

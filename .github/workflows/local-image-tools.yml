@@ -1,0 +1,50 @@
+name: DhampirOS release tools
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/local-image*.yml'
+      - 'ci/image-*'
+      - 'ci/audit-*'
+      - 'ci/verify-*'
+      - 'ci/check-image-tools.py'
+      - 'ci/prepare-image-release.py'
+      - 'ci/publish-image-release.py'
+      - 'patches/dhampir-binary-eof.patch'
+  push:
+    branches: [master, 'codex/**']
+    paths:
+      - '.github/workflows/local-image*.yml'
+      - 'ci/image-*'
+      - 'ci/audit-*'
+      - 'ci/verify-*'
+      - 'ci/check-image-tools.py'
+      - 'ci/prepare-image-release.py'
+      - 'ci/publish-image-release.py'
+      - 'patches/dhampir-binary-eof.patch'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tools:
+    if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    container:
+      image: debian:trixie@sha256:35b8ff74ead4880f22090b617372daff0ccae742eb5674455d542bef71ef1999
+    steps:
+      - name: Bootstrap checks
+        run: |
+          apt-get update
+          apt-get install --yes --no-install-recommends git ca-certificates python3 python3-yaml shellcheck
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Check release tools and reject unsafe appliances
+        run: ./ci/check-image-tools.py

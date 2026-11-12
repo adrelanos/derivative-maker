@@ -1,0 +1,116 @@
+#!/bin/bash
+
+## Copyright (C) 2026 potemkin666
+## See the file COPYING for copying conditions.
+
+# shellcheck disable=SC2016 # the grep patterns are literal shell text on purpose.
+
+## Static checks that the dhampir-lxqt flavor is wired in and that the
+## Kicksecure and Whonix flavors were not changed. Does not build anything.
+## Run from anywhere: ./ci/check-dhampir-flavor
+
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
+export LC_ALL=C
+
+repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
+failures=0
+
+fail() {
+   printf 'check-dhampir-flavor: FAIL: %s\n' "$1" >&2
+   failures=$(( failures + 1 ))
+}
+
+## Fixed-string match of TEXT in FILE (relative to repo root).
+expect_in_file() {
+   local file="$1" text="$2"
+   if ! grep -F -q -- "${text}" "${repo_root}/${file}"; then
+      fail "${file} does not contain: ${text}"
+   fi
+}
+
+## Line number of the first match of TEXT in FILE, or empty.
+line_of() {
+   local file="$1" text="$2" hit
+   hit="$(grep -n -F -- "${text}" "${repo_root}/${file}" || true)"
+   printf '%s' "${hit%%:*}"
+}
+
+## 1. Syntax of every file this change touches.
+for file in \
+   variables.d/19_flavor-dhampir.bsh \
+   variables.d/20_flavor-resolve.bsh \
+   variables.d/40_version-paths.bsh \
+   help-steps/parse-cmd \
+   help-steps/variables \
+   build-steps.d/4310_convert-raw-to-iso ; do
+   bash -n -- "${repo_root}/${file}" || fail "bash -n failed: ${file}"
+done
+
+## 2. The flavor is accepted by the CLI parser.
+expect_in_file help-steps/parse-cmd '--flavor dhampir-lxqt'
+expect_in_file help-steps/parse-cmd 'dist_build_flavor:-}" = "dhampir-lxqt"'
+expect_in_file help-steps/parse-cmd 'dhampir-lxqt                : Builds'
+
+## 3. The flavor file is sourced, and before the Kicksecure resolver (20).
+line_19="$(line_of help-steps/variables 'source "${variables_d_dir}/19_flavor-dhampir.bsh"')"
+line_20="$(line_of help-steps/variables 'source "${variables_d_dir}/20_flavor-resolve.bsh"')"
+if [ -z "${line_19}" ]; then
+   fail "help-steps/variables does not source 19_flavor-dhampir.bsh"
+elif [ -z "${line_20}" ] || [ "${line_19}" -ge "${line_20}" ]; then
+   fail "19_flavor-dhampir.bsh must be sourced before 20_flavor-resolve.bsh"
+fi
+
+## 4. Dhampir keeps the Kicksecure build path and does not rename it.
+expect_in_file variables.d/19_flavor-dhampir.bsh 'default_if_empty dist_build_type_short "kicksecure"'
+expect_in_file variables.d/19_flavor-dhampir.bsh 'default_if_empty dist_build_type_short_pretty "DhampirOS"'
+expect_in_file variables.d/19_flavor-dhampir.bsh 'default_if_empty derivative_name_list "kicksecure dhampir"'
+expect_in_file variables.d/19_flavor-dhampir.bsh 'flavor_meta_packages_to_install " dhampir-vm-gui-lxqt "'
+expect_in_file variables.d/19_flavor-dhampir.bsh 'flavor_meta_packages_to_install " dhampir-baremetal-gui-lxqt "'
+
+## 5. Upload: Kicksecure default kept, and an empty Dhampir list stays empty.
+expect_in_file variables.d/20_flavor-resolve.bsh 'declare -p dist_server_upload_location_list >/dev/null 2>&1 || dist_server_upload_location_list=( "kicksecure.com" )'
+expect_in_file variables.d/19_flavor-dhampir.bsh 'declare -a dist_server_upload_location_list=()'
+
+## 6. Output names and ISO volume label.
+expect_in_file variables.d/40_version-paths.bsh '"${dist_binary_build_folder}/Dhampir.ova"'
+expect_in_file variables.d/40_version-paths.bsh '"${dist_binary_build_folder}/Dhampir.iso"'
+expect_in_file build-steps.d/4310_convert-raw-to-iso '--label "${dist_iso_volume_label:-${dist_build_type_short}}"'
+expect_in_file variables.d/19_flavor-dhampir.bsh 'default_if_empty dist_iso_volume_label "Dhampir"'
+expect_in_file variables.d/19_flavor-dhampir.bsh 'default_if_empty project_clearnet "github.com/potemkin666/DhampirOS"'
+if grep -F -q -- 'project_clearnet "kicksecure.com"' "${repo_root}/variables.d/19_flavor-dhampir.bsh"; then
+   fail "variables.d/19_flavor-dhampir.bsh must not set project_clearnet to kicksecure.com"
+fi
+
+## 7. Kicksecure and Whonix flavors still registered.
+expect_in_file help-steps/parse-cmd '--flavor kicksecure-lxqt'
+expect_in_file help-steps/parse-cmd '--flavor kicksecure-cli'
+expect_in_file help-steps/parse-cmd '--flavor whonix-workstation-lxqt'
+expect_in_file variables.d/20_flavor-resolve.bsh 'if [ "${dist_build_flavor:-}" = "kicksecure-lxqt" ]; then'
+
+## 8. Meta packages and their Kicksecure dependencies exist.
+meta_control=packages/dhampir/dhampir-meta-packages/debian/control
+expect_in_file "${meta_control}" 'Package: dhampir-vm-gui-lxqt'
+expect_in_file "${meta_control}" 'Package: dhampir-baremetal-gui-lxqt'
+expect_in_file "${meta_control}" 'kicksecure-vm-gui-lxqt,'
+expect_in_file "${meta_control}" 'kicksecure-baremetal-gui-lxqt,'
+expect_in_file "${meta_control}" 'dhampir-branding,'
+expect_in_file packages/kicksecure/kicksecure-meta-packages/debian/control 'Package: kicksecure-vm-gui-lxqt'
+expect_in_file packages/kicksecure/kicksecure-meta-packages/debian/control 'Package: kicksecure-baremetal-gui-lxqt'
+
+## 9. Branding package is where the build expects it.
+expect_in_file packages/dhampir/dhampir-branding/debian/control 'Package: dhampir-branding'
+expect_in_file packages/dhampir/dhampir-branding/debian/dhampir-branding.displace-extension '.dhampir'
+if [ ! -d "${repo_root}/packages/dhampir/dhampir-branding" ] || [ -e "${repo_root}/packages/dhampir-branding" ]; then
+   fail "dhampir-branding must live only under packages/dhampir/"
+fi
+
+if [ "${failures}" -ne 0 ]; then
+   printf 'check-dhampir-flavor: %s failure(s)\n' "${failures}" >&2
+   exit 1
+fi
+printf 'check-dhampir-flavor: ok\n'

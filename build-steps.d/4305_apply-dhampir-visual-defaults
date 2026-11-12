@@ -1,0 +1,36 @@
+#!/bin/bash
+
+## Copyright (C) 2026 potemkin666
+## See the file COPYING for copying conditions.
+## AI-Assisted
+
+## Initialize visual keys in the new image's accounts after upstream setup.
+
+set -o errexit
+set -o nounset
+set -o pipefail
+set -o errtrace
+shopt -s inherit_errexit
+shopt -s shift_verbose
+export LC_ALL=C
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd -- "${script_dir}/../help-steps"
+# shellcheck source=../help-steps/pre
+source pre
+# shellcheck source=../help-steps/variables
+source variables
+
+if [ "${dist_build_flavor:-}" != dhampir-lxqt ] || [ "${build_dry_run:-}" = true ]; then
+   printf '%s\n' 'Skipping Dhampir initial-account visuals for this build.'
+   exit 0
+fi
+
+exception_handler_setup exception_handler_unchroot_unmount ERR INT TERM
+"${dist_source_help_steps_folder}/mount-raw" "$@"
+"${dist_source_help_steps_folder}/prevent-daemons-from-starting" "$@"
+"${dist_source_help_steps_folder}/chroot-raw" "$@"
+chroot_run /usr/bin/python3 - < "${source_code_folder_dist}/ci/image-visuals.py"
+"${dist_source_help_steps_folder}/unchroot-raw" "$@"
+"${dist_source_help_steps_folder}/unprevent-daemons-from-starting" "$@"
+"${dist_source_help_steps_folder}/unmount-raw" "$@"

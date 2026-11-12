@@ -1,0 +1,16 @@
+/* DhampirOS by potemkin - original Nocturne panel styling */
+LXQtPanel #BackgroundWidget { background: #090C13; border-top: 1px solid #43536D; }
+Plugin > QWidget, Plugin > QWidget > QWidget, LXQtPanelPlugin > QToolButton { color: #DDE5EF; }
+Plugin > QToolButton, Plugin > QWidget > QToolButton, LXQtPanelPlugin > QToolButton { border: 1px solid transparent; border-radius: 3px; padding: 3px; margin: 2px; }
+Plugin > QToolButton:hover, Plugin > QWidget > QToolButton:hover, LXQtPanelPlugin > QToolButton:hover { background: #192438; border: 1px solid #43536D; }
+#TaskBar QToolButton:on, #DesktopSwitch QToolButton:on { background: #192438; border-bottom: 2px solid #8BB8DA; color: #F1F4F8; }
+#TaskBar QToolButton[urgent="true"] { border-bottom: 2px solid #D56B80; }
+QMenu { background: #111827; color: #DDE5EF; border: 1px solid #43536D; padding: 5px; }
+QMenu::item { padding: 6px 24px 6px 12px; }
+QMenu::item:selected { background: #354763; color: #F1F4F8; }
+QMenu::item:disabled { color: #697B96; }
+QMenu::separator { height: 1px; background: #43536D; margin: 4px 8px; }
+QToolTip { background: #111827; color: #DDE5EF; border: 1px solid #43536D; padding: 5px; }
+#MainMenu { qproperty-icon: url(mainmenu.svg); }
+#FancyMenu { qproperty-icon: url(mainmenu.svg); }
+#Clock #TimeLabel, #Clock #DateLabel { color: #DDE5EF; }

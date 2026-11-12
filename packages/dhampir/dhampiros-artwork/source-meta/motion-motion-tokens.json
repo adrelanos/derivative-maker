@@ -1,0 +1,14 @@
+{
+  "hover_press_ms": 110,
+  "selection_ms": 180,
+  "panel_arrival_ms": 280,
+  "panel_arrival_y_px": 6,
+  "hover_lift_px": 1,
+  "easing": [
+    0.16,
+    1,
+    0.3,
+    1
+  ],
+  "policy": "Movement communicates hover, focus, state change or ongoing work. Idle controls settle. Reduced motion removes transitions."
+}

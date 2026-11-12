@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "status": "reviewed-virtualbox-runtime",
+  "reviewed_at": "2026-10-29T09:57:28.169886+00:00",
+  "release": "v0.1.0-alpha.1",
+  "verification_run": "40782455595",
+  "verification_url": "https://github.com/potemkin666/DhampirOS/actions/runs/40782455595",
+  "verifier_source_commit": "c778b0cd1a2a3f33023a7348aeb79726c489a357",
+  "image": {
+    "url": "https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/DhampirOS-0.1.0-alpha.1-amd64.ova",
+    "sha256": "e81ded3eff4c0cca636fb162953f4d1a74f22770e3b4888b88cbbe8784d2641d",
+    "bytes": 1295400960,
+    "source_commit": "db5152d816559ed2365f81486c4106b17f20af83"
+  },
+  "scope": "Exact public OVA imported into VirtualBox 7.2.22 on disposable Linux hosted runners. BIOS and UEFI original final captures visually reviewed.",
+  "observed_desktop": "LXQt desktop with original Dhampir artwork and the upstream setup-wizard completion message.",
+  "account_policy": "Upstream passwordless local-user login and autologin retained. Configure account credentials before persistent use.",
+  "firmwares": {
+    "bios": {
+      "outcome": "desktop",
+      "capture": "dhampiros-virtualbox-runtime-bios/boot-360.png",
+      "capture_sha256": "bdcde2bba700957ceb62e3e2c6970ddbd3653f6e7b1ec1612d036880436bc721",
+      "environment": {
+        "virtualbox": "7.2.22r175245",
+        "kernel": "7.0.0-1017-azure",
+        "firmware": "bios",
+        "network": "all adapters disabled",
+        "clipboard": "disabled",
+        "drag_and_drop": "disabled",
+        "shared_folders": "none",
+        "usb": "disabled",
+        "remote_display": "disabled",
+        "writes": "fresh disposable import; published bytes unchanged",
+        "declared_memory_mib": "2048",
+        "declared_cpus": "3"
+      },
+      "evidence_sha256": {
+        "attestation-verification.json": "4bcafbd7b44ec84aaa9cb6b06d60e3a59f829a538f8810e8ad13cb877a755c2d",
+        "boot-20.png": "63373382cfa36078355ba24feb69e5e94474e40ec28f26bb01c8bfd7f4ed18e6",
+        "boot-240.png": "9e9604325595f59f8f439d508f61bf444fa58dcc69c90871ba6298ea4b0f01cd",
+        "boot-360.png": "bdcde2bba700957ceb62e3e2c6970ddbd3653f6e7b1ec1612d036880436bc721",
+        "boot-90.png": "208ae4e9a8d6896174e048711ed2f1c16c3b823506cc5d2631f0b760a9a31a41",
+        "boot-environment.json": "f4d9d7568c899e2c32214065da038f0367fbf8beef42c00c43bced7817b1f388",
+        "capture-status.json": "743f9174e7e95f4b11f24bb2fd79bd46be6a62c39dc701e2a780bba754b97438",
+        "host-apt-update.log": "a832cc103cab63d245b370ed0704dbbcfed439d4b9a57a958276eb090cfa28f5",
+        "host-install.log": "5a468960e87c9c58d1e415f7c0ef84683a9e9328b5a7b72a852eaf0992a03dd3",
+        "host-package.json": "87e2e383242d73befcc493bda261e0198f2fbb965cda9c863350f7e785cbdf88",
+        "image-identity.json": "60db8de1920080e70e6a831852ead13f34f63e384a9b73d05891c17744aa9b51",
+        "import.log": "5393d04d67b91a24c4e0e2a75f01e7e202d1a11a1a0ad29477a621dc06dc6b35",
+        "ova-audit.json": "8bb6abd43badd379c2826fcaae9731be6cc6bbdae2a5a6163ba243c426f533da",
+        "VBox.log": "6073d8666fe6e2ba9d15577e3320f31d9efad06770f5837f985e4e0d4f3896df",
+        "vm-before-boot.txt": "e703ffe0d563aeebde3b7725d5e618d02f67142f55bdd5bef85d5cd250d0c323"
+      }
+    },
+    "efi": {
+      "outcome": "desktop",
+      "capture": "dhampiros-virtualbox-runtime-efi/boot-360.png",
+      "capture_sha256": "6fc531e8a0a0b3e5ea3629f81334dfc30c7122249847a5b0a25c59e2fdeea838",
+      "environment": {
+        "virtualbox": "7.2.22r175245",
+        "kernel": "7.0.0-1017-azure",
+        "firmware": "efi",
+        "network": "all adapters disabled",
+        "clipboard": "disabled",
+        "drag_and_drop": "disabled",
+        "shared_folders": "none",
+        "usb": "disabled",
+        "remote_display": "disabled",
+        "writes": "fresh disposable import; published bytes unchanged",
+        "declared_memory_mib": "2048",
+        "declared_cpus": "3"
+      },
+      "evidence_sha256": {
+        "attestation-verification.json": "4bcafbd7b44ec84aaa9cb6b06d60e3a59f829a538f8810e8ad13cb877a755c2d",
+        "boot-20.png": "d2b40d19879a1cdc320c8e4de804d4ee1ce1df4debb748c67e52fbc155c4b9c1",
+        "boot-240.png": "4defa261461ffb45e0c55235a37aee66aec888bc1742628c2259fdbf75e6367f",
+        "boot-360.png": "6fc531e8a0a0b3e5ea3629f81334dfc30c7122249847a5b0a25c59e2fdeea838",
+        "boot-90.png": "00194147b51efe7cd2687a981a0fcb3b975b180b0417751d1c291e0d01462dba",
+        "boot-environment.json": "366bdfe3a84d28fc268532fdd69194c343f15d4e9b27ef8c52c99e3052d53965",
+        "capture-status.json": "e05e15a63ff7f84da4d2af660517f88734a16cbca634de7a0001630110ef9842",
+        "host-apt-update.log": "1edd2552a9808757b6ac212b192c0b8b957c094328455d9e514dc9dbe865aa0c",
+        "host-install.log": "470b035eec539c6b66f1d795461bfc3aa0f6a05f45c6e93c1af3700ee9fa960f",
+        "host-package.json": "87e2e383242d73befcc493bda261e0198f2fbb965cda9c863350f7e785cbdf88",
+        "image-identity.json": "60db8de1920080e70e6a831852ead13f34f63e384a9b73d05891c17744aa9b51",
+        "import.log": "776a6a0b84d0a99989a6d5460d7a2f379574b36ab0a72ce349bc525473d86c4d",
+        "ova-audit.json": "8bb6abd43badd379c2826fcaae9731be6cc6bbdae2a5a6163ba243c426f533da",
+        "VBox.log": "75e77ce79f4bbd73f512f3d0c33609e0d49a07e217aba78fe3ff7f7f11da41e4",
+        "vm-before-boot.txt": "34b51ad2dca22bcdb0d49f3aaee437e046014f7fd8cf7afd656a84a543430ef7"
+      }
+    }
+  },
+  "remaining_limits": [
+    "Unresolved vulnerability tracker findings in the original verification report remain; no new vulnerability scan is claimed by this runtime review.",
+    "Physical hardware and Secure Boot remain unverified.",
+    "Windows and macOS VirtualBox hosts are not covered by this Linux runtime test.",
+    "Network connectivity, package updates, full application use and complete login/lock lifecycle are not verified by these network-isolated boot captures.",
+    "Motion performance on physical GPUs is not certified.",
+    "Experimental alpha for isolated VM testing; not a security certification or suitable assurance for sensitive or production workloads."
+  ],
+  "original_verification_report": "https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/verification-report.json",
+  "evidence_archive": "https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/DhampirOS-VirtualBox-review.zip"
+}

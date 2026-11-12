@@ -33,3 +33,17 @@ docker/logs/
 # ignore generated frozen sources files
 build_sources/debian_stable_frozen_clearnet.sources
 build_sources/debian_stable_frozen_direct_clearnet.sources
+
+# ignore DhampirOS build outputs: these are GitHub Release assets, never commit them
+*.iso
+*.ova
+*.vdi
+*.vmdk
+*.qcow2
+*.raw
+*.img
+*.tar.zst
+*.sha256
+*.sha512
+*.sig
+dhampir-build/

@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	./tests/test-policy.py
+endif
+
+override_dh_auto_install:
+	install -D -m 0755 bin/dhampiros-motion debian/dhampiros-motion/usr/bin/dhampiros-motion
+	install -d debian/dhampiros-motion/usr/libexec/dhampiros-motion
+	install -m 0755 lib/*.py debian/dhampiros-motion/usr/libexec/dhampiros-motion/
+	install -D -m 0644 data/lxqt-desktop.desktop debian/dhampiros-motion/usr/share/dhampiros/motion/lxqt-desktop.desktop
+	install -D -m 0644 data/lxqt-desktop.desktop debian/dhampiros-motion/etc/skel/.config/autostart/lxqt-desktop.desktop
+	install -D -m 0644 data/motion.conf debian/dhampiros-motion/etc/skel/.config/dhampiros/motion.conf

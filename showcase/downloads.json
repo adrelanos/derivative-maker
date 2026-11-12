@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "status": "published",
+  "audit": "passed",
+  "version": "0.1.0-alpha.1",
+  "source_commit": "db5152d816559ed2365f81486c4106b17f20af83",
+  "assets": {
+    "iso": {
+      "url": "https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/DhampirOS-0.1.0-alpha.1-amd64.iso",
+      "bytes": 1471897600,
+      "sha256": "eb1ca786925cd90c937878aafc0075c669a961ed439e11dc1550a9e516b9972f"
+    },
+    "ova": {
+      "url": "https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/DhampirOS-0.1.0-alpha.1-amd64.ova",
+      "bytes": 1295400960,
+      "sha256": "e81ded3eff4c0cca636fb162953f4d1a74f22770e3b4888b88cbbe8784d2641d"
+    }
+  },
+  "checksums": "https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/SHA256SUMS",
+  "report": "https://github.com/potemkin666/DhampirOS/releases/download/v0.1.0-alpha.1/verification-report.json",
+  "tracker_findings_present": true
+}

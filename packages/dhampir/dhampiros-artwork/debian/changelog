@@ -1,0 +1,46 @@
+dhampiros-artwork (0.4-2) unstable; urgency=medium
+
+  * Include complete copyright and font license metadata.
+  * Declare the exact new-account templates as distribution defaults.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Wed, 28 Oct 2026 13:00:00 +0000
+
+dhampiros-artwork (0.4-1) unstable; urgency=medium
+
+  * Reuse the existing 36-frame boot ring in a self-contained Plymouth
+    two-step theme, with unmodified upstream prompt images and copyright.
+  * Package the theme without activation hooks or boot-policy changes.
+  * Add the transparent PCManFM underlay asset and validate cursor frames.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Wed, 28 Oct 2026 09:00:00 +0000
+
+dhampiros-artwork (0.3-1) unstable; urgency=medium
+
+  * Track the complete project artwork: illustrated wallpapers, 110 icons,
+    panel symbols, two cursor themes, LXQt/labwc and GRUB resources, Cinzel
+    with its OFL, quiet event sounds, and original installer artwork.
+  * Select Rainbound Hunter as the new-user desktop wallpaper using zoom.
+  * Include seamless Nocturne motion loops at 1080p and a lighter 720p size.
+  * Apply tracked assets and new-user defaults after any legacy overlay.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Wed, 28 Oct 2026 01:30:00 +0000
+
+dhampiros-artwork (0.2-1) unstable; urgency=medium
+
+  * Make the DhampirOS Nocturne look the system default for new users:
+    LXQt theme and icon theme, desktop wallpaper, and QTerminal colour scheme
+    are shipped as /etc/skel defaults and /usr/share data.
+  * Add DhampirNocturne QTerminal colour scheme generated from palette.json.
+  * Ship the source-only GRUB theme without wiring it as GRUB_THEME; the
+    upstream Kicksecure GRUB drop-in still controls boot theming.
+  * Run a static test that every configured theme/asset path exists in the
+    payload during the build.
+  * Drop the unused @KEYMAP_SHORT@ placeholder from the GRUB theme label.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Wed, 28 Oct 2026 00:09:00 +0000
+
+dhampiros-artwork (0.1-1) unstable; urgency=medium
+
+  * Initial DhampirOS Nocturne artwork package.
+
+ -- potemkin666 <183807833+potemkin666@users.noreply.github.com>  Tue, 27 Oct 2026 23:10:00 +0000

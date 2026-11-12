@@ -1,0 +1,22 @@
+{
+  "source": [
+    1672,
+    941
+  ],
+  "duration_seconds": 24,
+  "channels": {
+    "red": "Hunter hair: anchored roots and free tips",
+    "green": "Horse mane and rein fringe; skull/eye protected",
+    "blue": "Grass clusters; weighted toward blade tips"
+  },
+  "amplitude_source_pixels": {
+    "hunter_hair": 2.6,
+    "horse_mane": 1.4,
+    "grass": 4,
+    "cloak": 2.8
+  },
+  "camera": "Fixed. No global image translation, zoom or parallax.",
+  "rain": "Procedural depth layers moving down-right; integer-period trajectories for a seamless loop.",
+  "source_method": "Imagegen clean plate removes painted rain; vector masks and code animate local regions.",
+  "cloak": "Separate opaque grayscale texture; packed RGB masks stay opaque to preserve their data in browser decoding."
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="290" viewBox="0 0 1200 290">
+  <rect width="1200" height="290" rx="20" fill="#090C13"/>
+  <g font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle">
+    <g><rect x="36" y="92" width="180" height="92" rx="14" fill="#111827" stroke="#43536D"/><text x="126" y="130" fill="#DDE5EF" font-size="23" font-weight="700">DEBIAN</text><text x="126" y="158" fill="#A7B4C9" font-size="13">base system</text></g>
+    <text x="246" y="145" fill="#8BB8DA" font-size="32">›</text>
+    <g><rect x="276" y="92" width="210" height="92" rx="14" fill="#111827" stroke="#43536D"/><text x="381" y="128" fill="#DDE5EF" font-size="21" font-weight="700">KICKSECURE</text><text x="381" y="158" fill="#A7B4C9" font-size="13">hardening + security</text></g>
+    <text x="516" y="145" fill="#8BB8DA" font-size="32">›</text>
+    <g><rect x="546" y="92" width="210" height="92" rx="14" fill="#192438" stroke="#8BB8DA"/><text x="651" y="128" fill="#DDE5EF" font-size="21" font-weight="700">DHAMPIROS</text><text x="651" y="158" fill="#A7B4C9" font-size="13">packages + flavour</text></g>
+    <text x="786" y="145" fill="#C54A61" font-size="32">›</text>
+    <g><rect x="816" y="92" width="210" height="92" rx="14" fill="#1A121B" stroke="#A79ACA"/><text x="921" y="128" fill="#DDE5EF" font-size="21" font-weight="700">NOCTURNE</text><text x="921" y="158" fill="#A7B4C9" font-size="13">LXQt + artwork</text></g>
+    <text x="1056" y="145" fill="#CFB483" font-size="32">›</text>
+    <g><rect x="1080" y="78" width="96" height="120" rx="14" fill="#26131A" stroke="#C54A61"/><text x="1128" y="123" fill="#DDE5EF" font-size="16" font-weight="700">ISO</text><text x="1128" y="153" fill="#DDE5EF" font-size="16" font-weight="700">OVA</text></g>
+    <text x="36" y="48" fill="#DDE5EF" font-size="26" font-family="Georgia,serif">SYSTEM ARCHITECTURE</text>
+  </g>
+</svg>

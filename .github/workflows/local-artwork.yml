@@ -1,0 +1,53 @@
+name: DhampirOS artwork
+
+on:
+  push:
+    branches: [master, 'codex/**']
+    paths:
+      - 'index.html'
+      - 'pages.css'
+      - 'showcase*'
+      - 'showcase/**'
+      - 'packages/dhampir/dhampiros-artwork/**'
+      - 'ci/check-artwork.sh'
+      - 'ci/check-showcase.py'
+      - '.github/workflows/local-artwork.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'pages.css'
+      - 'showcase*'
+      - 'showcase/**'
+      - 'packages/dhampir/dhampiros-artwork/**'
+      - 'ci/check-artwork.sh'
+      - 'ci/check-showcase.py'
+      - '.github/workflows/local-artwork.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  artwork:
+    if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    container:
+      image: debian:trixie@sha256:35b8ff74ead4880f22090b617372daff0ccae742eb5674455d542bef71ef1999
+    steps:
+      # Bootstrap Git and certificates before checkout in the minimal image.
+      - name: Prepare the artwork build container
+        run: |
+          apt-get update
+          apt-get install --yes --no-install-recommends git ca-certificates build-essential debhelper python3 nodejs
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          persist-credentials: false
+          submodules: false
+      - name: Check assets and build the artwork package
+        run: bash ci/check-artwork.sh

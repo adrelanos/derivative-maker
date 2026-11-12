@@ -1,0 +1,56 @@
+name: DhampirOS VirtualBox runtime
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['codex/virtualbox-runtime']
+    paths:
+      - '.github/workflows/local-image-virtualbox.yml'
+      - 'ci/verify-virtualbox.py'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  boot:
+    if: github.repository == 'potemkin666/DhampirOS'
+    strategy:
+      fail-fast: false
+      matrix:
+        firmware: [bios, efi]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      attestations: read
+    steps:
+      - name: Bootstrap the disposable VirtualBox host
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends build-essential "linux-headers-$(uname -r)" python3-pil gnupg ca-certificates
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Install the pinned VirtualBox host from its authenticated repository
+        run: ./ci/verify-virtualbox.py setup
+      - name: Retrieve and authenticate the published appliance
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./ci/verify-virtualbox.py prepare
+      - name: Boot the imported appliance without host integration or network
+        env:
+          VM_FIRMWARE: ${{ matrix.firmware }}
+        run: ./ci/verify-virtualbox.py boot
+      - name: Preserve VirtualBox configuration, logs and original captures
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: dhampiros-virtualbox-runtime-${{ matrix.firmware }}
+          path: verification/virtualbox/
+          if-no-files-found: warn
+          retention-days: 30

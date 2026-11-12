@@ -1,0 +1,3 @@
+## Layer on Kicksecure replacement files; their canonical diversions remain owned by upstream.
+/etc/issue.kicksecure.dhampir
+/etc/motd.kicksecure.dhampir

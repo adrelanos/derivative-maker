@@ -1,0 +1,23 @@
+{
+  "phase": 6,
+  "reused": [
+    "Rainbound Hunter 1080p and light WebM loops",
+    "36 original boot-ring frames",
+    "animated and still Xcursor themes",
+    "existing event sounds remain unchanged"
+  ],
+  "plymouth_prompt_assets": {
+    "source": "https://deb.debian.org/debian/pool/main/p/plymouth/plymouth-themes_24.004.60-5_amd64.deb",
+    "sha256": "d9aeb1c0334d5700f9c7fce4e7eb7fb626a2f62d8883d69ab6a4c83f718c8471",
+    "files": [
+      "bullet.png",
+      "capslock.png",
+      "entry.png",
+      "keyboard.png",
+      "keymap-render.png",
+      "lock.png"
+    ],
+    "license": "See installed Plymouth-copyright; assets copied unmodified"
+  },
+  "boot_activation": "Pending native boot/encryption validation; no activation hooks provided"
+}

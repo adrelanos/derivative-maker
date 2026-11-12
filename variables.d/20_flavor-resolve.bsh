@@ -257,7 +257,8 @@ maybe_disable_dist_build_windows_installer() {
 if [ "${dist_build_type_short:-}" = "kicksecure" ]; then
    default_if_empty derivative_name_list "kicksecure"
    default_if_empty dist_build_type_short_pretty "Kicksecure"
-   [ -n "${dist_server_upload_location_list:-}" ] || dist_server_upload_location_list=( "kicksecure.com" )
+   ## 'declare -p' rather than '-n': an intentionally empty array (Dhampir, see 19) must stay empty.
+   declare -p dist_server_upload_location_list >/dev/null 2>&1 || dist_server_upload_location_list=( "kicksecure.com" )
    default_if_empty project_clearnet "kicksecure.com"
    true "${BASH_SOURCE[0]} INFO: dist_build_type_short is 'kicksecure'. Build Whonix Windows Installer only for Whonix LXQt for VirtualBox. Therefore: maybe_disable_dist_build_windows_installer"
    maybe_disable_dist_build_windows_installer

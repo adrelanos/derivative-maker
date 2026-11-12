@@ -1,0 +1,9 @@
+{
+  "identity": "DhampirOS by potemkin",
+  "artwork": "Two new images made with built-in image_gen; originals preserved",
+  "reference": "User-supplied movie still used as character reference for the portrait; no source movie frames distributed",
+  "vectors": "Original SVG drawings and path-only wordmarks",
+  "font": "Cinzel variable font from Google Fonts repository; supplied with OFL license",
+  "existing_assets": "24 original icon designs and aliases carried forward from VHD-Asset-Starter",
+  "scope": "Artwork and theme resources, not a built or validated Kicksecure derivative"
+}

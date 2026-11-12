@@ -1,0 +1,32 @@
+[Plymouth Theme]
+Name=DhampirOS Nocturne
+Description=Restrained DhampirOS boot ring; activation pending platform validation
+ModuleName=two-step
+
+[two-step]
+Font=Sans 12
+TitleFont=Cinzel 26
+ImageDir=/usr/share/plymouth/themes/dhampiros
+DialogHorizontalAlignment=.5
+DialogVerticalAlignment=.382
+TitleHorizontalAlignment=.5
+TitleVerticalAlignment=.382
+HorizontalAlignment=.5
+VerticalAlignment=.7
+Transition=none
+TransitionDuration=0.0
+BackgroundStartColor=0x090c13
+BackgroundEndColor=0x090c13
+ProgressBarBackgroundColor=0x43536d
+ProgressBarForegroundColor=0x8bb8da
+MessageBelowAnimation=true
+
+[boot-up]
+UseEndAnimation=false
+Title=DhampirOS
+
+[shutdown]
+UseEndAnimation=false
+
+[reboot]
+UseEndAnimation=false

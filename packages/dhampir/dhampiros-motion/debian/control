@@ -1,0 +1,21 @@
+Source: dhampiros-motion
+Section: x11
+Priority: optional
+Maintainer: potemkin666 <183807833+potemkin666@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13), python3
+Standards-Version: 4.7.2
+Homepage: https://potemkin666.github.io/DhampirOS/
+Rules-Requires-Root: no
+
+Package: dhampiros-motion
+Architecture: all
+Depends: ${misc:Depends}, python3, python3-gi, python3-gi-cairo,
+ gir1.2-gtk-3.0, gir1.2-gtklayershell-0.1, gir1.2-gstreamer-1.0,
+ gstreamer1.0-plugins-base, gstreamer1.0-plugins-good,
+ pcmanfm-qt (>= 2.1.0), qt6-wayland, qt6-svg-plugins, layer-shell-qt,
+ dhampiros-artwork (>= 0.4)
+Description: restrained native motion for the DhampirOS desktop
+ Provides a session-owned local Wayland wallpaper underlay for LXQt/labwc,
+ preserving PCManFM desktop icons and static fallback artwork. Includes
+ Full, Reduced and Off preferences and animated/still cursor selection.
+ Does not alter authentication, boot policy or system security settings.

@@ -62,6 +62,10 @@ source "${variables_d_dir}/10_misc.bsh"
 bash -n -- "${variables_d_dir}/15_redistributable.bsh"
 source "${variables_d_dir}/15_redistributable.bsh"
 
+# shellcheck source=../variables.d/19_flavor-dhampir.bsh
+bash -n -- "${variables_d_dir}/19_flavor-dhampir.bsh"
+source "${variables_d_dir}/19_flavor-dhampir.bsh"
+
 # shellcheck source=../variables.d/20_flavor-resolve.bsh
 bash -n -- "${variables_d_dir}/20_flavor-resolve.bsh"
 source "${variables_d_dir}/20_flavor-resolve.bsh"

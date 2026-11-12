@@ -1,0 +1,28 @@
+/* Copyright (C) 2026 potemkin666. AI-Assisted. See COPYING. */
+.download-section{scroll-margin-top:85px}
+.download-intro{max-width:650px;color:var(--muted);line-height:1.8}
+.download-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:32px 0 24px}
+.download-card{position:relative;overflow:hidden;padding:34px;border:1px solid #344157;border-radius:12px;background:linear-gradient(145deg,#141c2a,#0c111c);display:flex;flex-direction:column;align-items:flex-start}
+.download-card:before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,#b5c3db,transparent)}
+.download-kind{font:400 48px Georgia,serif;color:#dce5f1;letter-spacing:.03em}
+.download-card h3{font:400 24px Georgia,serif;margin:18px 0 4px;color:var(--white)}
+.download-card p{color:var(--muted);font-size:13px;line-height:1.8}
+.download-card .download-meta{font:11px monospace;letter-spacing:.04em;color:#b5a17c;margin:18px 0}
+.download-button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 22px;border:1px solid #73849f;border-radius:5px;background:#243146;color:#e9eff8;font-family:inherit;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer}
+.download-button:hover{background:#30415b;border-color:#c3d4ef}
+.download-button:focus-visible{outline:2px solid #b9d7ef;outline-offset:5px}
+.download-button:disabled{opacity:1;cursor:default;border-color:#344157;background:#18202c;color:#8f9bad}
+.download-hash{width:100%;margin-top:24px;padding-top:18px;border-top:1px solid #2b3546}
+.download-hash summary{font-size:11px;color:#a6b7cc;cursor:pointer}
+.download-hash code{display:block;margin-top:12px;overflow-wrap:anywhere;font-size:11px;color:#c3cfdf;user-select:all}
+.download-assurance{display:flex;gap:22px;flex-wrap:wrap;padding:19px 0;border-bottom:1px solid #2b3546;color:#acb9ca;font-size:12px}
+.download-assurance a,.download-build-link{color:#afcbe1;text-underline-offset:4px}
+.download-scope{max-width:830px;color:var(--muted);font-size:12px;line-height:1.8;margin-top:18px}
+.account-policy{padding:14px 18px;border-left:2px solid #9a886a;background:#131922}
+.account-policy strong{color:#d4c4a9;font-weight:500}
+.release-capture{margin:24px 0;color:#afcbe1;font-size:12px}
+.release-capture summary{cursor:pointer;text-underline-offset:4px}
+.release-capture figure{max-width:960px;margin:18px 0}
+.release-capture img{display:block;width:100%;height:auto;border:1px solid #344157;border-radius:6px}
+.release-capture figcaption{margin-top:10px;color:var(--muted);font-size:11px;line-height:1.7}
+@media(max-width:700px){.download-grid{grid-template-columns:1fr}.download-card{padding:26px}.download-assurance{gap:16px}}

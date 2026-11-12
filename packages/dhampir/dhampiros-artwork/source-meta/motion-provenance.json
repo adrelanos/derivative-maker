@@ -1,0 +1,8 @@
+{
+  "identity": "DhampirOS by potemkin",
+  "source": "Rainbound Hunter from VHD-Asset-Starter",
+  "clean_plate": "Built-in image_gen edit removing painted rain; prompt supplied",
+  "animation": "Locally authored WebGL wind deformation and Canvas rain/fog. No external animation service.",
+  "sound": "None",
+  "role": "Looping wallpaper and live visual study"
+}
